@@ -22,7 +22,7 @@ class Sous_item
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Entity\Category", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $category;
@@ -103,11 +103,11 @@ class Sous_item
     /**
      * Set category
      *
-     * @param \Mission_locale\MainBundle\Category $category
+     * @param \Mission_locale\MainBundle\Entity\Category $category
      *
      * @return Sous_item
      */
-    public function setCategory(\Mission_locale\MainBundle\Category $category = null)
+    public function setCategory(\Mission_locale\MainBundle\Entity\Category $category = null)
     {
         $this->category = $category;
 
@@ -117,7 +117,7 @@ class Sous_item
     /**
      * Get category
      *
-     * @return \Mission_locale\MainBundle\Category
+     * @return \Mission_locale\MainBundle\\Entity\Category
      */
     public function getCategory()
     {

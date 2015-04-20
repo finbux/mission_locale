@@ -35,7 +35,7 @@ class Sous_itemData extends AbstractFixture implements OrderedFixtureInterface
 	<li>Faciliter l&#39;int&eacute;gration en entreprise</li>
 </ul>
 ");
-        $sous_item2->setCategory($this->getReference('categorie'));
+        $sous_item2->setCategory($this->getReference('categorie1'));
         $manager->persist($sous_item2);
 
         $sous_item3 = new Sous_item();
