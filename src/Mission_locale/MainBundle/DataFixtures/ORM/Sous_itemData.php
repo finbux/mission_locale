@@ -3,12 +3,13 @@
 
 namespace Mission_locale\MainBundle\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Mission_locale\MainBundle\Entity\Sous_item;
 
 
-class Sous_itemData implements FixtureInterface
+class Sous_itemData extends AbstractFixture implements OrderedFixtureInterface
 {
 
     public function load(ObjectManager $manager)
@@ -21,6 +22,7 @@ class Sous_itemData implements FixtureInterface
 	<li>En participant &agrave; un atelier</li>
 </ul>
 ");
+        $sous_item->setCategory($this->getReference('categorie1'));
         $manager->persist($sous_item);
 
         $sous_item2 = new Sous_item();
@@ -33,11 +35,13 @@ class Sous_itemData implements FixtureInterface
 	<li>Faciliter l&#39;int&eacute;gration en entreprise</li>
 </ul>
 ");
+        $sous_item2->setCategory($this->getReference('categorie'));
         $manager->persist($sous_item2);
 
         $sous_item3 = new Sous_item();
         $sous_item3->setNomSousItem('Faire le point sur ma situation');
         $sous_item3->setDescription('<p>En valorisant mes atouts personnels et <strong>professionnels</strong></p>');
+        $sous_item3->setCategory($this->getReference('categorie3'));
         $manager->persist($sous_item3);
 
         $manager->flush();

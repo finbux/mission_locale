@@ -22,7 +22,7 @@ class Horaire
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Mission_locale\MainBundle\Antenne", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Antenne", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $antenne;

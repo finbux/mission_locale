@@ -22,7 +22,7 @@ class Sous_item
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Mission_locale\MainBundle\Category", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $category;
