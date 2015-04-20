@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Administration{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/admin/css/style_admin.css') }}"
+              type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admin/css/coin-slider-styles.css') }}"
+              type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/admin/css/outdatedbrowser.css') }}"/>
+
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+    <header><a href="{{ path('main_homepage') }}"><img class="logo-milfe" src="{{ asset('bundles/main/img/logo.png') }}" alt=""/></a></header>
+    {% block content %}
+
+    {% endblock %}
+    <script src=" {{ asset('bundles/admin/ckeditor/ckeditor.js') }}"></script>
+</body>

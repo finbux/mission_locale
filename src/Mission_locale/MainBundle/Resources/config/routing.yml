@@ -1,0 +1,21 @@
+main_homepage:
+    path:     /
+    defaults: { _controller: MainBundle:Default:index }
+moins26_page:
+    path: /moins26ans
+    defaults: { _controller: MainBundle:Default:moins26}
+employeur_page:
+    path: /employeur
+    defaults: { _controller: MainBundle:Default:employeur}
+antennes_page:
+    path: /antennes
+    defaults: { _controller: MainBundle:Default:antennes}
+categorie_page:
+    path: /categorie/{slug}
+    defaults: { _controller: MainBundle:Default:categorie}
+sous_item_page:
+    path: /categorie/
+    defaults: { _controller: MainBundle:Default:getDescription}
+admin_page:
+    path: /administration
+    defaults: { _controller: AdminBundle:Admin:index}

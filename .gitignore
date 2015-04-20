@@ -1,0 +1,10 @@
+composer.json
+composer.phar
+.idea
+.sass-cache
+/web/bundles/
+/app/cache/
+/app/logs/
+
+
+

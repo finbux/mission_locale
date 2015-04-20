@@ -1,0 +1,26 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+    {{ parent() }} | Employeur
+{% endblock %}
+{% block header %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+    <div id="containerCategorie">
+        <div id="container_block">
+            <img class="bulle_categorie" src="{{ asset('bundles/main/img/espace_employeur.png') }}" alt=""/>
+                <div id="bandeau_employeur"></div>
+                    <ul id="liste_employeur">
+                    <li><h1>Conseil et definition de poste</h1>
+                        <img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/>
+                    </li>
+                    <li><h1>Rencontrer des candidats</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
+                    <li><h1>Les dispositifs d'embauche</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
+                    <li><h1>Parrainer <br/> un jeune</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
+                    </ul>
+
+        </div>
+
+    </div>
+{% endblock %}

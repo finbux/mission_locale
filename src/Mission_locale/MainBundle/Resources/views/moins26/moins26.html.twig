@@ -1,0 +1,130 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+   {{ parent() }} | Moins de 26 ans
+{% endblock %}
+
+{% block body %}
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                {{ parent()  }}
+            {% endblock %}
+        </div>
+
+            <img style="display: block;"class="bulle_moins_26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/>
+
+            <img id="bandeau_perso" src="{{asset('bundles/main/img/silhouettes2.png') }}" />
+
+
+            <div class="cb"></div>
+            <div id="bandeau_categorie">
+                <p>Contactez-nous pour prendre RDV au 03 22 50 04 50</p>
+            </div>
+
+            <div id="block_emploi">
+                <h1>{{ item_emploi.nameItem }}</h1>
+
+                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+
+                <div class="item_emploi">
+                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+
+                    <a href="{{ path('categorie_page', {'slug': item_emploi.slug }) }}">
+                        {% for sous_item in list_emploi %}
+                            <p class="item">{{ sous_item.nameSousItem }}</p>
+                            <hr/>
+                        {% endfor %}
+                    </a>
+                </div>
+            </div>
+            <div id="block_former" style="{{ item_former.style }}">
+                <h1>{{ item_former.nameItem }}</h1>
+
+                <img src="{{ asset('bundles/main/img/fleche_former.png') }}">
+
+                <div class="item_former">
+                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+                    <a href="{{ path('categorie_page', {'slug': item_former.slug }) }}">
+                        {% for sous_item_former in list_former %}
+                            <p class="item">{{ sous_item_former.nameSousItem }}</p>
+                            <hr/>
+                        {% endfor %}
+                    </a>
+                </div>
+            </div>
+
+            <div id="block_faire">
+                <h1>{{ item_faire.nameItem }}</h1>
+
+                <img src="{{ asset('bundles/main/img/fleche_faire.png') }}">
+
+                <div class="item_faire">
+                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+                    <a href="{{ path('categorie_page', {'slug': item_faire.slug }) }}">
+                        {% for sous_item_faire in list_faire %}
+                            <p class="item">{{ sous_item_faire.nameSousItem }}</p>
+                            <hr/>
+                        {% endfor %}
+                    </a>
+                </div>
+            </div>
+            <div id="block_quotidien">
+                <h1>{{ item_quotidien.nameItem }}</h1>
+
+                <img src="{{ asset('bundles/main/img/fleche_quotidien.png') }}">
+
+                <div class="item_quotidien">
+                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+                    <a href="{{ path('categorie_page', {'slug': item_quotidien.slug }) }}">
+                        {% for sous_item_quotidien in list_quotidien %}
+                            <p class="item">{{ sous_item_quotidien.nameSousItem }}</p>
+                            <hr/>
+                        {% endfor %}
+                    </a>
+                </div>
+            </div>
+    </div>
+    <div class="cb"></div>
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+            $("#block_emploi").mouseover(function(){
+                $(".item_emploi").slideDown();
+                $("#block_emploi").css('height','auto');
+                $(".item_faire").slideUp();
+                $(".item_quotidien").slideUp();
+                $(".item_former").slideUp();
+            });
+            $("#block_former").mouseover(function(){
+                $("#block_former").css('height','auto');
+                $(".item_former").slideDown();
+                $(".item_faire").slideUp();
+                $(".item_quotidien").slideUp();
+                $(".item_emploi").slideUp();
+            });
+
+            $("#block_faire").mouseover(function(){
+                $(".item_faire").slideDown();
+                $(".item_quotidien").slideUp();
+                $(".item_emploi").slideUp();
+                $(".item_former").slideUp();
+                $("#block_faire").css('height','auto');
+            });
+
+            $("#block_quotidien").mouseover(function(){
+                $(".item_quotidien").slideDown();
+                $(".item_faire").slideUp();
+                $(".item_emploi").slideUp();
+                $(".item_former").slideUp();
+                $("#block_quotidien").css('height','auto');
+            });
+
+        });
+
+    </script>
+
+{% endblock %}
