@@ -42,6 +42,13 @@ class Category
      */
     private $class;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fleche", type="string", length=45)
+     */
+    private $fleche;
+
 
     /**
      * Get id
@@ -124,5 +131,28 @@ class Category
     {
         return $this->class;
     }
-}
 
+    /**
+     * Set fleche
+     *
+     * @param string $fleche
+     *
+     * @return Category
+     */
+    public function setFleche($fleche)
+    {
+        $this->fleche = $fleche;
+
+        return $this;
+    }
+
+    /**
+     * Get fleche
+     *
+     * @return string
+     */
+    public function getFleche()
+    {
+        return $this->fleche;
+    }
+}

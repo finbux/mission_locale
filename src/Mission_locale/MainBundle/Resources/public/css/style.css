@@ -1081,7 +1081,7 @@ li {
 
 /* line 865, ../sass/style.scss */
 #wrapper-item {
-  width: 77vw;
+  width: 81%;
   height: 150vh;
   margin: 0 auto;
   background: #cccccc;
@@ -1355,6 +1355,7 @@ footer {
 /* line 1084, ../sass/style.scss */
 .item_right li {
   font-size: 25px;
+    color: black;
 }
 /* line 1087, ../sass/style.scss */
 .item_right li:before {
@@ -1435,7 +1436,7 @@ footer {
 @media screen and (max-width: 1500px) {
   /* line 1153, ../sass/style.scss */
   #container {
-    width: 87%;
+    width: 90%;
   }
 
   /* line 1156, ../sass/style.scss */

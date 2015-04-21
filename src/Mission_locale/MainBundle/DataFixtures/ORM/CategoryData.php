@@ -17,24 +17,28 @@ class CategoryData extends AbstractFixture implements OrderedFixtureInterface
         $categorie->setNameCategory('Je cherche une idée');
         $categorie->setSlug('emploi');
         $categorie->setClass('block_emploi');
+        $categorie->setFleche('fleche_emploi.png');
         $manager->persist($categorie);
 
         $categorie2 = new Category();
         $categorie2->setNameCategory('Je veux me former');
         $categorie2->setSlug('etre-former');
         $categorie2->setClass('block_former');
+        $categorie2->setFleche('fleche_former.png');
         $manager->persist($categorie2);
 
         $categorie3 = new Category();
         $categorie3->setNameCategory('Je ne sais pas quoi faire');
         $categorie3->setSlug('quoi-faire');
         $categorie3->setClass('block_faire');
+        $categorie3->setFleche('fleche_faire.png');
         $manager->persist($categorie3);
 
         $categorie4 = new Category();
         $categorie4->setNameCategory('Je recherche des infos pratiques');
         $categorie4->setSlug('quotidien');
         $categorie4->setClass('block_quotidien');
+        $categorie4->setFleche('fleche_quotidien.png');
         $manager->persist($categorie4);
 
         $manager->flush();

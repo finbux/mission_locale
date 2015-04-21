@@ -5,12 +5,12 @@ namespace Mission_locale\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Sous_item
+ * SousItem
  *
  * @ORM\Table("sous_item")
- * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\Sous_itemRepository")
+ * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\SousItemRepository")
  */
-class Sous_item
+class SousItem
 {
     /**
      * @var integer
@@ -22,7 +22,7 @@ class Sous_item
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Entity\Category", cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="Category", cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=true)
      */
     private $category;

@@ -27,7 +27,7 @@
                     <span class="conseiller">Je rencontre un conseiller pour</span>
                     {% for emploi in list_emploi %}
                         <p class="item">
-                                {{ emploi.nameSousItem }}
+                                {{ emploi.nomSousItem }}
                         </p>
                         <input type="hidden" class="id_sous_item" value="{{ emploi.id }}"/>
                         <hr/>
@@ -51,27 +51,5 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script>
-            $(function(){
-                $(".item").each(function(){
-                    $(this).mouseover(function(){
-                        var value = $(this).next(".id_sous_item").val();
-                        var data = {
-                            id_item: value
-                        };
-
-                        console.log(data);
-                        $.ajax({
-                            url: "{{ path('sous_item_page') }}",
-                            cache: false,
-                            dataType: 'html',
-                            data: data,
-                            success: function(msg){
-                                $(".item_right .description").append(msg);
-                            }
-                        })
-                    });
-                });
-            });
-    </script>
+    <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
 {% endblock %}
