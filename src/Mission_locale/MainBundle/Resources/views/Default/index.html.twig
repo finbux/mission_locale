@@ -6,8 +6,10 @@
 {{ parent() }}
 {% endblock %}
 {% block body %}
+    <!-- CONTAINER PRINCIPAL -->
     <div id="container">
 
+        <!-- BLOCK ACTUALITE -->
         <div id="actu">
             <div id="header_actu">
                 <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">L'actualité de la mission locale
@@ -23,6 +25,9 @@
                 </a>
             </div>
         </div>
+        <!------------------------------->
+
+        <!-- BLOCK OFFRE -->
         <div id="offre">
             <div id="header_offre">Les offres de la semaine</div>
             <table>
@@ -58,80 +63,98 @@
                 </tr>
             </table>
         </div>
-            <div class="cb"></div>
-            <div id="objectif"><p>Des réponses à vos questions de choix professionnel, de qualification et d'accès à l'autonomie sociale.</p></div>
-            <div class="cb"></div>
+        <!------------------------------->
 
+        <div class="cb"></div>
 
-    <div id="where">
-        <div id="header_where">
-            <img src="{{ asset('bundles/main/img/maps.png') }}" alt="">Où nous trouver ?
-        </div>
-           <p class="contact-tel"> Contactez-nous au 03 22 50 04 50</p>
-        <div id="map">
-            <p>Veuillez patienter pendant le chargement de la carte...</p>
-        </div>
-        <a href="{{ path('antennes_page') }}"><button class="button">
-                <img src="{{ asset('bundles/main/img/marker_home.png') }}"><br/>La mission locale proche de chez vous </button>
-        </a>
-        <div id="iteneraire">
-            <div id="header_iteneraire">
-                <img src="{{ asset('bundles/main/img/itineraire.png') }}" alt="">Mon trajet
+        <!-- BLOCK SLOGAN -->
+        <div id="slogan">
+            <p>L'équipe de la <img src="{{ asset('bundles/main/img/logo_simplifie.png') }}" alt="logo mlife"/> est à votre écoute et vous
+            accompagne dans vos projets</p></div>
+        <div class="cb"></div>
+        <!------------------------------->
+
+        <!-- BLOCK MAP -->
+        <div id="where">
+            <div id="header_where">
+                <img src="{{ asset('bundles/main/img/maps.png') }}" alt="logo marker">Où nous trouver ?
             </div>
+               <p class="contact-tel"> Contactez-nous au 03 22 50 04 50</p>
+            <div id="map">
+                <p>Veuillez patienter pendant le chargement de la carte...</p>
+            </div>
+           <div id="btn_anntennes">
+               <a href="{{ path('antennes_page') }}">
+                   <p>La mission locale proche de chez vous</p>
+                   <img src="{{ asset('bundles/main/img/marker.png') }}" alt="marker"/>
+               </a>
+           </div>
 
-            <form action="" method="get" name="direction" id="direction">
-                <label>Point de départ :</label>
-                <input type="text" name="origin" id="origin"><br>
-                <label>Destination :</label>
-                <select name="destination" id="destination">
-                    <option value="39 avenue de la paix amiens">Amiens Nord</option>
-                    <option value="120 Rue Simone Signoret, Amiens">Amiens Sud et Est</option>
-                    <option value="10 Rue Gresset, Amiens">Amiens Centre</option>
-                    <option value="34 Avenue de Picardie, Amiens">Amiens Ouest</option>
-                    <option value="50.156175, 2.338603">Doullens</option>
-                    <!--<option value="Bernaville">Bernaville</option>
-                    <option value="Saint-Léger-lès-Domart">Saint-Léger-lès-Domart</option>
-                    <option value="Flixecourt">Flixecourt</option>
-                    <option value="Vignacourt">Vignacourt</option>
-                    <option value="Villers-Bocage">Villers-Bocage</option>
-                    <option value=">Camon">Camon</option>
-                    <option value=">Longueau">Longueau</option>
-                    <option value=">Villers-Bretonneux">Villers-Bretonneux</option>
-                    <option value=">Boves 02">Boves 02</option>
-                    <option value=">Salouël">Salouël</option>
-                    <option value=">Ailly-sur-Somme">Ailly-sur-Somme</option>
-                    <option value=">Molliens-Dreuil">Molliens-Dreuil</option>
-                    <option value=">Airaines">Airaines</option>
-                    <option value=">Oisemont">Oisemont</option>
-                    <option value=">Senarpont">Senarpont</option>
-                    <option value=">Liomer">Liomer</option>-->
-                   <option value=">49.778936, 1.977807">Poix-de-Picardie</option>
-                  <!-- <option value=">Quevauvillers">Quevauvillers</option>
-                    <option value=">Plachy-Buyon">Plachy-Buyon</option>
-                    <option value=">Conty">Conty</option>
-                    <option value=">Liomer">Liomer</option>
-                    <option value=">Quevauvillers">Quevauvillers</option>
-                    <option value=">Plachy-Buyon">Plachy-Buyon</option>-->
-                </select>
-                <br>
-                <input type="button" value="Calculer l'itinéraire" onclick="javascript:calculate()">
-            </form>
+            <!-- BLOCK ITENERAIRE -->
+            <div id="iteneraire">
+                <div id="header_iteneraire">
+                    <img src="{{ asset('bundles/main/img/itineraire.png') }}" alt="iteneraire">Mon trajet
+                </div>
+
+                <form action="" method="get" name="direction" id="direction">
+                    <label>Point de départ :</label>
+                    <input type="text" name="origin" id="origin"><br>
+                    <label>Destination :</label>
+                    <select name="destination" id="destination">
+                        <option value="39 avenue de la paix amiens">Amiens Nord</option>
+                        <option value="120 Rue Simone Signoret, Amiens">Amiens Sud et Est</option>
+                        <option value="10 Rue Gresset, Amiens">Amiens Centre</option>
+                        <option value="34 Avenue de Picardie, Amiens">Amiens Ouest</option>
+                        <option value="50.156175, 2.338603">Doullens</option>
+                        <!--<option value="Bernaville">Bernaville</option>
+                        <option value="Saint-Léger-lès-Domart">Saint-Léger-lès-Domart</option>
+                        <option value="Flixecourt">Flixecourt</option>
+                        <option value="Vignacourt">Vignacourt</option>
+                        <option value="Villers-Bocage">Villers-Bocage</option>
+                        <option value=">Camon">Camon</option>
+                        <option value=">Longueau">Longueau</option>
+                        <option value=">Villers-Bretonneux">Villers-Bretonneux</option>
+                        <option value=">Boves 02">Boves 02</option>
+                        <option value=">Salouël">Salouël</option>
+                        <option value=">Ailly-sur-Somme">Ailly-sur-Somme</option>
+                        <option value=">Molliens-Dreuil">Molliens-Dreuil</option>
+                        <option value=">Airaines">Airaines</option>
+                        <option value=">Oisemont">Oisemont</option>
+                        <option value=">Senarpont">Senarpont</option>
+                        <option value=">Liomer">Liomer</option>-->
+                       <option value=">49.778936, 1.977807">Poix-de-Picardie</option>
+                      <!-- <option value=">Quevauvillers">Quevauvillers</option>
+                        <option value=">Plachy-Buyon">Plachy-Buyon</option>
+                        <option value=">Conty">Conty</option>
+                        <option value=">Liomer">Liomer</option>
+                        <option value=">Quevauvillers">Quevauvillers</option>
+                        <option value=">Plachy-Buyon">Plachy-Buyon</option>-->
+                    </select>
+                    <br>
+                    <input type="button" value="Calculer l'itinéraire" onclick="javascript:calculate()">
+                </form>
+            </div>
+            <!--------------------------->
+
+            <div class="cb"></div>
+            <div id="panel"></div>
+            <div class="cb"></div>
         </div>
-        <div class="cb"></div>
-        <div id="panel"></div>
-        <div class="cb"></div>
-    </div>
+
+        <!-- MENU -->
         <div id="container_menu">
-            <div id="item_menu">
-                <ul>
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Centres Ressources</a></li>
-                    <li><a href="#">Documentation</a></li>
-                    <li><a href="#">Qui sommes nous ?</a></li>
+                <ul id="menu">
+                    <li class="item_menu"><a href="#">Agenda</a></li>
+                    <li class="item_menu"><a href="#">Centres Ressources</a></li>
+                    <li class="item_menu"><a href="#">Documentation</a></li>
+                    <li class="item_menu"><a href="#">Qui sommes nous ?</a></li>
                 </ul>
-            </div>
         </div>
+        <!--------------------->
+
   </div>
+    <!-- FIN DU CONTAINER -->
+
     <div id="outdated"> <h6>Votre navigateur est désuet!</h6>
         <p>Mettez à jour votre navigateur pour afficher correctement ce site Web. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/fr">Mettre à jour maintenant </a></p>
         <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Fermer">&times;</a></p>
