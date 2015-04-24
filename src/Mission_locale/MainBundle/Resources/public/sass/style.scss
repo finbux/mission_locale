@@ -5,6 +5,7 @@
 *{
   box-sizing: border-box;
 }
+
 p{
   margin:0;
   padding: 0;
@@ -43,10 +44,18 @@ p{
   color: white;
   margin-left: -31px;
   margin-top: -22px;
-  line-height: 20px;
+  line-height: 40px;
   z-index: 20;
 }
 
+@mixin ombre_portée()
+{
+ @include box-shadow(5px 5px 20px 0px #4f5d64);
+}
+@mixin bordure_bas()
+{
+  border-bottom: 4px solid #718e08;
+}
 $background: #4f5d64;
 $color_pliage : #8BA807;
 $color_header: #97bf0d;
@@ -60,7 +69,6 @@ img{
   border: none;
 }
 a{
-  color: $vert_clair;
   text-decoration: none;
 }
 h1{
@@ -96,7 +104,7 @@ body{
   display: block;
   width: 1200px;
   margin: 0 auto;
-  margin-top: -2px;
+
 }
 
 #container_logo{
@@ -107,7 +115,7 @@ body{
     margin-left: -25px;
     margin-top:-30px;
     @include rotate(-10deg);
-    @include box-shadow(12px 12px 10px -5px #656565);
+    @include ombre_portée();
   }
 }
 
@@ -118,10 +126,7 @@ body{
   margin: 0 auto;
   margin-bottom: 40px;
   background: url('../img/background.jpg');
-
-  border-radius: 20px;
-  border-bottom: 2px solid white;
-
+  border-radius: 0 0 20px 20px;
   h1{
     font-size: 44px;
     color: #FFF;
@@ -153,19 +158,20 @@ body{
 #btn_anntennes
   {
     width: 300px;
-    height: 110px;
+    height: 100px;
     font-size: 25px;
     border: 2px solid $vert_clair ;
-    outline: #C1E53D 2px dashed;
+    border-bottom: 4px solid $vert_clair;
     background-color: white;
     padding: 10px;
     @include border-radius(10px);
     color: $vert_clair;
-    margin-right: 10px;
+    margin-right: 30px;
+    margin-top: 60px;
     float: right;
-   text-align: center;
-   @include transition(all .5s);
-
+    text-align: center;
+    @include transition(all .5s);
+  @include ombre_portée();
 }
 #btn_anntennes:hover{
   cursor: pointer;
@@ -231,9 +237,8 @@ body{
   height: 100px;
   background: $vert_clair;
   text-align: center;
-  margin-top: 80px;
-  position: absolute;
-  bottom: 0;
+  margin-top: 20px;
+  @include bordure_bas();
   @include border-radius(20px);
 }
 
@@ -241,14 +246,17 @@ body{
 
 /********* ACTUALITE *********/
 #actu{
-  width: 565px;
-  height: 300px;
-  background: #FFF;
+  width: 600px;
+  height: 318px;
   float: left;
+  background: #ffffff;
+  @include border-radius(20px);
+  @include ombre_portée();
 }
 
 #header_actu{
-  @include header_div(600px);
+  @include header_div(631px);
+  @include border-radius(20px 0 0 0 );
   img{
     vertical-align: -5px;
     margin-top: 5px;
@@ -265,22 +273,19 @@ body{
 /******* slogan *********/
 #slogan{
   position: relative;
-  width: 90%;
-  height: 80px;
-  margin: 0 auto;
-  font-size: 25px;
+  width: 70%;
+  height: 70px;
   background: white;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 40px;
-  border-left: 6px solid $vert_clair;
-  border-right: 6px solid $vert_clair;
+  @include bordure_bas();
+  line-height: 70px;
   text-align: center;
-  line-height: 80px;
   font-family:  "segoe print",Calibri,Arial,Sans-Serif;
   @include border-radius(20px);
-  p{
-    margin: 10px;
+  h2{
     color: $vert_clair;
+    font-size: 20px;
   }
   img{
     vertical-align: text-top;
@@ -293,9 +298,9 @@ body{
   width:900px;
   height: 350px;
   float: left;
-  margin-top: 10px;
-  border-bottom: 4px solid #718e08;
-  @include border-radius(10px);
+  margin-top: 30px;
+  @include ombre_portée();
+  @include border-radius(20px);
 }
 #marker{
   h2{
@@ -315,14 +320,16 @@ body{
   clear: both;
 }
 #iteneraire{
-  width: 400px;
+  width: 320px;
   background-color: #fff;
   float: right;
   padding-top: 30px;
-  margin-top: 60px;
+  margin-top: 40px;
+  margin-right: 20px;
   font-size: 20px;
   color: $vert_clair;
-  @include border-radius(20px 0 0 20px);
+  @include ombre_portée();
+  @include border-radius(20px);
   form{
     margin-top: 20px;padding:10px;     }
 
@@ -359,12 +366,12 @@ body{
   background: white;
 }
 #header_iteneraire{
-  width: 400px;
+  width: 320px;
   height: 60px;
   font-size: 44px;
   background: $vert_clair;
-  border-top: 1px solid white;
-  @include border-radius(20px 0 0 0);
+  border: 1px solid white;
+  @include border-radius(20px 20px 0 0);
   color: white;
   line-height: 60px;
   margin-top: -51px;
@@ -377,30 +384,36 @@ body{
   }
 }
 #where{
-  margin-top:70px;
+  margin-top: 80px;
   position: relative;
   width: 100%;
   height: 420px;
   padding: 10px 0 10px 10px;
-  background-color: $vert_clair;
-  @include border-radius(20px);
+  background: $vert_clair ;
 
   .contact-tel{
     color: white;
-    margin: 0;
+    margin-right: 150px;
     padding: 0;
-    margin-left: 400px;
+    float: right;
     font-size: 28px;
     font-style: italic;
 
+    img{
+      -webkit-animation-duration: 2s;
+      -moz-animation-duration: 2s;
+      -o-animation-duration: 2s;
+      animation-duration: 2s;
+    }
   }
 }
 #header_where{
-  @include header_div(426px);
-
+  position: relative;
+  @include header_div(1240px);
+  @include border-radius(20px 20px 0 0 );
   margin-top: -20px;
-  border-bottom: 1px solid white;
   margin-left: -40px;
+  border-bottom: 1px solid white;
   img{
     vertical-align: -5px;
     margin-top: 5px;
@@ -408,12 +421,104 @@ body{
     margin-right: 5px;
   }
 }
+#block_appel{
+  position: absolute;
+  top: -140px;
+  right:35px;
+  width: 300px;
+  height: 150px;
+  background: #4f5d64;
+  @include rotate(10deg);
+  @include box-shadow();
+
+  p{
+   text-align: center;
+    color: white;
+  }
+  .punaise{
+    margin: 0;
+    margin-right: 10px;
+  }
+  #conseiller{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+  }
+
+}
+#header_where:after{
+  @include pliage_droite();
+
+}
 
 .img_antennes{
   float:right;
 }
 
+#wrapper-top{
+  width: 100%;
+  height: 350px;
+}
 /***********************/
+#modalbox{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  #box{
+    width: 700px;
+    height: 240px;
+    background: #fff;
+    margin: 1.5em auto;
+    @include border-radius(20px);
+    position: relative;
+  }
+  .logo_small{
+    margin: 20px;
+    @include rotate(-10deg);
+    float: left;
+  }
+  .silhouette_small{
+    width: 200px;
+    height: 240px;
+    float: left;
+    @include border-radius(0 0 0 20px);
+  }
+  h3{
+    color: $vert_clair;
+    font-size: 30px;
+  }
+  label{
+    display: block;
+    width: 200px;
+    float: left;
+    font-size: 25px;
+
+  }
+  form{
+    width: 500px;
+    border: 1px solid black;
+  }
+  input{
+    display: inline-block;
+  }
+}
+#modalbox:target{
+  display: block;
+
+  html,body{
+    overflow: hidden;
+  }
+
+}
+
 
 /*******MOINS 26 ANS *************/
 .fleche{
@@ -773,13 +878,13 @@ body{
 
 /*****************************************/
 #offre{
-    width: 610px;
-    min-height: 200px;
-    height: auto;
+    width: 560px;
+    height: 318px;
     background: white;
     @include border-radius(0 0 20px 20px);
+  @include ombre_portée();
     table{
-        width: 610px;
+        width: 540px;
         border-collapse: separate;
         border-spacing: 0px 5px;
         margin: 0 auto;
@@ -820,8 +925,16 @@ body{
   margin-top: -22px;
   padding-left: 16px;
   line-height: 40px;
-  h1{
+
+  @include border-radius(0 20px 0 0 );
+  p{
     float: right;
+  }
+  img{
+    vertical-align: -5px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 #header_offre:after{
@@ -829,23 +942,17 @@ body{
 }
 #facebook{
   position: absolute;
-  right: 0;
-  top:250px;
-  width: 50px;
-  height: 50px;
-  border-top:1px solid white;
-  border-left:1px solid white;
-  border-bottom:1px solid white;
-  @include transition(width .8s ease);
+  left: 15px;
+  top:153px;
+  width: 200px;
+  height: 40px;
   background-color: #3B5998;
   color: #FFF;
-  @include border-left-radius(10px);
+  @include border-radius(0 0 10px 10px);
+  @include ombre_portée();
+  @include rotate(-10deg);
 
-  .txt_facebook{
-    display: none;
-    overflow: hidden;
-    word-wrap: break-word;
-  }
+
   img{
     float: left;
     vertical-align: 10px;
@@ -853,24 +960,19 @@ body{
 
   }
 }
-#facebook:hover{
-  width: 200px;
-}
 /*********FIL D'ARIANNE***********/
 
 .arianne{
   display: inline-block;
   width: auto;
-  height: 20px;
+  height: 40px;
   background-color: white;
   color: $vert_clair;
   margin-bottom: 50px;
-  margin-left: -10px;
   font-size: 20px;
   line-height: 20px;
   padding:10px;
-
-  @include border-right-radius(10px);
+  @include border-radius(20px);
   p{
     margin: 0;
   }
@@ -900,7 +1002,7 @@ body{
 }
 
 #wrapper-item{
-  width: 77vw;
+  width: 1200px;
   height: 150vh;
   margin: 0 auto;
   background: #cccccc;
@@ -922,16 +1024,6 @@ footer{
 @media screen and (max-width: 1700px){
   #container{
     width: 90%;
-  }
-  #actu{
-    width: 600px;
-  }
-  #iteneraire{
-    width: 350px;
-
-    #header_iteneraire{
-      width: 350px;
-    }
   }
   #header{
     height: 400px;
@@ -995,11 +1087,18 @@ footer{
 #container_antennes{
   width: 95%;
   min-height: 1000px;
-  background-image: url('../img/background.png');
+  background: #4F5D64;
   margin: 0 auto;
   height: auto;
   padding-top: 50px;
-  
+
+
+  .title-antennes{
+    font-family: $font-family;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
+  }
   hr{
     //margin-top: 40px;
     border: 1px solid $vert_clair;
@@ -1020,15 +1119,24 @@ footer{
     margin-top: 60px;
     color: white;
     float: left;
+    @include border-radius(0 20px 20px 0);
+    position: relative;
   }
   #ant_right{
-    float: right;}
+    float: right;
+    @include border-radius(20px 0 0 20px);
+  }
 }
-
+#wrapper-antennes{
+  width: 100%;
+  margin-top: 40px;
+}
 .contenu_antennes{
   img{
-    float: right;
-    margin-top: -100px;
+   position: absolute;
+    top: 10px;
+    right: 10px;
+    @include border-radius(20px);
   }
   hr {
     border:1px solid $vert_clair;
@@ -1077,7 +1185,6 @@ footer{
 }
 #block_emploi,#block_faire,#block_former,#block_quotidien{
   height: auto;
-  @include border-radius(10px);
   .conseiller{
     font-size: 2em;
   }
@@ -1194,28 +1301,8 @@ footer{
   #map{
     width: 800px;
   }
-  #iteneraire{
-    width: 350px;
 
-    #header_iteneraire{
-      width: 350px;
-    }
-  }
-  .search{
-    margin-top: 135px;
 
-    input[type="text"]{
-      width: 250px;
-      margin-left: 50px;
-    }
-
-  }
-  #offre{
-    width: 560px;
-    table{
-      width: 560px;
-    }
-  }
 
   #header{
     height: 400px;
@@ -1230,9 +1317,6 @@ footer{
     font-size: 30px;
   }
 
-  #header_where{
-    width: 350px;
-  }
   #header_offre:after{
     top:40px;
   }

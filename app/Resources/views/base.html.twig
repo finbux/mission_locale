@@ -8,6 +8,7 @@
               type="text/css" media="all" />
         <link rel="stylesheet" href="{{ asset('bundles/main/css/coin-slider-styles.css') }}"
               type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/animate.css') }}" type="text/css" media="all"/>
         <link rel="stylesheet" href="{{ asset('bundles/main/css/outdatedbrowser.css') }}"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -74,12 +75,7 @@
                 languagePath: ''
             });
 
-            $("#facebook").mouseover(function(){
-                $(".txt_facebook").fadeIn(2000);
-            });
-            $("#facebook").mouseleave(function(){
-                $(".txt_facebook").css("display","none");
-            });
+
         });
     </script>
 

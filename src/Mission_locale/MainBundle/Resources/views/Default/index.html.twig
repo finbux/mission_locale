@@ -9,86 +9,105 @@
     <!-- CONTAINER PRINCIPAL -->
     <div id="container">
 
-        <!-- BLOCK ACTUALITE -->
-        <div id="actu">
-            <div id="header_actu">
-                <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">L'actualité de la mission locale
+        <div id="wrapper-top">
+            <!-- BLOCK ACTUALITE -->
+            <div id="actu">
+                <div id="header_actu">
+                    <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">L'actualité de la mission locale
+                </div>
+                    <div id='coin-slider'>
+                        <a href="" target="_blank">
+                            <img src="{{ asset('bundles/main/img/actu1.jpg') }}">
+                            <span>Métier de l'animation</span>
+                        </a>
+                        <a href="" target="_blank">
+                            <img src="{{ asset('bundles/main/img/actu2.jpg') }}">
+                            <span>Offres d'emploi</span>
+                        </a>
+                    </div>
             </div>
-            <div id='coin-slider'>
-                <a href="" target="_blank">
-                    <img src="{{ asset('bundles/main/img/actu1.jpg') }}">
-                    <span>Métier de l'animation</span>
-                </a>
-                <a href="" target="_blank">
-                    <img src="{{ asset('bundles/main/img/actu2.jpg') }}">
-                    <span>Offres d'emploi</span>
-                </a>
+            <!------------------------------->
+
+            <!-- BLOCK OFFRE -->
+            <div id="offre">
+                <div id="header_offre">
+                    <p>Les offres de la semaine
+                        <img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>
+                    </p>
+                </div>
+                <table>
+                    <tr>
+                        <th>Numéro d'offre</th>
+                        <th>Nom de l'offre</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr>
+                        <td>00001</td>
+                        <td>Recherche Magasinier</td>
+                        <td>27/10/2014</td>
+                        <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>00002</td>
+                        <td>Apprenti cuisiner</td>
+                        <td>20/10/2014</td>
+                        <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>00031</td>
+                        <td>Emploi de secrétaire</td>
+                        <td>01/10/2014</td>
+                        <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
+                    </tr>
+                    <tr>
+                        <td>00010</td>
+                        <td>Mécanicien</td>
+                        <td>01/10/2014</td>
+                        <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
+                    </tr>
+                </table>
             </div>
+            <!------------------------------->
         </div>
-        <!------------------------------->
-
-        <!-- BLOCK OFFRE -->
-        <div id="offre">
-            <div id="header_offre">Les offres de la semaine</div>
-            <table>
-                <tr>
-                    <th>Numéro d'offre</th>
-                    <th>Nom de l'offre</th>
-                    <th>Date</th>
-
-                </tr>
-                <tr>
-                    <td>00001</td>
-                    <td>Recherche Magasinier</td>
-                    <td>27/10/2014</td>
-                    <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
-                </tr>
-                <tr>
-                    <td>00002</td>
-                    <td>Apprenti cuisiner</td>
-                    <td>20/10/2014</td>
-                    <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
-                </tr>
-                <tr>
-                    <td>00031</td>
-                    <td>Emploi de secrétaire</td>
-                    <td>01/10/2014</td>
-                    <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
-                </tr>
-                <tr>
-                    <td>00010</td>
-                    <td>Mécanicien</td>
-                    <td>01/10/2014</td>
-                    <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
-                </tr>
-            </table>
-        </div>
-        <!------------------------------->
 
         <div class="cb"></div>
 
         <!-- BLOCK SLOGAN -->
         <div id="slogan">
-            <p>L'équipe de la <img src="{{ asset('bundles/main/img/logo_simplifie.png') }}" alt="logo mlife"/> est à votre écoute et vous
-            accompagne dans vos projets</p></div>
+            <h2>L'équipe de la <img src="{{ asset('bundles/main/img/logo_simplifie.png') }}" alt="logo mlife"/> est à votre écoute et vous
+            accompagne dans vos projets.</h2>
+        </div>
         <div class="cb"></div>
         <!------------------------------->
 
         <!-- BLOCK MAP -->
         <div id="where">
             <div id="header_where">
-                <img src="{{ asset('bundles/main/img/maps.png') }}" alt="logo marker">Où nous trouver ?
+                <p class="txt_header_where"><img src="{{ asset('bundles/main/img/maps.png') }}" alt="logo marker">Où nous trouver ?</p>
+                <!-- BLOCK POST-IT -->
+                <a href="#modalbox">
+                    <div id="block_appel">
+                        <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                        <p>Faites-vous appelez gratuitement</p>
+                        <div id="conseiller">
+                            <img  src="{{ asset('bundles/main/img/conseiller.png') }}" alt=""/>
+                            <img src="{{ asset('bundles/main/img/conseiller_femme.png') }}" alt=""/>
+                        </div>
+                    </div>
+                </a>
+                <!-------------------->
             </div>
-               <p class="contact-tel"> Contactez-nous au 03 22 50 04 50</p>
+
             <div id="map">
                 <p>Veuillez patienter pendant le chargement de la carte...</p>
             </div>
-           <div id="btn_anntennes">
-               <a href="{{ path('antennes_page') }}">
-                   <p>La mission locale proche de chez vous</p>
-                   <img src="{{ asset('bundles/main/img/marker.png') }}" alt="marker"/>
-               </a>
-           </div>
+            <a href="{{ path('antennes_page') }}">
+               <div id="btn_anntennes">
+                   <p>La mission locale proche de chez vous
+                       <img src="{{ asset('bundles/main/img/marker.png') }}" alt="marker"/>
+                   </p>
+               </div>
+            </a>
 
             <!-- BLOCK ITENERAIRE -->
             <div id="iteneraire">
@@ -151,7 +170,20 @@
                 </ul>
         </div>
         <!--------------------->
+        <div id="modalbox">
+            <div id="box">
+                <img class="silhouette_small" src="{{ asset('bundles/main/img/silhouette_gauche.png') }}" alt=""/>
+                <h3>Me faire appeler par un conseiller</h3>
 
+                <form action="">
+                    <label for="">Ton prénom : </label><input type="text" name="prenom"/><br/>
+                    <label for="">Ton numéro :</label><input type="tel" name="telephone"/><br/>
+                    <input type="submit" name="valider"/>
+                </form>
+                <div class="cb"></div>
+
+            </div>
+        </div>
   </div>
     <!-- FIN DU CONTAINER -->
 

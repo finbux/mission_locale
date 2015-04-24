@@ -5,88 +5,92 @@
 {% block body %}
 
     <div id="container_antennes">
-            <h1 class="title">Les 6 antennes de la Mission de locale</h1>
-        <div id="ant_left">
-            <div class="contenu_antennes">
-                <h3>Amiens Ouest</h3>
-                <hr/>
-                <p>30 avenue de Picardie 80000 Amiens</p>
+        <h1 class="title-antennes">La mission locale proche de chez vous
+            <img src="{{ asset('bundles/main/img/marker.png') }}" alt=""/>
+        </h1>
+        <div id="wrapper-antennes">
+            <div id="ant_left">
+                <div class="contenu_antennes">
+                    <h3>Amiens Ouest</h3>
+                    <hr/>
+                    <p>30 avenue de Picardie 80000 Amiens</p>
 
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_amiens_ouest.png") }}" alt=""/>
-                <p><strong>Lundi</strong> : de 13h30 à 17h30 <br/>
-                    <strong>Du Mardi au Jeudi</strong> : de 8h45 à 12h30 <br/>
-                    et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> 8h45 à 12h30 et de 13h30 à 16h30</p>
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_amiens_ouest.png") }}" alt=""/>
+                    <p><strong>Lundi</strong> : de 13h30 à 17h30 <br/>
+                        <strong>Du Mardi au Jeudi</strong> : de 8h45 à 12h30 <br/>
+                        et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> 8h45 à 12h30 et de 13h30 à 16h30</p>
+                </div>
+
+            </div>
+            <div id="ant_right">
+                <div class="contenu_antennes">
+                    <h3>Doullens</h3>
+                    <hr/>
+                    <p>AGORA 2 rue des Sœurs Grises 80600 DOULLENS</p>
+
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_doullens.png") }}" alt=""/>
+                    <p><strong>Du Lundi au Jeudi</strong> : de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> 8h45 à 12h30 et de 13h30</p>
+                </div>
+            </div>
+            <div id="ant_left">
+                <div class="contenu_antennes">
+                    <h3>Amiens Nord</h3>
+                    <hr/>
+                    <p>ATRIUM 39, avenue de la Paix 80080 AMIENS</p>
+
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_amiens_nord.png") }}" alt=""/>
+                    <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
+                        <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
+                </div>
+            </div>
+            <div id="ant_right">
+                <div class="contenu_antennes">
+                    <h3>Amiens Centre</h3>
+                    <hr/>
+                    <p>10, rue Gresset - BP 80419 <br/> 80004 AMIENS Cedex 01</p>
+
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_amiens_centre.png") }}" alt=""/>
+                    <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
+                        <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
+                </div>
             </div>
 
-        </div>
-        <div id="ant_right">
-            <div class="contenu_antennes">
-                <h3>Doullens</h3>
-                <hr/>
-                <p>AGORA 2 rue des Sœurs Grises 80600 DOULLENS</p>
+            <div id="ant_left">
+                <div class="contenu_antennes">
+                    <h3>Amiens Sud et Est</h3>
+                    <hr/>
+                    <p>Pôle de Service – Tour du Marais <br/>Rue Simone Signoret 80090 AMIENS</p>
 
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_doullens.png") }}" alt=""/>
-                <p><strong>Du Lundi au Jeudi</strong> : de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> 8h45 à 12h30 et de 13h30</p>
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_amiens_sud_est.png") }}" alt=""/>
+                    <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
+                        <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
+                </div>
             </div>
+            <div id="ant_right">
+                <div class="contenu_antennes">
+                    <h3>Poix-de-Picardie</h3>
+                    <hr/>
+                    <p>16, route d’Aumale 80290 POIX DE PICARDIE</p>
+
+                    <h4>Horaires d'ouverture :</h4>
+                    <img src="{{ asset("bundles/main/img/img_poix_de_picardie.png") }}" alt=""/>
+                    <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
+                        <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
+                        <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
+                </div></div>
+
+            <div class="cb"></div>
         </div>
-        <div id="ant_left">
-            <div class="contenu_antennes">
-                <h3>Amiens Nord</h3>
-                <hr/>
-                <p>ATRIUM 39, avenue de la Paix 80080 AMIENS</p>
-
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_amiens_nord.png") }}" alt=""/>
-                <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
-                    <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
-            </div>
-        </div>
-        <div id="ant_right">
-            <div class="contenu_antennes">
-                <h3>Amiens Centre</h3>
-                <hr/>
-                <p>10, rue Gresset - BP 80419 <br/> 80004 AMIENS Cedex 01</p>
-
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_amiens_centre.png") }}" alt=""/>
-                <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
-                    <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
-            </div>
-        </div>
-
-        <div id="ant_left">
-            <div class="contenu_antennes">
-                <h3>Amiens Sud et Est</h3>
-                <hr/>
-                <p>Pôle de Service – Tour du Marais <br/>Rue Simone Signoret 80090 AMIENS</p>
-
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_amiens_sud_est.png") }}" alt=""/>
-                <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
-                    <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
-            </div>
-        </div>
-        <div id="ant_right">
-            <div class="contenu_antennes">
-                <h3>Poix-de-Picardie</h3>
-                <hr/>
-                <p>16, route d’Aumale 80290 POIX DE PICARDIE</p>
-
-                <h4>Horaires d'ouverture :</h4>
-                <img src="{{ asset("bundles/main/img/img_poix_de_picardie.png") }}" alt=""/>
-                <p><strong>Le Lundi :</strong>de 13h30 à 17h30<br/>
-                    <strong>Du Mardi au Jeudi : </strong>de 8h45 à 12h30 et de 13h30 à 17h30 <br/>
-                    <strong>Le Vendredi : </strong> de 8h45 à 12h30 et de 13h30 à 16h30</p>
-            </div></div>
-
-        <div class="cb"></div>
     </div>
 {% endblock %}
 {% block javascripts %}
