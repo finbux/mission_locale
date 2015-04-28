@@ -2,13 +2,15 @@
     {% block title %}
     {{ parent() }} | Les antennes
     {% endblock %}
+    {% block name_page %}
+        <div id="title_header">
+            <h1>La mission locale proche de chez vous  <img src="{{ asset('bundles/main/img/marker.png') }}" alt=""/></h1>
+
+        </div>
+    {% endblock %}
 {% block body %}
 
     <div id="container_antennes">
-        <h1 class="title-antennes">La mission locale proche de chez vous
-            <img src="{{ asset('bundles/main/img/marker.png') }}" alt=""/>
-        </h1>
-        <div id="wrapper-antennes">
             <div id="ant_left">
                 <div class="contenu_antennes">
                     <h3>Amiens Ouest</h3>
@@ -91,15 +93,9 @@
 
             <div class="cb"></div>
         </div>
-    </div>
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript">
-        $(function(){
-            $("#container_logo").css('float','none');
-        });
 
-    </script>
 
 {% endblock %}

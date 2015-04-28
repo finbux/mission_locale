@@ -72,7 +72,7 @@ class Moins26ansController extends Controller
             array('category' => 28)
         );
 
-        //Selon le slug qu'on récupère
+        //Selon le slug qu'on récupère on affiche tel liste
         switch($slug)
         {
             case "emploi":

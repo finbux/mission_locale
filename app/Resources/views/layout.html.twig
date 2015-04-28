@@ -1,8 +1,22 @@
 {% extends "base.html.twig" %}
 {% block header %}
-    <div id="container_logo">
-        <span class="helper"></span>
-        <a href="{{ path('main_homepage') }}"><img src="{{ asset('bundles/main/img/logo.png') }}" alt=""></a>
+    <div class="small-header">
+        <div id="container_logo">
+            <span class="helper"></span>
+            <a href="{{ path('main_homepage') }}"><img src="{{ asset('bundles/main/img/logo.png') }}" alt=""></a>
+        </div>
+        <!-- LOGO FACEBOOK -->
+        <a href="https://www.facebook.com/MLIFE.GA?fref=ts">
+            <div id="facebook">
+
+                <p> <img src="{{ asset('bundles/main/img/logo_facebook.png') }}" alt=""/>
+                    <span class="txt_facebook">Retrouvez nous sur Facebook</span></p>
+            </div>
+        </a>
+        <!------------------------------->
+        {% block name_page %}
+
+        {% endblock %}
     </div>
 {% endblock %}
 {% block body %}

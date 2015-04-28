@@ -1,0 +1,29 @@
+{% extends "::base_admin.html.twig" %}
+{% block body %}
+    <div id="wrapper-admin">
+        <div class="header">ESPACE ADMINISTRATION</div>
+
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+            <div id="container-category">
+                {% block content %}
+                {% endblock %}
+                <a href="{{ path('fos_user_security_logout') }}">
+                    <img class="btn_logout" src="{{ asset('bundles/admin/images/img_logout.png') }}" alt=""/>
+                </a>
+            </div>
+            <hr/>
+            <div id="container_btn_admin">
+                <button>Gérer les antennes</button>
+                <button>Gérer le slogan</button>
+            </div>
+    </div>
+        {% block fos_user_content %}
+        {% endblock fos_user_content %}
+
+{% endblock %}

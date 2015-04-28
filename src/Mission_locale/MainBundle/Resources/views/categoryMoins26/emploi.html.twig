@@ -2,7 +2,22 @@
 {% block title %}
     {{ parent() }} | je cherche un emploi
 {% endblock %}
-
+{% block name_page %}
+    <ul id="back-categorie">
+        <div id="block-contact">
+            <p>Contactez-nous pour prendre RDV au 03 22 50 04 50</p>
+        </div>
+        <a href="{{ path('categorie_page', {'slug': 'etre-former'}) }}">
+            <li class="li-former">Je veux me former</li>
+        </a>
+        <a href="{{ path('categorie_page', {'slug': 'quoi-faire'}) }}">
+            <li class="li-faire">Je ne sais pas quoi faire</li>
+        </a>
+        <a href="{{ path('categorie_page', {'slug': 'quotidien'}) }}">
+            <li class="li-quotidien">Je recherche des infos pratiques</li>
+        </a>
+    </ul>
+{% endblock %}
 {% block body %}
 
     <div id="wrapper-categorie">
@@ -11,15 +26,7 @@
                 <p>{{ parent() }} -> Je cherche un emploi</p>
             {% endblock %}
         </div>
-        <ul id="back-categorie">
-            <div id="block-contact">
-                <p>Contactez-nous pour prendre RDV au 03 22 50 04 50</p>
-            </div>
-            <a href="{{ path('categorie_page', {'slug': 'etre-former'}) }}"><li class="li-former">Je veux me former</li></a>
-            <a href="{{ path('categorie_page', {'slug': 'quoi-faire'}) }}"><li class="li-faire">Je ne sais pas quoi faire</li></a>
-            <a href="{{ path('categorie_page', {'slug': 'quotidien'}) }}"><li class="li-quotidien">Je recherche des infos pratiques</li></a>
-        </ul>
-
+        <div class="cb"></div>
             <div id="block_emploi">
                 <h1>Je cherche un emploi</h1>
                 <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}" />
@@ -44,7 +51,7 @@
 
                 </p>
 
-                <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouettes2.png') }}" alt=""/>
+                <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>
     </div>
 

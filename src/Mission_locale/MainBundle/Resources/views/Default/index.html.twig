@@ -170,21 +170,28 @@
                 </ul>
         </div>
         <!--------------------->
+        <!-- MODAL BOX -->
         <div id="modalbox">
             <div id="box">
                 <img class="silhouette_small" src="{{ asset('bundles/main/img/silhouette_gauche.png') }}" alt=""/>
                 <h3>Me faire appeler par un conseiller</h3>
+                <div id="form-appel">
+                    <form action="">
+                        <label for="">Ton prénom : </label><input type="text" name="prenom"/><br/>
+                        <label for=""><span class="champs-requis">*</span>Ton numéro :</label><input type="tel" name="telephone"/><br/>
+                        <input class="btn-submit" type="submit" name="valider"/>
 
-                <form action="">
-                    <label for="">Ton prénom : </label><input type="text" name="prenom"/><br/>
-                    <label for="">Ton numéro :</label><input type="tel" name="telephone"/><br/>
-                    <input type="submit" name="valider"/>
-                </form>
-                <div class="cb"></div>
-
+                        <p class="champs-requis">Les champs marqués d'une * sont obligatoire</p>
+                    </form>
+                    <div class="cb"></div>
+                </div>
+                <div class="cross">
+                    <a href="#offre">X</a>
+                </div>
             </div>
         </div>
-  </div>
+        <!------------------------------------->
+
     <!-- FIN DU CONTAINER -->
 
     <div id="outdated"> <h6>Votre navigateur est désuet!</h6>

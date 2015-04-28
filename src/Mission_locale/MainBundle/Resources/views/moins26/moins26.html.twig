@@ -2,7 +2,9 @@
 {% block title %}
    {{ parent() }} | Moins de 26 ans
 {% endblock %}
-
+{% block name_page %}
+    <img class="bulle_moins_26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/>
+{% endblock %}
 {% block body %}
     <div id="wrapper-item">
         <div class="arianne">
@@ -11,7 +13,6 @@
             {% endblock %}
         </div>
 
-        <img style="display: block;"class="bulle_moins_26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/>
 
         <img id="bandeau_perso" src="{{asset('bundles/main/img/silhouette.png') }}" />
 
@@ -112,7 +113,6 @@
                 $(".item_quotidien").slideUp();
                 $(".item_emploi").slideUp();
             });
-
             $("#block_faire").mouseover(function(){
                 $(".item_faire").slideDown();
                 $(".item_quotidien").slideUp();
@@ -120,7 +120,6 @@
                 $(".item_former").slideUp();
                 $("#block_faire").css('height','auto');
             });
-
             $("#block_quotidien").mouseover(function(){
                 $(".item_quotidien").slideDown();
                 $(".item_faire").slideUp();
@@ -128,9 +127,7 @@
                 $(".item_former").slideUp();
                 $("#block_quotidien").css('height','auto');
             });
-
         });
-
     </script>
-
+    -->
 {% endblock %}

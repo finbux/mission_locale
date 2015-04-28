@@ -4,19 +4,24 @@
     <meta charset="UTF-8" />
     <title>{% block title %}Administration{% endblock %}</title>
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('bundles/admin/css/style_admin.css') }}"
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/style_admin.css') }}"
               type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('bundles/admin/css/coin-slider-styles.css') }}"
-              type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('bundles/admin/css/outdatedbrowser.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/outdatedbrowser.css') }}"/>
 
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-    <header><a href="{{ path('main_homepage') }}"><img class="logo-milfe" src="{{ asset('bundles/main/img/logo.png') }}" alt=""/></a></header>
-    {% block content %}
+<div id="container_logo">
+    <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+</div>
+{% block body %}
 
-    {% endblock %}
+
+
+{% endblock %}
+{% block javascript %}
     <script src=" {{ asset('bundles/admin/ckeditor/ckeditor.js') }}"></script>
+{% endblock %}
 </body>
+</html>
