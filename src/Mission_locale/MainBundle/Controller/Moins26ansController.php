@@ -48,7 +48,8 @@ class Moins26ansController extends Controller
                 'list_former_sousItem' => $former_sous_item,
                 'list_faire_sousItem' => $faire_sous_item,
                 'list_quotidien_sousItem' => $quotidien_sous_item,
-            ));
+            )
+        );
     }
     public function categorieAction($slug)
     {
@@ -72,7 +73,7 @@ class Moins26ansController extends Controller
             array('category' => 28)
         );
 
-        //Selon le slug qu'on récupère on affiche tel liste
+        //Selon le slug qu'on récupère on affiche la liste correspondante
         switch($slug)
         {
             case "emploi":
@@ -97,7 +98,8 @@ class Moins26ansController extends Controller
         $sous_item  = $em->getRepository('MainBundle:SousItem');
 
         $sous_item_description = $sous_item->findOneBy(array('id'=>$id));
-       if($sous_item_description){
+       if($sous_item_description)
+       {
            $description = $sous_item_description->getDescription();
        }
         else

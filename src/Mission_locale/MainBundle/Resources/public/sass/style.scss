@@ -78,9 +78,6 @@ body{
   padding: 0;
   background-repeat: no-repeat;
   font-family: $font-family;
-  width:100%;
-  min-width:600px;
-  max-width:2000px;
   background-color: #C1E53D;
 }
 /*********************************/
@@ -89,13 +86,14 @@ body{
 *****CONTAINER PRINCIPAL********
 */
 #container{
-  width: 1200px;
+  width: 1260px;
   min-height: 1040px;
   height: auto;
   margin: 0 auto;
   padding-bottom: 45px;
   padding-top: 10px;
   position: relative;
+  border: 1px solid white;
 }
 /*********************************/
 
@@ -104,9 +102,9 @@ body{
 */
 #header{
   position: relative;
-  width: 1300px;
+  width: 1600px;
   height: 430px;
-  margin: 0 auto;
+  margin: 0  auto;
   margin-bottom: 40px;
   background: url('../img/background.jpg');
   border-radius: 0 0 20px 20px;
@@ -116,8 +114,8 @@ body{
     font-family: $font-family;
   }
   #bulles{
-    width: 1200px;
-    margin-left: 450px;
+    width: 951px;
+    margin-left: 22%;
     padding: 10px;
     background-position: bottom;
     background-repeat: no-repeat;
@@ -130,7 +128,10 @@ body{
 #silhouette{
   display: block;
   width: 1200px;
-  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  margin-left: -600px;
 }
 
 #container_logo{
@@ -147,7 +148,7 @@ body{
 
 //Header des pages n+1
 .small-header{
-  width: 1300px;
+  width: 1500px;
   height: 230px;
   margin: 0 auto;
   position: relative;
@@ -179,21 +180,22 @@ body{
 /***************************/
 
 /***** WRAPPER CONTENANT L'ACTU ET LES OFFRE *****/
-#wrapper-top{  width: 100%; height: 350px;  }
+#wrapper-top{  width: 95.5%; height: 350px; border:1px solid white; margin: 0 auto }
 /****************************************/
 
 /********* ACTUALITE *********/
 #actu{
-  width: 600px;
+  width: 49%;
   height: 318px;
   float: left;
   background: #ffffff;
   @include border-radius(20px);
   @include ombre_portée();
+  margin-right: 50px;
 }
 
 #header_actu{
-  @include header_div(631px);
+  @include header_div(619px);
   @include border-radius(20px 0 0 0 );
   img{
     vertical-align: -5px;
@@ -205,9 +207,10 @@ body{
 #header_actu:before{  @include pliage();  }
 
 #offre{
-  width: 560px;
+  width: 46%;
   height: 318px;
   background: white;
+  float: left;
   @include border-radius(0 0 20px 20px);
   @include ombre_portée();
   table{
@@ -243,8 +246,8 @@ body{
 }
 
 #header_offre{
-  position:absolute;
-  width: 592px;
+  position: absolute;
+  width: 583px;
   height: 40px;
   font-size: 30px;
   background: $vert_clair;
@@ -271,13 +274,14 @@ body{
 
 /******* SLOGAN *********/
 #slogan{
-  width: 70%;
+  width: 64%;
   height: 70px;
   background: white;
-  margin-top: 20px;
+  margin-top: 40px;
   margin-bottom: 40px;
   @include bordure_bas();
   line-height: 70px;
+  margin-left: 5%;
   text-align: center;
   font-family:  "segoe print",Calibri,Arial,Sans-Serif;
   @include border-radius(20px);
@@ -317,7 +321,7 @@ body{
 .img_antennes{  float:right;  }
 
 #container_antennes{
-  width: 95%;
+  width: 1200px;
   background: #4F5D64;
   margin: 0 auto;
   height: auto;
@@ -394,7 +398,8 @@ body{
 
 #container_menu{
   display: flex;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   height: 100px;
   background: $vert_clair;
   text-align: center;
@@ -410,7 +415,7 @@ body{
 
 /***** MAP ************/
 #map{
-  width:900px;
+  width: 70%;
   height: 350px;
   float: left;
   margin-top: 30px;
@@ -494,16 +499,15 @@ body{
   }
 }
 #where{
-  margin-top: 80px;
-  position: relative;
-  width: 100%;
+  width: 95.5%;
   height: 420px;
   padding: 10px 0 10px 10px;
+  margin: 60px auto;
   background: $vert_clair ;
 }
 #header_where{
   position: relative;
-  @include header_div(1240px);
+  @include header_div(1260px);
   @include border-radius(20px 20px 0 0 );
   margin-top: -20px;
   margin-left: -40px;
@@ -644,7 +648,6 @@ body{
     height: 339px;
     margin-bottom: 20px;
     margin-left: 40px;
-
   }
 
 #block-contact{
@@ -697,7 +700,7 @@ margin-left: 300px;
 }
   // Les 4 blocs
 #block_emploi,#block_faire,#block_former,#block_quotidien{
-  width: 300px;
+  width: 250px;
   height: auto;
   @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
   @include border-bottom-radius(5px);
@@ -705,7 +708,7 @@ margin-left: 300px;
   margin: 10px;
   margin-top: 20px;
   text-align: center;
-  transition: all 1s;
+
 
   h1{
     font-size: 25px;
@@ -728,8 +731,9 @@ margin-left: 300px;
   }
 }
 
+
 #wrapper-item{
-  width: 1080px;
+  width: 75%;
   height: 100vh;
   margin: 0 auto;
   margin-bottom: 50px;
@@ -795,8 +799,8 @@ margin-left: 300px;
 /*********************************************/
 
 .item_emploi,.item_faire,.item_quotidien,.item_former{
-
   display: none;
+
 }
 
 // CHANGEMENT DES COULEURS EN FONCTION DU BLOCK
@@ -826,7 +830,7 @@ margin-left: 300px;
   }
   h1{
     font-size: 25px;
-    padding-bottom: 9px;
+    margin: 0;
   }
   z-index: 20;
 }
@@ -992,258 +996,99 @@ margin-left: 300px;
   }
 }
 /**********************************/
-
-
 footer{
   width: 100%;
   margin: 0 auto;
   margin-top: 28px;
 }
 
-/***** POUR LES ECRANS D'UNE TAILLE INFERIEURE A 1680PX (19 pouces)
-********************************************************************/
-@media screen and (max-width: 1700px){
+@media only screen and (max-width: 1440px){
+  #header{
+    width: 1380px;
+  }
+}
+@media only screen and (max-width: 1366px ){
+  #header{
+    width: 1306px;
+  }
+}
+@media only screen and (max-width: 1280px ){
+  #header{
+    width: 1246px;
+  }
+}
+@media only screen and (max-width: 1024px ) {
+  #header {
+    width: 964px;
+    height: 330px;
+    
+    #bulles{
+      margin-left: 26%;
+      img{
+        width: 220px;
+      }
+    }
+  }
   #container{
+    width: 986px;
+  }
+  #wrapper-top{
+    width: 70%;
+  }
+  #actu{
     width: 90%;
-  }
-  #header{
-    height: 400px;
-
-    #bulles{
-
-      width:1100px;
-
-      margin-left:300px;
+    float: none;
+    margin-bottom:50px;
+    #header_actu{
+      width: 652px;
     }
   }
+  #offre{
+    width: 90%;
+    float: none;
 
-  #objectif{
+    #header_offre{
+      width: 649px;
+    }
+  }
+  #silhouette{
+    width: 800px;
+    margin-left: -400px;
+  }
+  #slogan{
     width: 95%;
+    margin: 0 auto;
+    margin-top: 360px;
   }
-  #map{
-    width: 800px;
-  }
-
-  #containerMoins26{
-
-
-    .fleche{
-      width:1000px;
-      margin-bottom: 0;
+  #where{
+    width: 65.5%;
+    height: auto;
+    text-align: center;
+    #header_where{
+      width: 705px;
+    }
+    #map,#iteneraire,#btn_antennes{
+      float: none;
+    }
+    #map{
+      width: 97%;
     }
   }
-  #liste_employeur{
-    li{
-      width: 250px;
-    }
+  #btn_anntennes{
+    width: 225px;
+    height: 120px;
   }
-  #bandeau_employeur{
-    width: 1175px;
-  }
-  .dialogue{
-    width:700px;
-    height: 421px;
-  }
-  #container_actions{
-    margin-left: 0;
-  }
-
-}
-
-
-
-#title_header{
-  width: 700px;
-  height: 120px;
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left:50%;
-  transform: translateX(-50%) translateY(-50%);
-  line-height: 120px;
-  background: #4f5d64;
-  color: $vert_clair;
-  @include border-radius(20px);
-
-  h1{
-    font-size: 40px;
-  }
-}
-.champs-requis{
-  color: #ff6649;
-}
-
-
-/********************************************************************/
-/*****POUR LES ECRANS FULL HD****/
-/********************************************************************/
-#container{
-  width: 75%;
-}
-
-#offre{
-  float: right;
-  table{
-    margin-top: 30px;
-  }
-}
-#container_emploi{
-  margin-left: 240px;
-}
-#header_offre,#header_actu,#header_where{
-  font-size: 40px;
-}
-#header_offre{
-  height: 40px;
-  margin-bottom: 20px;
-}
-#header_offre:after{
-  top:40px;
-}
-
-#block_emploi,#block_faire,#block_former,#block_quotidien{
-  .conseiller{
-    font-size: 2em;
-  }
-}
-#containerCategorie{
-  ul{
-    margin-top: 50px;
-  }
-}
-
-
-.contact{
-  float: right;
-  margin: 0;
-  margin-right: 20px;
-  transition: width 2s;
-
-  &:hover{
-    width: 70px;
-    height: 70px;
-    cursor: pointer;
-  }
-}
-
-/*******************************************************************/
-
-
-/********************************************************************/
-/***** POUR LES ECRANS D'UNE TAILLE INFERIEURE A 1600PX (14 pouces)
-********************************************************************/
-@media screen and (max-width: 1710px){
-  #container{
-    width: 87%;
-  }
-  #container_actions{
-    margin-left: 100px;
-  }
-  #container_item_emploi {
-    margin-top: 20px;
-  }
-}
-
-
-/********************************************************************/
-/***** POUR LES ECRANS D'UNE TAILLE INFERIEURE A 1400PX (15 pouces)
-********************************************************************/
-@media screen and (max-width: 1500px){
-  #container{
-    width: 1180px;
-  }
-
-
-  #map{
-    width: 800px;
-  }
-
-
-
-  #header{
-    height: 400px;
-
-    #bulles{
-
-      width:1000px;
-      margin-left: 260px;
-    }
-  }
-  #header_offre,#header_actu,#header_where{
-    font-size: 30px;
-  }
-
-  #header_offre:after{
-    top:40px;
-  }
-  #container_actions{
-    margin-left: 100px;
-  }
-#container_item_emploi{
-  margin-top: 20px;
-}
-
-  #item_menu3{
-    li{
-      display: inline-block;
-      width: 250px;
-      background: #FFF;
-      list-style: none;
-      padding: 10px;
-      font-size: 25px;
-      border-bottom: 4px solid #718e08;
-      @include border-radius(10px);
-      margin-right: 10px;
-      margin-top: 50px;
-    }
-  }
-
-  #block_emploi,#block_faire,#block_former,#block_quotidien{
-    width:250px;
-  }
-
-  #bandeau_categorie{
-    width: 1290px;
-    margin-top: -10px;
-
-  }
-
-  #sub_container_item_faire{
-    margin-left: 0;
-    margin-top: 50px;
-  }
-  .dialogue{
-    width:600px;
-    height: 361px;
-  }
-  #liste_employeur{
-    li{
-      width: 250px;
-    }
-  }
-  #bandeau_employeur{
-    width: 1175px;
-  }
-  #bandeau_categorie{
-    width: 1112px;
-    margin-top: -1Opx;
-  }
-
-  #containerCategorie ul{
-    margin-left: 0;
-  }
-
-  .item_right{
-    width: 700px;
-
-    .bandeau_sous_item{
-      width: 700px;
+  #container_menu{
+    width: 93%;
+    #menu{
+      width: 100%;
+      li{
+        width: 300px;
+        padding: 5px;
+      }
     }
   }
 }
-/********************************************************************/
-/***** POUR LES ECRANS D'UNE TAILLE INFERIEURE A 1420PX (15 pouces)
-********************************************************************/
 
 
 

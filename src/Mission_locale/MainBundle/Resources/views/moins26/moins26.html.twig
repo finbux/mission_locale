@@ -33,6 +33,7 @@
                 <a href="{{ path('categorie_page', {'slug': categorie_emploi.slug }) }}">
 
                     {% for sous_item in list_emploi_sousItem %}
+
                       <p class="item">{{ sous_item.nomSousItem }}</p>
                         <hr/>
                     {% endfor %}
