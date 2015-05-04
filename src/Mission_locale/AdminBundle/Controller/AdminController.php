@@ -9,4 +9,11 @@ class AdminController extends Controller{
     {
         return $this->render('AdminBundle:admin:home.html.twig');
     }
+    public function moins26Action()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categories = $em->getRepository('MainBundle:Category')->findAll();
+        return $this->render('AdminBundle:admin_moins26:home.html.twig', array('categories' => $categories));
+    }
 }

@@ -1,0 +1,21 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer la catégorie : Moins de 26 ans {% endblock %}
+{% block arianne %} {{ parent() }} {% endblock %}
+{% block content %}
+
+<table>
+    <tr>
+        <th>Items</th>
+        <th>Action</th>
+        <th></th>
+    </tr>
+    {% for categorie in categories %}
+        <tr>
+            <td class="data-item">{{ categorie.nameCategory }}</td>
+            <td>Modifier</td>
+            <td><a href="{{ path('admin_sous_item', { 'id': categorie.id}) }}">Gérer les sous items</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

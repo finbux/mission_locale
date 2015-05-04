@@ -93,7 +93,6 @@ body{
   padding-bottom: 45px;
   padding-top: 10px;
   position: relative;
-  border: 1px solid white;
 }
 /*********************************/
 
@@ -105,7 +104,6 @@ body{
   width: 1600px;
   height: 430px;
   margin: 0  auto;
-  margin-bottom: 40px;
   background: url('../img/background.jpg');
   border-radius: 0 0 20px 20px;
   h1{
@@ -180,7 +178,7 @@ body{
 /***************************/
 
 /***** WRAPPER CONTENANT L'ACTU ET LES OFFRE *****/
-#wrapper-top{  width: 95.5%; height: 350px; border:1px solid white; margin: 0 auto }
+#wrapper-top{  width: 95.5%; height: 350px; margin: 40px auto }
 /****************************************/
 
 /********* ACTUALITE *********/
@@ -195,7 +193,10 @@ body{
 }
 
 #header_actu{
-  @include header_div(619px);
+  @include header_div(620px);
+  @include box-shadow(0 10px 30px -2px #343434);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   @include border-radius(20px 0 0 0 );
   img{
     vertical-align: -5px;
@@ -247,7 +248,7 @@ body{
 
 #header_offre{
   position: absolute;
-  width: 583px;
+  width: 585px;
   height: 40px;
   font-size: 30px;
   background: $vert_clair;
@@ -255,6 +256,7 @@ body{
   margin-top: -22px;
   padding-left: 16px;
   line-height: 40px;
+  @include box-shadow(0 10px 30px -2px #343434);
 
   @include border-radius(0 20px 0 0 );
   p{
@@ -509,6 +511,7 @@ body{
   position: relative;
   @include header_div(1260px);
   @include border-radius(20px 20px 0 0 );
+  @include box-shadow(0 10px 30px -2px #343434);
   margin-top: -20px;
   margin-left: -40px;
   border-bottom: 1px solid white;
@@ -731,23 +734,30 @@ margin-left: 300px;
   }
 }
 
-
 #wrapper-item{
-  width: 75%;
-  height: 100vh;
+  width: 90%;
   margin: 0 auto;
+}
+#container_item{
+  width: 1100px;
+  height: 80vh;
+  margin: 0 auto;
+  margin-top: 20px;
   margin-bottom: 50px;
-  background: #cccccc;
+  background: url('../img/background.jpg');
   @include border-radius(20px);
+}
+.opacity{
+  opacity: 0.5;
 }
 //BANDEAU DE CONTACT
 #bandeau_categorie,#bandeau_employeur{
-  width: 1312px;
+  width: 104.8%;
   height: 50px;
   background-color: #F07D00;
   position: relative;
   margin-bottom: -20px;
-  margin-left: -16px;
+  margin-left: -27px;
   line-height: 50px;
 
   p{
@@ -800,9 +810,7 @@ margin-left: 300px;
 
 .item_emploi,.item_faire,.item_quotidien,.item_former{
   display: none;
-
 }
-
 // CHANGEMENT DES COULEURS EN FONCTION DU BLOCK
 #block_emploi{
   p:hover{
@@ -836,7 +844,7 @@ margin-left: 300px;
 }
 //BANDE DES PERSONNAGES
 #bandeau_perso{
-  width: 1050px;
+  width: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -846,7 +854,7 @@ margin-left: 300px;
 */
 #wrapper-categorie{
   width: 1200px;
-  height: 100vh;
+  height: 80vh;
   margin: 0 auto;
   margin-bottom: 50px;
   background-color: #cccccc;
@@ -870,7 +878,7 @@ margin-left: 300px;
 .item_right{
   display: none;
   position: relative;
-  width: 30%;
+  width: 60%;
   height: 30em;
   float: left;
   background-color: #ffffff;
@@ -902,11 +910,11 @@ margin-left: 300px;
 }
 
 .bandeau_sous_item{
+  width: 100%;
   position: absolute;
-  bottom:0;
-  left:0;
-  width: 800px;
+  bottom: 0;
 }
+
 
 .border-emploi{
   border: 3px solid $vert_clair;
@@ -981,18 +989,16 @@ margin-left: 300px;
   display: inline-block;
   width: auto;
   height: 40px;
-  background-color: white;
-  color: $vert_clair;
   font-size: 20px;
   line-height: 20px;
   padding:10px;
-  float: left;
   @include border-radius(20px 0 20px 0);
   p{
     margin: 0;
   }
   a{
-    color: $vert_clair;
+    color: #333;
+    text-decoration: underline;
   }
 }
 /**********************************/
@@ -1006,15 +1012,28 @@ footer{
   #header{
     width: 1380px;
   }
+  .small-header{
+   width:  1380px;
+  }
 }
+
+/*
+*** MEDIA QUERIES ******
+*/
 @media only screen and (max-width: 1366px ){
   #header{
     width: 1306px;
+  }
+  .small-header{
+    width:  1306px;
   }
 }
 @media only screen and (max-width: 1280px ){
   #header{
     width: 1246px;
+  }
+  .small-header{
+    width:  1246px;
   }
 }
 @media only screen and (max-width: 1024px ) {
@@ -1048,7 +1067,7 @@ footer{
     float: none;
 
     #header_offre{
-      width: 649px;
+      width: 652px;
     }
   }
   #silhouette{
@@ -1086,6 +1105,27 @@ footer{
         width: 300px;
         padding: 5px;
       }
+    }
+  }
+  .small-header{
+    width:  900px;
+    .bulle_moins_26{
+      margin-left: 160px;
+    }
+  }
+  #bandeau_categorie{
+    width: 105.8%;
+  }
+  #wrapper-item{
+    width: 900px;
+  }
+  #block_emploi,#block_former,#block_faire,#block_quotidien{
+    width: 204px;
+    h1{
+      font-size: 20px;
+    }
+    .conseiller{
+      font-size: 20px;
     }
   }
 }

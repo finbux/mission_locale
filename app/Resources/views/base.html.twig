@@ -20,8 +20,10 @@
 
         <!-- LOGO MLIFE -->
         <div id="container_logo">
-            <span class="helper"></span>
-            <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+            <a href="{{ path('main_homepage') }}">
+                <span class="helper"></span>
+                <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+            </a>
         </div>
         <!------------------------------->
 
@@ -37,9 +39,9 @@
 
         <!-- LES TROIS BULLES -->
         <div id="bulles">
-            <a href="{{ path('moins26_page') }}"><img src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/></a>
-            <a href="{{ path('employeur_page') }}"><img src="{{ asset('bundles/main/img/employeur.png') }}" alt=""></a>
-            <img src="{{ asset('bundles/main/img/plus26.png') }}" alt="">
+            <a href="{{ path('moins26_page') }}"><img class="img_moins26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/></a>
+            <a href="{{ path('employeur_page') }}"><img class="img_employeur" src="{{ asset('bundles/main/img/employeur.png') }}" alt=""></a>
+            <a href="{{ path('plus26_page') }}"><img class="img_plus26" src="{{ asset('bundles/main/img/plus26.png') }}" alt=""></a>
             <div class="cb"></div>
         </div>
         <!-------------------------------->
@@ -53,7 +55,7 @@
 
 {% block body %}
     {% block arianne %}
-        <a href="{{ path('main_homepage') }}">Accueil</a>
+        <a href="{{ path('main_homepage') }}">Retourner sur la page d'accueil</a>
     {% endblock %}
 {% endblock %}
 {% block javascripts %}
@@ -74,8 +76,6 @@
                 lowerThan: 'transform',
                 languagePath: ''
             });
-
-
         });
     </script>
 

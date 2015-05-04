@@ -16,7 +16,9 @@
     <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
 </div>
 {% block body %}
-
+    {% block arianne %}
+        <a href="{{ path('admin_homepage') }}">Retourner à l''accueil</a>
+    {% endblock %}
 
 
 {% endblock %}

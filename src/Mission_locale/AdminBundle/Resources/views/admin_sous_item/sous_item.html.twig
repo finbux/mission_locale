@@ -1,0 +1,19 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les sous items {% endblock %}
+{% block arianne %} {{ parent() }} -> sous item {% endblock %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Sous item</th>
+            <th>Actions</th>
+        </tr>
+    {% for sous_item in sous_items %}
+            <tr>
+
+                <td class="data-item">{{ sous_item.nomSousItem }}</td>
+                <td>Modifier - Suprrimer</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

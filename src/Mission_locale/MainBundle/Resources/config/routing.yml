@@ -6,7 +6,10 @@ moins26_page:
     defaults: { _controller: MainBundle:Moins26ans:index}
 employeur_page:
     path: /employeur
-    defaults: { _controller: MainBundle:Default:employeur}
+    defaults: { _controller: MainBundle:Employeur:index}
+plus26_page:
+    path: /plus26ans
+    defaults: { _controller: MainBundle:Plus26ans:index}
 antennes_page:
     path: /antennes
     defaults: { _controller: MainBundle:Default:antennes}
