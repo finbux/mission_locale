@@ -1,0 +1,37 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    {{ parent() }} | Plus de 26 ans
+{% endblock %}
+{% block body %}
+
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                {{ parent()  }}
+            {% endblock %}
+
+        </div>
+        <div id="container_item">
+            <div id="bandeau_plus26">
+                <p></p>
+                <div id="block_appel">
+                    <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                    <p>Contactez-nous </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "::footer.html.twig" %}
+    <div class="cb"></div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+
+            $(".img_moins26").addClass("opacity");
+            $(".img_employeur").addClass("opacity");
+        });
+    </script>
+    -->
+{% endblock %}

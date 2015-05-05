@@ -48,9 +48,9 @@ p{  margin:0;  padding: 0;  }
 {
  @include box-shadow(5px 5px 20px 0px #4f5d64);
 }
-@mixin bordure_bas()
+@mixin bordure_bas($color:#718e08)
 {
-  border-bottom: 4px solid #718e08;
+  border-bottom: 4px solid $color;
 }
 $background: #4f5d64;
 $color_pliage : #8BA807;
@@ -506,6 +506,8 @@ body{
   padding: 10px 0 10px 10px;
   margin: 60px auto;
   background: $vert_clair ;
+  @include border-radius(20px);
+  @include bordure_bas();
 }
 #header_where{
   position: relative;
@@ -704,15 +706,14 @@ margin-left: 300px;
   // Les 4 blocs
 #block_emploi,#block_faire,#block_former,#block_quotidien{
   width: 250px;
-  height: auto;
+  height: 250px;
   @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
   @include border-bottom-radius(5px);
   float: left;
   margin: 10px;
   margin-top: 20px;
   text-align: center;
-
-
+  transition: all 1s;
   h1{
     font-size: 25px;
   }
@@ -734,14 +735,49 @@ margin-left: 300px;
   }
 }
 
+//Animations au survol des 4 blocs
+
+#block_emploi:hover{
+  height: auto;
+  .item_emploi{
+    visibility:visible;
+    opacity:1;
+    transition-delay:.1s;
+  }
+
+}
+#block_former:hover{
+  .item_former{
+    visibility:visible;
+    opacity:1;
+    transition-delay:.1s;
+  }
+  height: auto;
+}
+#block_faire:hover{
+  .item_faire{
+    visibility:visible;
+    opacity:1;
+    transition-delay:.1s;
+  }
+  height: auto;
+}
+#block_quotidien:hover{
+  .item_quotidien{
+    visibility:visible;
+    opacity:1;
+    transition-delay:.1s;
+  }
+  height: auto;
+}
 #wrapper-item{
   width: 90%;
   margin: 0 auto;
 }
 #container_item{
   width: 1100px;
-  height: 80vh;
-  margin: 0 auto;
+  height: 65vh;
+  margin: 2em auto;
   margin-top: 20px;
   margin-bottom: 50px;
   background: url('../img/background.jpg');
@@ -751,7 +787,7 @@ margin-left: 300px;
   opacity: 0.5;
 }
 //BANDEAU DE CONTACT
-#bandeau_categorie,#bandeau_employeur{
+#bandeau_categorie,#bandeau_employeur,#bandeau_plus26{
   width: 104.8%;
   height: 50px;
   background-color: #F07D00;
@@ -768,12 +804,13 @@ margin-left: 300px;
   }
 }
 #bandeau_employeur{
-  width: 1375px;
-  margin-left: 13px;
   background-color: $vert_clair;
 }
+#bandeau_plus26{
+  background: $bleu;
+}
 
-#bandeau_categorie:after,#bandeau_employeur:after{
+#bandeau_categorie:after,#bandeau_employeur:after,#bandeau_plus26:after{
   content: "";
   position: absolute;
   width: 0;
@@ -788,7 +825,10 @@ margin-left: 300px;
 #bandeau_employeur:after{
   border-color: #759E1A transparent transparent transparent;
 }
-#bandeau_categorie:before,#bandeau_employeur:before{
+#bandeau_plus26:after{
+  border-color: #35656A transparent transparent transparent;
+}
+#bandeau_categorie:before,#bandeau_employeur:before,#bandeau_plus26:before{
   content: "";
   position: absolute;
   width: 0;
@@ -806,20 +846,28 @@ margin-left: 300px;
 #bandeau_employeur:before{
   border-color: transparent #759E1A transparent transparent;
 }
+#bandeau_plus26:before{
+  border-color: transparent #35656A transparent transparent;
+}
+
 /*********************************************/
 
 .item_emploi,.item_faire,.item_quotidien,.item_former{
-  display: none;
+  visibility:hidden;
+  opacity:0;
+  transition:visibility 0s linear 0.1s,opacity 0.1s linear;
 }
 // CHANGEMENT DES COULEURS EN FONCTION DU BLOCK
 #block_emploi{
   p:hover{
     background-color: #759e1a;
   }
+  @include bordure_bas();
 }
 
 #block_former{
   @include background-image(linear-gradient(#579CA1 #579CA1, #6bbbc6));
+  @include bordure_bas(#325A65);
   p:hover{
     background-color: #30a8a6;
   }
@@ -827,12 +875,15 @@ margin-left: 300px;
 }
 #block_faire{
   @include background-image(linear-gradient(#D40050 #D40050, #c14b72));
+  @include bordure_bas(#652A2A);
   p:hover{
     background-color:#d14976;
   }
 }
 #block_quotidien{
+
   @include background-image(linear-gradient(#EE7F00 #EE7F00, #f08f3d));
+  @include bordure_bas(#652B1C);
   p:hover{
     background-color: #fca350;
   }

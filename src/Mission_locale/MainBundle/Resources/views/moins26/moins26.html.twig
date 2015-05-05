@@ -46,7 +46,7 @@
 
                 <img src="{{ asset('bundles/main/img/'~ categorie_former.fleche ) }}">
 
-                <div class="item_former">
+                <div class="item_faire">
                     <span class="conseiller">Je rencontre un conseiller pour :</span>
                     <hr/>
                     <a href="{{ path('categorie_page', {'slug': categorie_former.slug }) }}">
@@ -64,7 +64,7 @@
 
                 <img src="{{ asset('bundles/main/img/'~ categorie_faire.fleche ) }}">
 
-                <div class="item_faire">
+                <div class="item_former">
                     <span class="conseiller">Je rencontre un conseiller pour :</span>
                     <hr/>
                     <a href="{{ path('categorie_page', {'slug': categorie_faire.slug }) }}">
@@ -95,40 +95,14 @@
             </div>
         </div>
     </div>
+    {% include "::footer.html.twig" %}
     <div class="cb"></div>
+
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript">
         $(function(){
-            $("#block_emploi").mouseover(function(){
-                $(".item_emploi").slideDown();
-                $("#block_emploi").css('height','auto');
-                $(".item_faire").slideUp();
-                $(".item_quotidien").slideUp();
-                $(".item_former").slideUp();
-            });
-            $("#block_former").mouseover(function(){
-                $("#block_former").css('height','auto');
-                $(".item_former").slideDown();
-                $(".item_faire").slideUp();
-                $(".item_quotidien").slideUp();
-                $(".item_emploi").slideUp();
-            });
-            $("#block_faire").mouseover(function(){
-                $(".item_faire").slideDown();
-                $(".item_quotidien").slideUp();
-                $(".item_emploi").slideUp();
-                $(".item_former").slideUp();
-                $("#block_faire").css('height','auto');
-            });
-            $("#block_quotidien").mouseover(function(){
-                $(".item_quotidien").slideDown();
-                $(".item_faire").slideUp();
-                $(".item_emploi").slideUp();
-                $(".item_former").slideUp();
-                $("#block_quotidien").css('height','auto');
-            });
 
             $(".img_employeur").addClass("opacity");
             $(".img_plus26").addClass("opacity");

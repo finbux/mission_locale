@@ -1,26 +1,37 @@
-{% extends "::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 {% block title %}
     {{ parent() }} | Employeur
 {% endblock %}
-{% block header %}
-    {{ parent() }}
-{% endblock %}
-
 {% block body %}
-    <div id="containerCategorie">
-        <div id="container_block">
-            <img class="bulle_categorie" src="{{ asset('bundles/main/img/espace_employeur.png') }}" alt=""/>
-                <div id="bandeau_employeur"></div>
-                    <ul id="liste_employeur">
-                    <li><h1>Conseil et definition de poste</h1>
-                        <img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/>
-                    </li>
-                    <li><h1>Rencontrer des candidats</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
-                    <li><h1>Les dispositifs d'embauche</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
-                    <li><h1>Parrainer <br/> un jeune</h1><img src="{{ asset('bundles/main/img/fleche_employeur.png') }}" alt=""/></li>
-                    </ul>
+
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                {{ parent()  }}
+            {% endblock %}
 
         </div>
-
+        <div id="container_item">
+            <div id="bandeau_employeur">
+                <p></p>
+                <div id="block_appel">
+                    <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                    <p>Contactez-nous </p>
+                </div>
+            </div>
+        </div>
     </div>
+    {% include "::footer.html.twig" %}
+    <div class="cb"></div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function(){
+
+            $(".img_moins26").addClass("opacity");
+            $(".img_plus26").addClass("opacity");
+        });
+    </script>
+    -->
 {% endblock %}
