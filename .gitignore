@@ -1,5 +1,6 @@
 composer.phar
 .idea
+.DS_Store
 .sass-cache
 /web/bundles/
 /app/cache/
