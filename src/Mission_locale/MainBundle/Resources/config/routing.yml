@@ -21,3 +21,6 @@ sous_item_page:
     defaults: { _controller: MainBundle:Moins26ans:getDescription}
     options:
         expose: true
+validation_appel_page:
+    path: /appel_validation
+    defaults: { _controller: MainBundle:Appel:validation}

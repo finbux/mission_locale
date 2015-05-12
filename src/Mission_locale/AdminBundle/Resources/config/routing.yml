@@ -1,6 +1,20 @@
 admin_homepage:
     path:     /
     defaults: { _controller: AdminBundle:Admin:index }
+admin_categorie:
+    path: /categorie
+    defaults: { _controller: AdminBundle:Admin:categorie }
+admin_modules:
+    path: /modules
+    defaults: { _controller: AdminBundle:Admin:module }
+admin_appel:
+    path: /modules/appel
+    defaults: { _controller: AdminBundle:Appel:show }
+appel_update:
+    path: /modules/appel/{id}
+    defaults: { _controller: AdminBundle:Appel:update }
+    requirements:
+        id: \d+
 admin_moins26:
     path:     /moins26
     defaults: { _controller: AdminBundle:Admin:moins26 }

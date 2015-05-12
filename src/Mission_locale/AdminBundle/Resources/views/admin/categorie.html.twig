@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Choisir une catégorie {% endblock %}
+{% block arianne %} {{ parent() }} {% endblock %}
+{% block content %}
+        <div id="container_btn">
+            <a href="{{ path('admin_moins26') }}"><button class="btn_moins26">Les moins 26 ans</button></a>
+            <button class="btn_employeur">Employeur</button>
+            <button class="btn_plus26">Les plus 26 ans</button>
+        </div>
+{% endblock %}
+
+

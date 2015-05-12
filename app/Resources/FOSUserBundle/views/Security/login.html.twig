@@ -1,5 +1,17 @@
-{% extends "::base_admin.html.twig" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Administration{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/style_admin.css') }}"
+              type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/outdatedbrowser.css') }}"/>
 
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
@@ -27,3 +39,5 @@
         </div>
         {% endblock %}
 {% endblock fos_user_content %}
+</body>
+</html>

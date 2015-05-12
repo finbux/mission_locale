@@ -166,21 +166,24 @@
         <!-- MODAL BOX -->
         <div id="modalbox">
             <div id="box">
-                <img class="silhouette_small" src="{{ asset('bundles/main/img/silhouette_gauche.png') }}" alt=""/>
-                <h3>Me faire appeler par un conseiller</h3>
-                <div id="form-appel">
-                    <form action="">
-                        <label for="">Ton prénom : </label><input type="text" name="prenom"/><br/>
-                        <label for=""><span class="champs-requis">*</span>Ton numéro :</label><input type="tel" name="telephone"/><br/>
-                        <input class="btn-submit" type="submit" name="valider"/>
 
-                        <p class="champs-requis">Les champs marqués d'une * sont obligatoire</p>
-                    </form>
+                <img class="silhouette_small" src="{{ asset('bundles/main/img/silhouette_gauche.png') }}" alt=""/>
+                {% for message in app.session.flashbag.get('info') %}
+
+                    <h4 class="success">{{ message }}</h4>
+
+                {% endfor %}
+                <h3>Me faire appeler par un conseiller</h3>
+
+                <div id="form-appel">
+                        {{ form(form) }}
+                    <p class="champs-requis" style="color: red">Les champs marqués d'une * sont obligatoires</p>
                     <div class="cb"></div>
                 </div>
                 <div class="cross">
-                    <a href="#offre">X</a>
+                    <a href="{{ path('main_homepage') }}">X</a>
                 </div>
+                <div class="cb"></div>
             </div>
         </div>
         <!------------------------------------->

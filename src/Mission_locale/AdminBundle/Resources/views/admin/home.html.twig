@@ -1,48 +1,27 @@
 {% extends "base_admin.html.twig" %}
 {% block title_admin %}ESPACE ADMINISTRATION {% endblock %}
 {% block body %}
-    <div id="wrapper-home">
-        <div class="header">ESPACE ADMINISTRATION</div>
-        <div id="wrapper-category">
-            <a href="{{ path('admin_moins26') }}">
-                <div class="category">
-                    <img src="{{ asset('bundles/admin/images/moins26.png') }}" alt="categorie moins de 26 ans"/>
-                    <p>Gérer la catégorie moins de 26 ans</p>
-                </div>
-            </a>
-            <div class="category">
-                <img src="{{ asset('bundles/admin/images/employeur.png') }}" alt="categorie employeur"/>
-                <p>Gérer la catégorie employeur</p>
-            </div>
-            <div class="category">
-                <img src="{{ asset('bundles/admin/images/plus26.png') }}" alt="categorie plus de 26 ans"/>
-                <p>Gérer la catégorie plus de 26 ans</p>
-            </div>
-            <div class="category">
-                <img src="{{ asset('bundles/admin/images/actu.png') }}" alt="gérer l'actualité"/>
-                <p>Gérer l'actualité</p>
-            </div>
-            <div class="category">
-                <img src="{{ asset('bundles/admin/images/appel.png') }}" alt="Gérer les appels"/>
-                <p>Gérer les appels</p>
-            </div>
-            <div class="category">
-                <img src="{{ asset('bundles/admin/images/offre.png') }}" alt="Gérer les offres"/>
-                <p>Gérer les offres d'emplois</p>
-            </div>
-
-            <div class="cb"></div>
+   <div id="wrapper-home">
+       <h1 class="header">Informations générales</h1>
+        <div id="informations_site">
+            <h2>Google Analytics</h2>
         </div>
-        <a href="{{ path('fos_user_security_logout') }}">
-            <img class="btn_logout" src="{{ asset('bundles/admin/images/img_logout.png') }}" alt=""/>
-        </a>
-        <hr/>
-        <div id="container_btn_admin">
-            <button>Gérer les antennes</button>
-            <button>Modifier le slogan</button>
-        </div>
-    </div>
+       <div id="mid-wrapper">
+           <div id="user_infos">
+               <h2>Informations sur l'utilisateur</h2>
+              <p>Pseudo : Toto</p>
+               <p>Mot de pase : ******</p>
+               <p>Adresse mail : toto@gmail.com</p>
+               <p>Adresse Ip: 127.0.0.1</p>
+               <p>Modifier mes informations</p>
+           </div>
+           <div id="systeme">
+               <h2></h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt praesentium provident quas! A assumenda dolore, excepturi expedita explicabo fugit impedit itaque laboriosam laborum quis similique soluta tempora tempore tenetur velit.</p>
+           </div>
+       </div>
 
+   </div>
 {% endblock %}
 
 

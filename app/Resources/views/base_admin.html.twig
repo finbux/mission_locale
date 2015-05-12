@@ -12,13 +12,27 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-<div id="container_logo">
-    <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+<div id="handler-left">
+    <div id="container_logo">
+        <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+        <h1>Administration</h1>
+    </div>
+
+    <ul id="menu">
+        <li class="item_menu"><a href="{{ path('admin_categorie') }}">Gérer les catégories</a></li>
+        <li class="item_menu"><a href="{{ path('admin_modules') }}">Gérer des modules</a></li>
+        <li class="item_menu">Paramètres</li>
+        <li class="item_menu"><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+        <a href="{{ path('main_homepage') }}">Voir le site</a>
+    </ul>
 </div>
 {% block body %}
     {% block arianne %}
         <a href="{{ path('admin_homepage') }}">Retourner à l''accueil</a>
     {% endblock %}
+
+
+
 
 
 {% endblock %}

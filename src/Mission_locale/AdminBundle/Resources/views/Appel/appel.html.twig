@@ -1,0 +1,21 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les appels {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Prénom</th>
+            <th>Numéro de téléphone</th>
+            <th>Avancement</th>
+            <th>Actions</th>
+        </tr>
+        {% for appel in appels %}
+            <tr>
+                <td class="data-item">{{ appel.prenom }}</td>
+                <td class="data-item">{{ appel.telephone }}</td>
+                <td class="data-item">{{ appel.avancement }}</td>
+                <td><a href="{{ path('appel_update', { 'id': appel.id}) }}">Gérer l'appel</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
