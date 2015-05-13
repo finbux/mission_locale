@@ -204,7 +204,7 @@ table {
     background-color: #e5e5e5;
     border-bottom: 2px solid silver;
   }
-  td:nth-child(2):hover,td:nth-child(3):hover{
+  td a:hover{
     color: $vert_clair;
     text-decoration: underline;
     cursor: pointer;
@@ -313,6 +313,12 @@ button{
 button:hover{
   cursor: pointer;
 }
+button[type="submit"]
+{
+  width: auto;
+  height: auto;
+  padding: 5px;
+}
 .btn_moins26{
   background: $orange;
   @include bordure_bas(#8F4800);
@@ -346,6 +352,10 @@ background: $vert_clair;
     cursor: pointer;
   }
 }
-
-
+.form-filtrer{
+  float: right;
+}
+.btn_ok{
+  display: inline;
+}
 /********************/

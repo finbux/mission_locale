@@ -2,6 +2,23 @@
 {% block title_admin %}Gérer les appels {% endblock %}
 {% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
 {% block content %}
+    <div class="form-filtrer">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+
+        <div>
+            {{ form_label(form.Filtrer) }}
+
+            {{ form_widget(form.Filtrer) }}
+
+            {{ form_label(form.ok) }}
+            {{ form_widget(form.ok) }}
+        </div>
+
+
+        {{ form_end(form) }}
+    </div>
+
     <table>
         <tr>
             <th>Prénom</th>
@@ -11,10 +28,13 @@
         </tr>
         {% for appel in appels %}
             <tr>
-                <td class="data-item">{{ appel.prenom }}</td>
-                <td class="data-item">{{ appel.telephone }}</td>
-                <td class="data-item">{{ appel.avancement }}</td>
-                <td><a href="{{ path('appel_update', { 'id': appel.id}) }}">Gérer l'appel</a></td>
+                <td>{{ appel.prenom }}</td>
+                <td>{{ appel.telephone }}</td>
+                <td>{{ appel.avancement }}</td>
+                <td>
+                    <a href="{{ path('appel_update', { 'id': appel.id}) }}">Traiter l'appel</a>
+                    <a href="{{ path('appel_delete', { 'id': appel.id}) }}">Supprimer</a>
+                </td>
             </tr>
         {% endfor %}
     </table>

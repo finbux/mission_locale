@@ -528,7 +528,7 @@ body{
 #block_appel{
   position: absolute;
   top: -140px;
-  right:35px;
+  right:-54px;
   width: 300px;
   height: 150px;
   background: #4f5d64;
@@ -707,14 +707,16 @@ margin-left: 300px;
 }
 //RENCONTRER UN CONSEILLER
 .conseiller{
-  font-size: 2em;
+  display: block;
+  font-size: 20px;
   color: white;
   font-weight: bold;
+  margin-top: 74px;
 }
   // Les 4 blocs
 #block_emploi,#block_faire,#block_former,#block_quotidien{
   width: 250px;
-  height: 250px;
+  height: 200px;
   @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
   @include border-bottom-radius(5px);
   float: left;
@@ -722,10 +724,16 @@ margin-left: 300px;
   margin-top: 20px;
   text-align: center;
   transition: all 1s;
+  position: relative;
   h1{
     font-size: 25px;
   }
 
+  img{
+    width: 250px;
+    height: 100px;
+    margin-top: -25px;
+  }
   p{
     color: #FFF;
     font-size: 18px;
@@ -752,7 +760,24 @@ margin-left: 300px;
     opacity:1;
     transition-delay:.1s;
   }
+}
+.block_emploi_auto, .block_former_auto, .block_faire_auto, .block_quotidien_auto{
+  width: 250px;
+  height: auto;
+  @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
+  @include border-bottom-radius(5px);
+  float: left;
+  margin: 10px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
 
+  img{
+    width: 250px;
+    height: 100px;
+    margin-top: -25px;
+  }
 }
 #block_former:hover{
   .item_former{
@@ -788,7 +813,6 @@ margin-left: 300px;
   margin: 2em auto;
   margin-top: 20px;
   margin-bottom: 50px;
-  background: url('../img/background.jpg');
   @include border-radius(20px);
 }
 .opacity{
@@ -796,13 +820,14 @@ margin-left: 300px;
 }
 //BANDEAU DE CONTACT
 #bandeau_categorie,#bandeau_employeur,#bandeau_plus26{
-  width: 104.8%;
+  width: 1111px;
   height: 50px;
   background-color: #F07D00;
   position: relative;
   margin-bottom: -20px;
-  margin-left: -27px;
+  margin-left: -16px;
   line-height: 50px;
+  @include border-radius(20px 20px 0 0);
 
   p{
     font-size: 25px;
@@ -873,23 +898,22 @@ margin-left: 300px;
   @include bordure_bas();
 }
 
-#block_former{
+#block_former, .block_former_auto{
   @include background-image(linear-gradient(#579CA1 #579CA1, #6bbbc6));
   @include bordure_bas(#325A65);
   p:hover{
     background-color: #30a8a6;
   }
-
 }
-#block_faire{
+
+#block_faire, .block_faire_auto{
   @include background-image(linear-gradient(#D40050 #D40050, #c14b72));
   @include bordure_bas(#652A2A);
   p:hover{
     background-color:#d14976;
   }
 }
-#block_quotidien{
-
+#block_quotidien, .block_quotidien_auto{
   @include background-image(linear-gradient(#EE7F00 #EE7F00, #f08f3d));
   @include bordure_bas(#652B1C);
   p:hover{
@@ -916,7 +940,6 @@ margin-left: 300px;
   height: 80vh;
   margin: 0 auto;
   margin-bottom: 50px;
-  background-color: #cccccc;
   @include border-radius(20px);
 
 
@@ -1051,12 +1074,16 @@ margin-left: 300px;
   font-size: 20px;
   line-height: 20px;
   padding:10px;
-  @include border-radius(20px 0 20px 0);
+  background: #97bf0d;
+  border-bottom: 4px solid #718e08;
+  @include border-radius(0 0 20px 20px);
   p{
     margin: 0;
   }
   a{
-    color: #333;
+    color: #ffffff;
+  }
+  a:hover{
     text-decoration: underline;
   }
 }

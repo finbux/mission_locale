@@ -3,7 +3,7 @@
    {{ parent() }} | Moins de 26 ans
 {% endblock %}
 {% block body %}
-
+{% set length_max = 25 %}
     <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
@@ -23,12 +23,16 @@
             </div>
 
             <div id="{{ categorie_emploi.class }}">
-                <h1>{{ categorie_emploi.nameCategory }}</h1>
-
+                {% if categorie_emploi.nameCategory|length > length_max %}
+                    <h1>{{ categorie_emploi.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+                {% else %}
+                    <h1>{{ categorie_emploi.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                {% endif %}
                 <img src="{{ asset('bundles/main/img/'~ categorie_emploi.fleche ) }}">
 
                 <div class="item_emploi">
-                    <span class="conseiller">Je rencontre un conseiller pour :</span>
                     <hr/>
                     <a href="{{ path('categorie_page', {'slug': categorie_emploi.slug }) }}">
 
@@ -42,12 +46,17 @@
             </div>
 
             <div id="{{ categorie_former.class }}">
-                <h1>{{ categorie_former.nameCategory }}</h1>
-
+                {% if categorie_former.nameCategory|length > length_max %}
+                    <h1>{{ categorie_former.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+                {% else %}
+                    <h1>{{ categorie_former.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                {% endif %}
                 <img src="{{ asset('bundles/main/img/'~ categorie_former.fleche ) }}">
 
                 <div class="item_faire">
-                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+
                     <hr/>
                     <a href="{{ path('categorie_page', {'slug': categorie_former.slug }) }}">
 
@@ -60,12 +69,16 @@
             </div>
 
             <div id="{{ categorie_faire.class }}">
-                <h1>{{ categorie_faire.nameCategory }}</h1>
-
+                {% if categorie_faire.nameCategory|length > length_max %}
+                    <h1>{{ categorie_faire.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+                {% else %}
+                    <h1>{{ categorie_faire.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                {% endif %}
                 <img src="{{ asset('bundles/main/img/'~ categorie_faire.fleche ) }}">
-
                 <div class="item_former">
-                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+
                     <hr/>
                     <a href="{{ path('categorie_page', {'slug': categorie_faire.slug }) }}">
 
@@ -77,12 +90,17 @@
                 </div>
             </div>
             <div id="{{ categorie_quotidien.class }}">
-                <h1>{{ categorie_quotidien.nameCategory }}</h1>
+                {% if categorie_quotidien.nameCategory|length > length_max %}
+                    <h1>{{ categorie_quotidien.nameCategory }}</h1>
+                    <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+                    {% else %}
+                    <h1>{{ categorie_quotidien.nameCategory }}</h1>
+                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+                {% endif %}
 
                 <img src="{{ asset('bundles/main/img/'~ categorie_quotidien.fleche ) }}">
-
                 <div class="item_quotidien">
-                    <span class="conseiller">Je rencontre un conseiller pour :</span>
+
 
                     <a href="{{ path('categorie_page', {'slug': categorie_quotidien.slug }) }}">
                         <hr/>
@@ -108,5 +126,4 @@
             $(".img_plus26").addClass("opacity");
         });
     </script>
-    -->
 {% endblock %}

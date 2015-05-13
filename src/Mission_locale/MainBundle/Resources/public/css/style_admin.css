@@ -233,7 +233,7 @@ table td {
   border-bottom: 2px solid silver;
 }
 /* line 207, ../sass/style_admin.scss */
-table td:nth-child(2):hover, table td:nth-child(3):hover {
+table td a:hover {
   color: #97bf0d;
   text-decoration: underline;
   cursor: pointer;
@@ -372,31 +372,38 @@ button:hover {
   cursor: pointer;
 }
 
-/* line 316, ../sass/style_admin.scss */
+/* line 317, ../sass/style_admin.scss */
+button[type="submit"] {
+  width: auto;
+  height: auto;
+  padding: 5px;
+}
+
+/* line 322, ../sass/style_admin.scss */
 .btn_moins26 {
   background: #ee7f00;
   border-bottom: 4px solid #8f4800;
 }
 
-/* line 320, ../sass/style_admin.scss */
+/* line 326, ../sass/style_admin.scss */
 .btn_employeur {
   background: #97bf0d;
   border-bottom: 4px solid #566907;
 }
 
-/* line 324, ../sass/style_admin.scss */
+/* line 330, ../sass/style_admin.scss */
 .btn_plus26 {
   background: #579ca1;
   border-bottom: 4px solid #294a4c;
 }
 
 /***** MODULES ******/
-/* line 329, ../sass/style_admin.scss */
+/* line 335, ../sass/style_admin.scss */
 #container_module {
   width: 80%;
   margin: 0 auto;
 }
-/* line 332, ../sass/style_admin.scss */
+/* line 338, ../sass/style_admin.scss */
 #container_module .block_module {
   width: 200px;
   height: 100px;
@@ -414,9 +421,19 @@ button:hover {
   -o-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 345, ../sass/style_admin.scss */
+/* line 351, ../sass/style_admin.scss */
 #container_module .block_module:hover {
   cursor: pointer;
+}
+
+/* line 355, ../sass/style_admin.scss */
+.form-filtrer {
+  float: right;
+}
+
+/* line 358, ../sass/style_admin.scss */
+.btn_ok {
+  display: inline;
 }
 
 /********************/

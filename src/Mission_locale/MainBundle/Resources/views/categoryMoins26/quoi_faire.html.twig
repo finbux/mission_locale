@@ -1,19 +1,8 @@
-{% extends "::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 {% block title %}
-    {{ parent() }} | je cherche un emploi
-{% endblock %}
-{% block name_page %}
-    <ul id="back-categorie">
-        <div id="block-contact">
-            <p>Contactez-nous pour prendre RDV au 03 22 50 04 50</p>
-        </div>
-        <a href="{{ path('categorie_page', {'slug': 'emploi'}) }}"><li class="li-emploi">Je cherche un emploi</li></a>
-        <a href="{{ path('categorie_page', {'slug': 'etre-former'}) }}"><li class="li-former">Je veux me former</li></a>
-        <a href="{{ path('categorie_page', {'slug': 'quotidien'}) }}"><li class="li-quotidien">Je recherche des infos pratiques</li></a>
-    </ul>
+    {{ parent() }} | Je ne sais pas quoi faire
 {% endblock %}
 {% block body %}
-
     <div id="wrapper-categorie">
         <div class="arianne">
             {% block arianne %}
@@ -21,7 +10,7 @@
             {% endblock %}
         </div>
         <div class="cb"></div>
-            <div id="block_faire">
+            <div class="block_faire_auto">
                 <h1>Je ne sais pas quoi faire</h1>
                 <img src="{{ asset('bundles/main/img/fleche_faire.png') }}">
                 <br/>
@@ -43,6 +32,7 @@
             <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>
     </div>
+    {% include "::footer.html.twig" %}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}

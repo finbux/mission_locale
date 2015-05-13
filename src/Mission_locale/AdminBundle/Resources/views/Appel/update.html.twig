@@ -1,0 +1,26 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les appels {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_appel') }}">Retrourner sur les appels</a> {% endblock %}
+{% block content %}
+    {{ form_start(form) }}
+    <div>
+        {{ form_label(form.avancement) }}
+        {{ form_widget(form.avancement) }}
+    </div>
+
+    {% if appel.prenom is null %}
+        <p>Demande faite le {{ appel.createdAt|date('d-m-Y') }} par "non renseigné"</p>
+    {% endif %}
+    {% if appel.prenom is not null %}
+        <p>Demande faite le {{ appel.createdAt|date('d-m-Y') }} par {{ appel.prenom }}</p>
+    {% endif %}
+    {{ form_label(form.commentaire) }}
+    <br/>
+    {{ form_widget(form.commentaire,{'attr': {'cols':'100','rows':'10'}}) }}
+<div>
+    {{ form_label(form.update) }}
+
+    {{ form_widget(form.update) }}
+     {{ form_end(form) }}
+</div>
+{% endblock %}

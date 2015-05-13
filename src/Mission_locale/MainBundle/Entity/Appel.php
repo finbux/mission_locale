@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Appel
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Entity\AppelRepository")
+ * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\AppelRepository")
  */
 class Appel
 {
@@ -34,13 +34,22 @@ class Appel
      *
      * @ORM\Column(name="telephone", type="string", length=14,)
      * @Assert\NotBlank(message="ce champ est obligatoire")
+     * @Assert\Type(type="numeric",message="Le numéro doit comporter que des chiffres")
+     * @Assert\Length(max=14,maxMessage="Le numéro doit faire au maximum {{ limit }} caractères")
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="avancement", type="string", length=100, nullable=true)
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
+     */
+    private $commentaire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avancement", type="string", length=100)
      */
     private $avancement;
 
@@ -48,12 +57,14 @@ class Appel
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime")
+     * @Assert\DateTime()
      */
     private $createdAt;
 
     public function __construct()
     {
         $this->createdAt    = new \DateTime();
+        $this->avancement = 'En attente';
     }
     /**
      * Get id
@@ -160,5 +171,28 @@ class Appel
     {
         return $this->createdAt;
     }
-}
 
+    /**
+     * Set commentaire
+     *
+     * @param string $commentaire
+     *
+     * @return Appel
+     */
+    public function setCommentaire($commentaire)
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get commentaire
+     *
+     * @return string
+     */
+    public function getCommentaire()
+    {
+        return $this->commentaire;
+    }
+}

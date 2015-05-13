@@ -1,22 +1,6 @@
-{% extends "::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 {% block title %}
     {{ parent() }} | je cherche un emploi
-{% endblock %}
-{% block name_page %}
-    <ul id="back-categorie">
-        <div id="block-contact">
-            <p>Contactez-nous pour prendre RDV au 03 22 50 04 50</p>
-        </div>
-        <a href="{{ path('categorie_page', {'slug': 'etre-former'}) }}">
-            <li class="li-former">Je veux me former</li>
-        </a>
-        <a href="{{ path('categorie_page', {'slug': 'quoi-faire'}) }}">
-            <li class="li-faire">Je ne sais pas quoi faire</li>
-        </a>
-        <a href="{{ path('categorie_page', {'slug': 'quotidien'}) }}">
-            <li class="li-quotidien">Je recherche des infos pratiques</li>
-        </a>
-    </ul>
 {% endblock %}
 {% block body %}
 
@@ -27,24 +11,19 @@
             {% endblock %}
         </div>
         <div class="cb"></div>
-            <div id="block_emploi">
+            <div class="block_emploi_auto">
                 <h1>Je cherche un emploi</h1>
                 <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}" />
                 <br/>
                     <span class="conseiller">Je rencontre un conseiller pour</span>
-                    {% for emploi in list_emploi %}
+                    {% for sous_item in list_emploi %}
                         <p class="item">
-                                {{ emploi.nomSousItem }}
+                                {{ sous_item.nomSousItem }}
                         </p>
-                        <input type="hidden" class="id_sous_item" value="{{ emploi.id }}"/>
+                        <input type="hidden" class="id_sous_item" value="{{ sous_item.id }}"/>
                         <hr/>
                     {% endfor %}
             </div>
-
-        <div id="first-right">
-            <h2>Sélectionner un item sur la gauche</h2>
-            <img src="{{ asset('bundles/main/img/arrow.png') }}" alt=""/>
-        </div>
         <div class="item_right border-emploi">
 
                 <p class="description">
@@ -54,8 +33,9 @@
                 <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>
     </div>
-
+    {% include "::footer.html.twig" %}
 {% endblock %}
+
 {% block javascripts %}
     {{ parent() }}
     <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
