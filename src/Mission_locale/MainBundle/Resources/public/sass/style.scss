@@ -598,7 +598,7 @@ body{
   }
   label{
     display: block;
-    width: 200px;
+    width: 296px;
     float: left;
     font-size: 25px;
   }
@@ -614,6 +614,10 @@ body{
     width: 300px;
     padding: 10px;
     margin: 0 auto;
+  }
+  .numero_label{
+    font-size: 15px;
+    font-style: italic;
   }
 }
 // BOUTON DE VALIDATION
@@ -713,6 +717,9 @@ margin-left: 300px;
   font-weight: bold;
   margin-top: 74px;
 }
+.cancel-top-margin{
+  margin-top: 20px;
+}
   // Les 4 blocs
 #block_emploi,#block_faire,#block_former,#block_quotidien{
   width: 250px;
@@ -761,24 +768,7 @@ margin-left: 300px;
     transition-delay:.1s;
   }
 }
-.block_emploi_auto, .block_former_auto, .block_faire_auto, .block_quotidien_auto{
-  width: 250px;
-  height: auto;
-  @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
-  @include border-bottom-radius(5px);
-  float: left;
-  margin: 10px;
-  margin-top: 20px;
-  text-align: center;
-  color: white;
-  font-size: 18px;
 
-  img{
-    width: 250px;
-    height: 100px;
-    margin-top: -25px;
-  }
-}
 #block_former:hover{
   .item_former{
     visibility:visible;
@@ -815,6 +805,9 @@ margin-left: 300px;
   margin-bottom: 50px;
   @include border-radius(20px);
 }
+.background_container{
+  background-image: url('../img/background.jpg');
+}
 .opacity{
   opacity: 0.5;
 }
@@ -835,6 +828,46 @@ margin-left: 300px;
     margin: 0;
     text-align: center;
   }
+}
+.bandeau_item{
+  width: 1252px;
+  height: 50px;
+  background-color: #F07D00;
+  position: relative;
+  margin-left: -26px;
+  line-height: 50px;
+  @include border-radius(20px 20px 0 0);
+
+  p{
+    font-size: 25px;
+    color: #FFFFFF;
+    margin: 0;
+    text-align: center;
+  }
+}
+.bandeau_item:before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top:49px;
+  right:-1px;
+  border-style: solid;
+  border-width: 26px 27px 0 0;
+  border-color: #9b5000 transparent transparent transparent;
+  z-index: 5;
+}
+.bandeau_item:after{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top:49px;
+  left:-1px;
+  border-style: solid;
+  border-width: 0 27px 26px 0;
+  border-color: transparent #9b5000 transparent transparent;
+  z-index: 5;
 }
 #bandeau_employeur{
   background-color: $vert_clair;
@@ -884,45 +917,111 @@ margin-left: 300px;
 }
 
 /*********************************************/
+.item{
+  padding: 10px;
+}
 
 .item_emploi,.item_faire,.item_quotidien,.item_former{
   visibility:hidden;
   opacity:0;
   transition:visibility 0s linear 0.1s,opacity 0.1s linear;
 }
-// CHANGEMENT DES COULEURS EN FONCTION DU BLOCK
-#block_emploi{
-  p:hover{
-    background-color: #759e1a;
+.block_emploi_auto, .block_former_auto, .block_faire_auto, .block_quotidien_auto{
+  width: 250px;
+  height: auto;
+  float: left;
+  margin: 0 10px 0 10px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  @include border-radius(0 0 20px 20px);
+
+  img{
+    width: 250px;
+    height: 100px;
+    margin-top: -25px;
   }
-  @include bordure_bas();
 }
 
+
+// CHANGEMENT DES COULEURS EN FONCTION DU BLOCK
+//Changement de couleur du bandeau
+.bandeau_bleu{
+  background: $bleu;
+}
+.bandeau_bleu:before{
+  border-color: #325A65 transparent transparent transparent;
+}
+.bandeau_bleu:after{
+  border-color: transparent #325A65 transparent transparent;
+}
+.bandeau_orange{
+  background: $orange;
+}
+.bandeau_orange:before{
+  border-color: #9B5000 transparent transparent transparent;
+}
+.bandeau_orange:after{
+  border-color: transparent #9B5000 transparent transparent;//
+}
+.bandeau_vert{
+  background: $vert_clair;
+}
+.bandeau_vert:before{
+  border-color: #718E08 transparent transparent transparent;
+}
+.bandeau_vert:after{
+  border-color: transparent #718E08 transparent transparent;//
+}
+.bandeau_rose{
+  background: $rose;
+}
+.bandeau_rose:before{
+  border-color: #652A2A transparent transparent transparent;
+}
+.bandeau_rose:after{
+  border-color: transparent #652A2A transparent transparent;//
+}
+.block_former_auto, .block_quotidien_auto, .block_faire_auto, .block_emploi_auto{
+  .item:hover:last-child{
+    @include border-radius(0 0 20px 20px);
+  }
+}
+#block_emploi, .block_emploi_auto{
+  @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
+  @include bordure_bas();
+  p:hover{
+    background-color: #759e1a;
+    cursor: pointer;
+  }
+}
 #block_former, .block_former_auto{
   @include background-image(linear-gradient(#579CA1 #579CA1, #6bbbc6));
   @include bordure_bas(#325A65);
   p:hover{
     background-color: #30a8a6;
+    cursor: pointer;
   }
 }
+
 
 #block_faire, .block_faire_auto{
   @include background-image(linear-gradient(#D40050 #D40050, #c14b72));
   @include bordure_bas(#652A2A);
+
   p:hover{
     background-color:#d14976;
   }
 }
+
 #block_quotidien, .block_quotidien_auto{
   @include background-image(linear-gradient(#EE7F00 #EE7F00, #f08f3d));
   @include bordure_bas(#652B1C);
+
   p:hover{
     background-color: #fca350;
   }
-  h1{
-    font-size: 25px;
-    margin: 0;
-  }
+
   z-index: 20;
 }
 //BANDE DES PERSONNAGES
@@ -932,40 +1031,29 @@ margin-left: 300px;
   margin: 0 auto;
 }
 
-/*
-** PAGE MOINS 26 n+2 ELEMENT A DROITE
-*/
+
 #wrapper-categorie{
   width: 1200px;
   height: 80vh;
-  margin: 0 auto;
+  margin: 20px auto;
   margin-bottom: 50px;
   @include border-radius(20px);
 
-
-  #first-right h2{
-    font-size: 2em;
-    color: #545657;
-  }
-  //AFFICHAGE DE LA FLECHE
-  #first-right{
-    width: 60%;
-    height: 30em;
-    float: right;
-    margin-right: 10em;
-    margin-top: 2em;
-    text-align: center
+  hr{
+    margin: 0;
   }
 }
+/*
+** PAGE MOINS 26 n+2 ELEMENT A DROITE
+*/
 .item_right{
-  display: none;
   position: relative;
+  color: black;
   width: 60%;
   height: 30em;
   float: left;
   background-color: #ffffff;
   margin: 2em 0 2em 5em;
-
   @include border-radius(10px);
   .logo_item{
     float:left;
@@ -1000,14 +1088,12 @@ margin-left: 300px;
 
 .border-emploi{
   border: 3px solid $vert_clair;
-  color: $vert_clair;
 }
 .border-faire{
   border: 3px solid $rose;
 }
 .border-former{
   border: 3px solid $bleu;
-  color: $bleu;
 }
 .border-quotidien{
   border: 3px solid $orange;
@@ -1074,9 +1160,10 @@ margin-left: 300px;
   font-size: 20px;
   line-height: 20px;
   padding:10px;
+  margin-top: 10px;
   background: #97bf0d;
   border-bottom: 4px solid #718e08;
-  @include border-radius(0 0 20px 20px);
+  @include border-radius(20px 20px 20px 20px);
   p{
     margin: 0;
   }

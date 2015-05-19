@@ -176,8 +176,21 @@
                 <h3>Me faire appeler par un conseiller</h3>
 
                 <div id="form-appel">
-                        {{ form(form) }}
-                    <p class="champs-requis" style="color: red">Les champs marqués d'une * sont obligatoires</p>
+                    {{ form_start(form) }}
+
+                    {{ form_label(form.prenom) }}
+                    {{ form_widget(form.prenom) }}
+
+                    {% block form_label %}
+                        <label for="">Ton téléphone <span class="numero_label">(Ex: 0123456789)</span></label>
+                        {{ form_widget(form.telephone) }}
+                    {% endblock %}
+
+
+                    {{ form_widget(form.Valider) }}
+
+                    {{ form_end(form) }}
+                    <p class="champs-requis" style="color: red">* Champ obligatoires</p>
                     <div class="cb"></div>
                 </div>
                 <div class="cross">

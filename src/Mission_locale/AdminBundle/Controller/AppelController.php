@@ -19,11 +19,9 @@ class AppelController extends Controller
                     'Message laissé' => 'Message laissé',
                     'RDV fixé' => 'RDV fixé',
                     'Renseigné' => 'Renseigné',
-                    'tout' => 'Tous'
+                    'tout' => 'Tout'
                 ),
-                    'preferred_choices' => array('tout'))
-                ,array('attr' => array('class' => 'btn_ok')))
-
+                    'preferred_choices' => array('tout')))
             ->add('ok','submit',array('attr' => array('class' => 'btn_ok')))
             ->setAction($this->generateUrl('admin_appel'))
             ->getForm();
@@ -65,9 +63,11 @@ class AppelController extends Controller
         $form = $this->createForm(new AppelType(), $appel);
         if($request->isMethod('POST')){
             $form->submit($request);
+
             if($form->isValid())
             {
                 $appelEdit = $form->getData();
+
                 $em->flush();
                 return $this->redirect($this->generateUrl('admin_appel'));
             }

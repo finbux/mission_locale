@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-
 class Moins26ansController extends Controller
 {
     public function indexAction()
@@ -51,43 +50,40 @@ class Moins26ansController extends Controller
             )
         );
     }
-    public function categorieAction($slug)
+
+    public function categorieAction($slug,$id)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $sous_item  = $em->getRepository('MainBundle:SousItem');
-
-        $emploi_sous_item = $sous_item->findBy(
-            array('category' => 25 )
-        );
-
-        $former_sous_item = $sous_item->findBy(
-            array('category' => 26)
-        );
-
-        $faire_sous_item = $sous_item->findBy(
-            array('category' => 27)
-        );
-
-        $quotidien_sous_item = $sous_item->findBy(
-            array('category' => 28)
-        );
+        $sous_item = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => $id));
+        $Item = $em->getRepository('MainBundle:Category')->find($id);
+        //Si on ne trouve pas les sous items on lève une execption
+        if(!$sous_item || !$Item)
+        {
+            throw $this->createNotFoundException("Cette page n'éxiste pas ");
+        }
+        $nom_item = $Item->getNameCategory();
 
         //Selon le slug qu'on récupère on affiche la liste correspondante
         switch($slug)
         {
             case "emploi":
-                return $this->render('MainBundle:categoryMoins26:emploi.html.twig',array('list_emploi' => $emploi_sous_item));
+                return $this->render('MainBundle:categoryMoins26:emploi.html.twig',
+                    array('sous_items' => $sous_item, 'nom_item' => $nom_item));
                 break;
             case "etre-former":
-                return $this->render('MainBundle:categoryMoins26:etre_former.html.twig', array('list_former' => $former_sous_item));
+                return $this->render('MainBundle:categoryMoins26:etre_former.html.twig',
+                    array('sous_items' => $sous_item,'nom_item' => $nom_item));
                 break;
             case "quoi-faire":
-                return $this->render('MainBundle:categoryMoins26:quoi_faire.html.twig',array('list_faire' => $faire_sous_item));
+                return $this->render('MainBundle:categoryMoins26:quoi_faire.html.twig',
+                    array('sous_items' => $sous_item,'nom_item' => $nom_item));
                 break;
             case "quotidien":
-                return $this->render('MainBundle:categoryMoins26:quotidien.html.twig', array('list_quotidien' => $quotidien_sous_item));
+                return $this->render('MainBundle:categoryMoins26:quotidien.html.twig',
+                    array('sous_items' => $sous_item,'nom_item' => $nom_item));
                 break;
+            default: throw $this->createNotFoundException("Cette page n'éxiste pas ");
+
         }
     }
 

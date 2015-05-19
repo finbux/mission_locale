@@ -17,7 +17,7 @@ class DefaultController extends Controller
         $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
         $formBuilder
             ->add('prenom', 'text', array('required' => false, 'label' => 'Ton prénom'))
-            ->add('telephone','text',array('required'=> false, 'max_length' => 14, 'label'=> 'Ton numéro *'))
+            ->add('telephone','text',array('max_length' => 14))
             //->add('utilisateurs','entity', array('class' => 'Mission_locale\UsersBundle\Entity\Users' ))
             ->add('Valider','submit',array('attr' => array('class' => 'btn-submit')));
 

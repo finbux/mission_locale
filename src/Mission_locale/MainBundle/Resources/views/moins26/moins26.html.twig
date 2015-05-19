@@ -7,7 +7,7 @@
     <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
-                {{ parent()  }}
+                <p>{{ parent() }} / Moins de 26 ans</p>
             {% endblock %}
 
         </div>
@@ -15,7 +15,7 @@
             <div class="cb"></div>
 
             <div id="bandeau_categorie">
-                <p>4 Catégories pour mieux se trouver</p>
+                <p></p>
                 <div id="block_appel">
                     <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
                     <p>Contactez-nous </p>
@@ -34,11 +34,12 @@
 
                 <div class="item_emploi">
                     <hr/>
-                    <a href="{{ path('categorie_page', {'slug': categorie_emploi.slug }) }}">
+                    <a href="{{ path('categorie_page', {'id': categorie_emploi.id , 'slug': categorie_emploi.slug }) }}">
 
                         {% for sous_item in list_emploi_sousItem %}
 
                           <p class="item">{{ sous_item.nomSousItem }}</p>
+                            <input type="hidden" value="{{ sous_item.id }}"/>
                             <hr/>
                         {% endfor %}
                     </a>
@@ -58,7 +59,7 @@
                 <div class="item_faire">
 
                     <hr/>
-                    <a href="{{ path('categorie_page', {'slug': categorie_former.slug }) }}">
+                    <a href="{{ path('categorie_page', {'id': categorie_former.id , 'slug': categorie_former.slug }) }}">
 
                         {% for sous_item in list_former_sousItem %}
                         <p class="item">{{ sous_item.nomSousItem }}</p>
@@ -80,7 +81,7 @@
                 <div class="item_former">
 
                     <hr/>
-                    <a href="{{ path('categorie_page', {'slug': categorie_faire.slug }) }}">
+                    <a href="{{ path('categorie_page', {'id': categorie_faire.id , 'slug': categorie_faire.slug }) }}">
 
                         {% for sous_item in list_faire_sousItem %}
                         <p class="item"> {{ sous_item.nomSousItem }}</p>
@@ -102,7 +103,7 @@
                 <div class="item_quotidien">
 
 
-                    <a href="{{ path('categorie_page', {'slug': categorie_quotidien.slug }) }}">
+                    <a href="{{ path('categorie_page', {'id': categorie_quotidien.id , 'slug': categorie_quotidien.slug }) }}">
                         <hr/>
                         {% for sous_item in list_quotidien_sousItem %}
                         <p class="item">{{ sous_item.nomSousItem }}</p>

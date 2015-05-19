@@ -1,47 +1,51 @@
 {% extends "::base.html.twig" %}
 {% block title %}
-    {{ parent() }} | Je veux me former
+    {{ parent() }} | {{ nom_item }}
 {% endblock %}
 {% block body %}
-
-    <div id="wrapper-categorie">
+    <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
-                <p>{{ parent() }} -> Je veux me former</p>
+                <p>{{ parent() }} / <a href=" {{(app.request.headers.get('referer'))}}">Moins 26 ans</a> /  {{ nom_item }}</p>
             {% endblock %}
         </div>
-        <div class="cb"></div>
-            <div class="block_former_auto">
-                <h1>Je veux me former</h1>
-                <img src="{{ asset('bundles/main/img/fleche_former.png') }}">
-                <br/>
-                <span class="conseiller">Je rencontre un conseiller pour</span>
-                    <p class="item">Connaitre mes possibilités de formations</p>
-                    <hr/>
-                    <p class="item">Me guider sur le choix d'une formation</p>
-                    <hr/>
-                    <p class="item">Préparer mon entrée en formation</p>
-                    <hr/>
-                    <p class="item">M'accompagner pendant ma former</p>
+        <div id="wrapper-categorie" class="background_container">
+            <div class="bandeau_item bandeau_bleu">
+                <p></p>
+                <div id="block_appel">
+                    <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                    <p>Contactez-nous </p>
+                </div>
             </div>
+            <div class="cb"></div>
+                <div class="block_former_auto">
+                    <h1> {{ nom_item }}</h1>
+                    <span class="conseiller cancel-top-margin">Je rencontre un conseiller pour</span>
+                    <img src="{{ asset('bundles/main/img/fleche_former.png') }}">
+                    <br/>
 
-        <div id="first-right">
-            <h2>Sélectionner un item sur la gauche</h2>
-            <img src="{{ asset('bundles/main/img/arrow.png') }}" alt=""/>
-        </div>
+                    {% for sous_item in sous_items %}
+                        <hr/>
+                        <input type="hidden" class="id_sous_item" value="{{ sous_item.id }}"/>
+                        <p class="item">{{ sous_item.nomSousItem }}</p>
 
-        <div class="item_right border-emploi">
+                    {% endfor  %}
+                </div>
+            <div class="item_right border-former">
 
-            <p class="description">
+                <p class="description">
 
-            </p>
+                </p>
 
-            <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
+                <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
+            </div>
         </div>
     </div>
     {% include "::footer.html.twig" %}
 {% endblock %}
 {% block javascripts %}
 {{ parent() }}
-
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
 {% endblock %}

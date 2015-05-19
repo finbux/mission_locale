@@ -36,6 +36,7 @@ class Appel
      * @Assert\NotBlank(message="ce champ est obligatoire")
      * @Assert\Type(type="numeric",message="Le numéro doit comporter que des chiffres")
      * @Assert\Length(max=14,maxMessage="Le numéro doit faire au maximum {{ limit }} caractères")
+     * @Assert\Length(min=10,minMessage="Le numéro doit faire au moins  {{ limit }} caractères")
      */
     private $telephone;
 

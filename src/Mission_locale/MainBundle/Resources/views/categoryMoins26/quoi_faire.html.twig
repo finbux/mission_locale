@@ -1,29 +1,37 @@
 {% extends "::base.html.twig" %}
 {% block title %}
-    {{ parent() }} | Je ne sais pas quoi faire
+    {{ parent() }} | {{ nom_item }}
 {% endblock %}
 {% block body %}
-    <div id="wrapper-categorie">
-        <div class="arianne">
-            {% block arianne %}
-                <p>{{ parent() }} -> Je ne sais pas quoi faire</p>
-            {% endblock %}
+<div id="wrapper-item">
+    <div class="arianne">
+        {% block arianne %}
+            <p>{{ parent() }} / <a href=" {{(app.request.headers.get('referer'))}}">Moins 26 ans</a> /  {{ nom_item }}</p>
+        {% endblock %}
+    </div>
+    <div id="wrapper-categorie" class="background_container">
+        <div class="bandeau_item bandeau_rose">
+            <p></p>
+            <div id="block_appel">
+                <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                <p>Contactez-nous </p>
+            </div>
         </div>
         <div class="cb"></div>
             <div class="block_faire_auto">
-                <h1>Je ne sais pas quoi faire</h1>
+                <h1> {{ nom_item }}</h1>
+                <span class="conseiller cancel-top-margin">Je rencontre un conseiller pour</span>
                 <img src="{{ asset('bundles/main/img/fleche_faire.png') }}">
                 <br/>
-                <span class="conseiller">Je rencontre un conseiller pour</span>
-                    <p class="item">Faire le point sur ma situation</p>
+                {% for sous_item in sous_items %}
                     <hr/>
-                    <p class="item">Définir mon projet professionnel</p>
+                    <input type="hidden" class="id_sous_item" value="{{ sous_item.id }}"/>
+                    <p class="item">{{ sous_item.nomSousItem }}</p>
+
+                {% endfor %}
             </div>
-        <div id="first-right">
-            <h2>Sélectionner un item sur la gauche</h2>
-            <img src="{{ asset('bundles/main/img/arrow.png') }}" alt=""/>
-        </div>
-        <div class="item_right border-emploi">
+
+        <div class="item_right border-faire">
 
             <p class="description">
 
@@ -32,8 +40,12 @@
             <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>
     </div>
+ </div>
     {% include "::footer.html.twig" %}
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
 {% endblock %}

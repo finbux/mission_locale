@@ -1,7 +1,6 @@
 $(function(){
-    $(".item").each(function(){
-        $(this).mouseover(function(){
-            var value = $(this).next(".id_sous_item").val();
+        $('.item').click(function(){
+            var value = $(this).prev(".id_sous_item").val();
             var data = {
                 id_item: value
             };
@@ -12,12 +11,12 @@ $(function(){
                 type: 'get',
                 data: data,
                 beforeSend: function(){
-                    console.log('Ca charge');
+                   // console.log(value)
                 },
                 success: function(data){
+                    $(".item_right").show();
                     $(".item_right .description").html(data.description);
                 }
             });
         });
-    });
 });

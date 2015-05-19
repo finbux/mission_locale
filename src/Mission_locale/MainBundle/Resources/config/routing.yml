@@ -14,8 +14,10 @@ antennes_page:
     path: /antennes
     defaults: { _controller: MainBundle:Default:antennes}
 categorie_page:
-    path: /categorie/{slug}
+    path: /categorie/{id}/{slug}
     defaults: { _controller: MainBundle:Moins26ans:categorie}
+    requirements:
+            id: \d+
 sous_item_page:
     path: /description/{id}
     defaults: { _controller: MainBundle:Moins26ans:getDescription}

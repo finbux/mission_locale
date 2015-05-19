@@ -291,19 +291,24 @@ ul {
   padding: 10px 0 10px 0;
   font-size: 20px;
 }
-
 /* line 256, ../sass/style_admin.scss */
+.item_menu img {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* line 261, ../sass/style_admin.scss */
 .item_menu:hover {
   background: #292A2F;
   cursor: pointer;
 }
 
-/* line 260, ../sass/style_admin.scss */
+/* line 265, ../sass/style_admin.scss */
 ul li:first-child {
   border-top: 1px solid white;
 }
 
-/* line 263, ../sass/style_admin.scss */
+/* line 268, ../sass/style_admin.scss */
 #informations_site {
   width: 80%;
   height: 150px;
@@ -313,14 +318,14 @@ ul li:first-child {
   border-bottom: 4px solid #8d8f92;
 }
 
-/* line 272, ../sass/style_admin.scss */
+/* line 277, ../sass/style_admin.scss */
 #mid-wrapper {
   width: 80%;
   height: 100px;
   margin: 0 auto;
 }
 
-/* line 277, ../sass/style_admin.scss */
+/* line 282, ../sass/style_admin.scss */
 #user_infos {
   width: 40%;
   min-height: 100px;
@@ -331,7 +336,7 @@ ul li:first-child {
   border-bottom: 4px solid #8d8f92;
 }
 
-/* line 286, ../sass/style_admin.scss */
+/* line 291, ../sass/style_admin.scss */
 #systeme {
   width: 40%;
   height: 100px;
@@ -341,13 +346,13 @@ ul li:first-child {
   border-bottom: 4px solid #8d8f92;
 }
 
-/* line 294, ../sass/style_admin.scss */
+/* line 299, ../sass/style_admin.scss */
 #container_btn {
   width: 608px;
   margin: 3em auto;
 }
 
-/* line 299, ../sass/style_admin.scss */
+/* line 304, ../sass/style_admin.scss */
 button {
   width: 200px;
   height: 100px;
@@ -362,48 +367,48 @@ button {
   -o-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 309, ../sass/style_admin.scss */
+/* line 314, ../sass/style_admin.scss */
 button a {
   color: white;
 }
 
-/* line 313, ../sass/style_admin.scss */
+/* line 318, ../sass/style_admin.scss */
 button:hover {
   cursor: pointer;
 }
 
-/* line 317, ../sass/style_admin.scss */
+/* line 322, ../sass/style_admin.scss */
 button[type="submit"] {
   width: auto;
   height: auto;
   padding: 5px;
 }
 
-/* line 322, ../sass/style_admin.scss */
+/* line 327, ../sass/style_admin.scss */
 .btn_moins26 {
   background: #ee7f00;
   border-bottom: 4px solid #8f4800;
 }
 
-/* line 326, ../sass/style_admin.scss */
+/* line 331, ../sass/style_admin.scss */
 .btn_employeur {
   background: #97bf0d;
   border-bottom: 4px solid #566907;
 }
 
-/* line 330, ../sass/style_admin.scss */
+/* line 335, ../sass/style_admin.scss */
 .btn_plus26 {
   background: #579ca1;
   border-bottom: 4px solid #294a4c;
 }
 
 /***** MODULES ******/
-/* line 335, ../sass/style_admin.scss */
+/* line 340, ../sass/style_admin.scss */
 #container_module {
   width: 80%;
   margin: 0 auto;
 }
-/* line 338, ../sass/style_admin.scss */
+/* line 343, ../sass/style_admin.scss */
 #container_module .block_module {
   width: 200px;
   height: 100px;
@@ -421,17 +426,17 @@ button[type="submit"] {
   -o-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 351, ../sass/style_admin.scss */
+/* line 356, ../sass/style_admin.scss */
 #container_module .block_module:hover {
   cursor: pointer;
 }
 
-/* line 355, ../sass/style_admin.scss */
+/* line 360, ../sass/style_admin.scss */
 .form-filtrer {
   float: right;
 }
 
-/* line 358, ../sass/style_admin.scss */
+/* line 363, ../sass/style_admin.scss */
 .btn_ok {
   display: inline;
 }

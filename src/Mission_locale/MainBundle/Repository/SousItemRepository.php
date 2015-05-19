@@ -10,4 +10,14 @@ namespace Mission_locale\MainBundle\Repository;
  */
 class SousItemRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getSousItem($slug)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->select('u')
+            ->from('MainBundle:Category', 'c')
+            ->where('c.slug = :slug')
+            ->setParameter('slug',$slug);
+
+        return $qb->getQuery()->getResult();
+    }
 }

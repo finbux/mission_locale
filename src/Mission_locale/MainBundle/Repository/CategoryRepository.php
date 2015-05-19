@@ -10,4 +10,5 @@ namespace Mission_locale\MainBundle\Repository;
  */
 class CategoryRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
