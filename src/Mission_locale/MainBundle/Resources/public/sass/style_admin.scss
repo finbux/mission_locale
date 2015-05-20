@@ -297,42 +297,38 @@ ul li:first-child{
   @include bordure_bas(#8d8f92);
 }
 #container_btn{
-  width: 608px;
+  width: 499px;
 
   margin: 3em auto;
 }
-button{
-  width: 200px;
-  height: 100px;
-  padding: 5px;
-  font-size: 22px;
-  color: white;
-  text-align: center;
-  border: none;
-  @include border-radius(20px);
 
-  a{
-    color: white;
-  }
-}
-button:hover{
-  cursor: pointer;
-}
-button[type="submit"]
+input[type="submit"], button
 {
   width: auto;
   height: auto;
   padding: 5px;
+  background: $vert_clair;
+  @include border-radius(5px);
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  border: none;
+}
+input[type="submit"]:hover, button:hover{
+  cursor: pointer;
 }
 .btn_moins26{
+  padding: 10px;
   background: $orange;
   @include bordure_bas(#8F4800);
 }
 .btn_employeur{
+  padding: 10px;
 background: $vert_clair;
   @include bordure_bas(#566907);
 }
 .btn_plus26{
+  padding: 10px;
   background: $bleu;
   @include bordure_bas(#294A4C);
 }

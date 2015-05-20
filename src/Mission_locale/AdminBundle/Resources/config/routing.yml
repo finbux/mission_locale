@@ -7,6 +7,14 @@ admin_categorie:
 admin_modules:
     path: /modules
     defaults: { _controller: AdminBundle:Admin:module }
+admin_moins26:
+    path:     /moins26
+    defaults: { _controller: AdminBundle:Moins26:index }
+admin_moins26_update:
+    path: /moins26/{id}/update
+    defaults: { _controller: AdminBundle:Moins26:update }
+
+# ROUTE MODULE APPEL
 admin_appel:
     path: /modules/appel
     defaults: { _controller: AdminBundle:Appel:show }
@@ -20,11 +28,28 @@ appel_delete:
     defaults: { _controller: AdminBundle:Appel:delete }
     requirements:
         id: \d+
-admin_moins26:
-    path:     /moins26
-    defaults: { _controller: AdminBundle:Admin:moins26 }
+# FIN ROUTE APPEL
+
+# ROUTE SOUS ITEM
 admin_sous_item:
     path: /moins26/sous_item/{id}
     defaults: { _controller: AdminBundle:AdminSousItem:index }
     requirements:
         id: \d+
+sous_item_new:
+    path: /moins26/sous_item/new
+    defaults: { _controller: AdminBundle:AdminSousItem:new }
+
+sous_item_update:
+    path: /moins26/sous_item/{id}/update
+    defaults: { _controller: AdminBundle:AdminSousItem:update }
+    requirements:
+        id: \d+
+
+sous_item_delete:
+    path: /moins26/sous_item/{id}/delete
+    defaults: { _controller: AdminBundle:AdminSousItem:delete }
+    requirements:
+        id: \d+
+
+# FIN ROUTE SOUS ITEM

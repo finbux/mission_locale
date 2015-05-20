@@ -26,6 +26,7 @@ class Appel
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=45,nullable=true)
+     * @Assert\Regex("/\D/",message="Le prenom n'est pas valide")
      */
     private $prenom;
 

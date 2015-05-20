@@ -74,15 +74,6 @@ class AppelController extends Controller
         }
         return $this->render('AdminBundle:Appel:update.html.twig',array('appel' => $appel, 'form' => $form->createView()));
     }
-    public function editAction()
-    {
-
-    }
-
-    public function filtrerAction($request,$em,$form)
-    {
-
-    }
 
     public function deleteAction($id)
     {

@@ -33,7 +33,7 @@
                 <td>{{ appel.avancement }}</td>
                 <td>
                     <a href="{{ path('appel_update', { 'id': appel.id}) }}">Traiter l'appel</a>
-                    <a href="{{ path('appel_delete', { 'id': appel.id}) }}">Supprimer</a>
+                    <a href="{{ path('appel_delete', { 'id': appel.id}) }}" onclick="return confirm('Supprimer cet appel ?')">Supprimer</a>
                 </td>
             </tr>
         {% endfor %}

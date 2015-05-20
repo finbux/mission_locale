@@ -2,6 +2,9 @@
 {% block title_admin %}Gérer les sous items {% endblock %}
 {% block arianne %} {{ parent() }} -> sous item {% endblock %}
 {% block content %}
+    <a href="{{ path('sous_item_new') }}">
+        <button class="add_element">Ajouter un sous item</button>
+    </a>
     <table>
         <tr>
             <th>Sous item</th>
@@ -9,9 +12,9 @@
         </tr>
     {% for sous_item in sous_items %}
             <tr>
-
                 <td class="data-item">{{ sous_item.nomSousItem }}</td>
-                <td>Modifier - Suprrimer</td>
+                <td><a href="{{ path('sous_item_update',{ id: sous_item.id}) }}">Modifier</a>
+                    - <a href="{{ path('sous_item_delete',{ id: sous_item.id}) }}" onclick="return confirm('Supprimer le sous item ?')">Supprimer</a></td>
             </tr>
         {% endfor %}
     </table>

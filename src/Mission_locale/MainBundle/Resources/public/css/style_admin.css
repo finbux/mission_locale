@@ -348,67 +348,60 @@ ul li:first-child {
 
 /* line 299, ../sass/style_admin.scss */
 #container_btn {
-  width: 608px;
+  width: 499px;
   margin: 3em auto;
 }
 
-/* line 304, ../sass/style_admin.scss */
-button {
-  width: 200px;
-  height: 100px;
+/* line 306, ../sass/style_admin.scss */
+input[type="submit"], button {
+  width: auto;
+  height: auto;
   padding: 5px;
+  background: #97bf0d;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
   font-size: 22px;
   color: white;
   text-align: center;
   border: none;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
-  border-radius: 20px;
-}
-/* line 314, ../sass/style_admin.scss */
-button a {
-  color: white;
 }
 
-/* line 318, ../sass/style_admin.scss */
-button:hover {
+/* line 317, ../sass/style_admin.scss */
+input[type="submit"]:hover, button:hover {
   cursor: pointer;
 }
 
-/* line 322, ../sass/style_admin.scss */
-button[type="submit"] {
-  width: auto;
-  height: auto;
-  padding: 5px;
-}
-
-/* line 327, ../sass/style_admin.scss */
+/* line 320, ../sass/style_admin.scss */
 .btn_moins26 {
+  padding: 10px;
   background: #ee7f00;
   border-bottom: 4px solid #8f4800;
 }
 
-/* line 331, ../sass/style_admin.scss */
+/* line 325, ../sass/style_admin.scss */
 .btn_employeur {
+  padding: 10px;
   background: #97bf0d;
   border-bottom: 4px solid #566907;
 }
 
-/* line 335, ../sass/style_admin.scss */
+/* line 330, ../sass/style_admin.scss */
 .btn_plus26 {
+  padding: 10px;
   background: #579ca1;
   border-bottom: 4px solid #294a4c;
 }
 
 /***** MODULES ******/
-/* line 340, ../sass/style_admin.scss */
+/* line 336, ../sass/style_admin.scss */
 #container_module {
   width: 80%;
   margin: 0 auto;
 }
-/* line 343, ../sass/style_admin.scss */
+/* line 339, ../sass/style_admin.scss */
 #container_module .block_module {
   width: 200px;
   height: 100px;
@@ -426,17 +419,17 @@ button[type="submit"] {
   -o-border-radius: 20px;
   border-radius: 20px;
 }
-/* line 356, ../sass/style_admin.scss */
+/* line 352, ../sass/style_admin.scss */
 #container_module .block_module:hover {
   cursor: pointer;
 }
 
-/* line 360, ../sass/style_admin.scss */
+/* line 356, ../sass/style_admin.scss */
 .form-filtrer {
   float: right;
 }
 
-/* line 363, ../sass/style_admin.scss */
+/* line 359, ../sass/style_admin.scss */
 .btn_ok {
   display: inline;
 }

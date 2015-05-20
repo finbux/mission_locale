@@ -180,11 +180,13 @@
 
                     {{ form_label(form.prenom) }}
                     {{ form_widget(form.prenom) }}
+                    {{ form_errors(form.prenom) }}
 
                     {% block form_label %}
                         <label for="">Ton téléphone <span class="numero_label">(Ex: 0123456789)</span></label>
                         {{ form_widget(form.telephone) }}
                     {% endblock %}
+                    {{ form_errors(form.telephone) }}
 
 
                     {{ form_widget(form.Valider) }}
