@@ -34,10 +34,12 @@
                 {% endfor  %}
             </div>
         <div class="item_right border-emploi">
-
-                <p class="description">
-                    <!-- On affiche ici l'item selectionné -->
-                </p>
+                <div class="name_sous_item">
+                    {{ sous_item_choisis.nomSousItem|raw }}
+                </div>
+                <div class="description">
+                    {{ sous_item_choisis.description|raw }}
+                </div>
 
                 <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>

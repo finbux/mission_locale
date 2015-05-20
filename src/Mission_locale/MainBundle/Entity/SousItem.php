@@ -37,6 +37,13 @@ class SousItem
     /**
      * @var string
      *
+     * @ORM\Column(name="slug", type="string", length=255)
+     */
+    private $slug;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
@@ -122,5 +129,29 @@ class SousItem
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return SousItem
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

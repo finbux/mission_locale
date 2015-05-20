@@ -1,5 +1,6 @@
 $(function(){
         $('.item').click(function(){
+
             var value = $(this).prev(".id_sous_item").val();
             var data = {
                 id_item: value
@@ -14,7 +15,11 @@ $(function(){
                    // console.log(value)
                 },
                 success: function(data){
+                    $(".item_right .description").empty();
+                    $(".item_right .name_sous_item").empty();
+
                     $(".item_right").show();
+                    $(".item_right .name_sous_item").html(data.name_sous_item);
                     $(".item_right .description").html(data.description);
                 }
             });

@@ -2,7 +2,7 @@ main_homepage:
     path:     /
     defaults: { _controller: MainBundle:Default:index }
 moins26_page:
-    path: /moins26ans
+    path: /moins-26-ans
     defaults: { _controller: MainBundle:Moins26ans:index}
 employeur_page:
     path: /employeur
@@ -14,9 +14,10 @@ antennes_page:
     path: /antennes
     defaults: { _controller: MainBundle:Default:antennes}
 categorie_page:
-    path: /categorie/{id}/{slug}
+    path: /{slug}/{slug_sous_item}-{id}
     defaults: { _controller: MainBundle:Moins26ans:categorie}
     requirements:
+            slug_sous_item: "[a-zA-Z1-9\-_\/]+"
             id: \d+
 sous_item_page:
     path: /description/{id}
