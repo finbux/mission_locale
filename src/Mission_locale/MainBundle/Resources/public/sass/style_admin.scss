@@ -69,7 +69,7 @@ h1,h2,h3,h4,h5,h6{
   padding-bottom: 50px;
   margin-left: 400px;
   @include border-radius(5px);
- @include bordure_bas();
+  @include bordure_bas();
 
 }
 #wrapper-home{
@@ -80,7 +80,7 @@ h1,h2,h3,h4,h5,h6{
   background: #ffffff;
   margin-top: 100px;
   @include border-radius(5px);
-  border: 1px solid #8D8F92;
+  @include bordure_bas();
 }
 #wrapper-category{
   width: 384px;

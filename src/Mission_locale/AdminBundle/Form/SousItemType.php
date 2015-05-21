@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AppelType extends AbstractType
+class SousItemType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,14 +15,9 @@ class AppelType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('commentaire','textarea',array('label' => 'Commentaire : '))
-            ->add('avancement','choice',
-                array('choices' => array(
-                    'A contacter' => 'A contacter',
-                    'Message laissé' => 'Message laissé',
-                    'RDV fixé' => 'RDV fixé',
-                    'Renseigné' => 'Renseigné',)))
-            ->add('update','submit',array('label' => 'mettre à jour'),array('attr' => array('class' => 'btn_ok')))
+            ->add('nomSousItem','text',array('label' => 'Nom du sous item'))
+            ->add('description','textarea',array('label' => 'Ajouter la description du sous item'))
+            ->add('ajouter','submit', array('label' => 'Ajouter'))
         ;
     }
     
@@ -32,7 +27,7 @@ class AppelType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Mission_locale\MainBundle\Entity\Appel'
+            'data_class' => 'Mission_locale\MainBundle\Entity\SousItem'
         ));
     }
 
@@ -41,6 +36,6 @@ class AppelType extends AbstractType
      */
     public function getName()
     {
-        return 'mission_locale_adminbundle_appel';
+        return 'mission_locale_adminbundle_sousitem';
     }
 }

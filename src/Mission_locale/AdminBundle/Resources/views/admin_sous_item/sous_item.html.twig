@@ -2,7 +2,7 @@
 {% block title_admin %}Gérer les sous items {% endblock %}
 {% block arianne %} {{ parent() }} -> sous item {% endblock %}
 {% block content %}
-    <a href="{{ path('sous_item_new') }}">
+    <a href="{{ path('sous_item_new',{ id: app.request.get('id')}) }}">
         <button class="add_element">Ajouter un sous item</button>
     </a>
     <table>

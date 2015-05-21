@@ -73,7 +73,7 @@ h1, h2, h3, h4, h5, h6 {
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  border: 1px solid #8D8F92;
+  border-bottom: 4px solid #718e08;
 }
 
 /* line 85, ../sass/style_admin.scss */

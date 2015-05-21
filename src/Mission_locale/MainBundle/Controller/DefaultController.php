@@ -23,11 +23,9 @@ class DefaultController extends Controller
 
         $form = $formBuilder->getForm();
 
-        $form->handleRequest($request);
-
-        if($form->isValid())
+        if( $form->handleRequest($request)->isValid())
         {
-          $em = $this->getDoctrine()->getManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($appel);
             $em->flush();
             $this->get('session')->getFlashBag()->add('info', 'Votre demande à été prise en compte');

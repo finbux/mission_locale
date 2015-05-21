@@ -37,8 +37,10 @@ admin_sous_item:
     requirements:
         id: \d+
 sous_item_new:
-    path: /moins26/sous_item/new
+    path: /moins26/sous_item/{id}/new
     defaults: { _controller: AdminBundle:AdminSousItem:new }
+    requirements:
+        id: \d+
 
 sous_item_update:
     path: /moins26/sous_item/{id}/update
