@@ -5,6 +5,7 @@ composer.phar
 /web/bundles/
 /app/cache/
 /app/logs/
+/vendor
 
 
 
