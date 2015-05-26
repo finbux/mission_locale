@@ -2,10 +2,6 @@
 {% block body %}
     <div id="wrapper-admin">
         <div class="header">{% block title_admin %}{% endblock %}</div>
-
-        {% block arianne %}
-            {{ parent() }}
-        {% endblock %}
         {% for type, messages in app.session.flashbag.all() %}
             {% for message in messages %}
                 <div class="flash-{{ type }}">

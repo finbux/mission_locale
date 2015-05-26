@@ -2,6 +2,8 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+white_october_breadcrumbs:
+    separator: ->
 framework:
     #esi:             ~
     translator:      { fallback: "%locale%" }
@@ -28,6 +30,7 @@ framework:
     translator:      { fallback: %locale% }
     default_locale: %locale%
 
+
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
@@ -37,6 +40,8 @@ fos_user:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+
+
 
 # Assetic Configuration
 assetic:
@@ -70,7 +75,38 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
+        entity_managers:
+                    default:
+                        filters:
+                            softdeleteable:
+                                class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                                enabled: true
+                        auto_mapping: true
+                        mappings:
+                            gedmo_translatable:
+                                type: annotation
+                                prefix: Gedmo\Translatable\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                                alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_translator:
+                                type: annotation
+                                prefix: Gedmo\Translator\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translator/Entity"
+                                alias: GedmoTranslator # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_loggable:
+                                type: annotation
+                                prefix: Gedmo\Loggable\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Loggable/Entity"
+                                alias: GedmoLoggable # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
+                            gedmo_tree:
+                                type: annotation
+                                prefix: Gedmo\Tree\Entity
+                                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                                alias: GedmoTree # this one is optional and will default to the name set for the mapping
+                                is_bundle: false
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -79,3 +115,4 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+

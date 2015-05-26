@@ -1,16 +1,11 @@
-{% extends"::layout.html.twig" %}
-    {% block title %}
+{% extends "::base.html.twig" %}
+{% block title %}
     {{ parent() }} | Les antennes
-    {% endblock %}
-    {% block name_page %}
-        <div id="title_header">
-            <h1>La mission locale proche de chez vous  <img src="{{ asset('bundles/main/img/marker.png') }}" alt=""/></h1>
-
-        </div>
-    {% endblock %}
+{% endblock %}
 {% block body %}
 
     <div id="container_antennes">
+        <h2>Les antennes de la MLIFE</h2>
             <div id="ant_left">
                 <div class="contenu_antennes">
                     <h3>Amiens Ouest</h3>
@@ -93,9 +88,6 @@
 
             <div class="cb"></div>
         </div>
-{% endblock %}
-{% block javascripts %}
-    {{ parent() }}
-
-
+    {% include "::footer.html.twig" %}
+    <div class="cb"></div>
 {% endblock %}

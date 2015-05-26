@@ -1,6 +1,14 @@
 {% extends "FOSUserBundle::layout_admin.html.twig" %}
 {% block title_admin %}Modifier un sous item {% endblock %}
-{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_moins26') }}"> Choisir une catégorie</a>{% endblock %}
 {% block content %}
+
+    {% for message in app.session.flashbag.get('info') %}
+
+        <h4 class="success">{{ message }}</h4>
+
+    {% endfor %}
+<a href="{{ path('admin_sous_item', { 'id': 25} ) }}">
+    <button>Page précédente</button>
+    <a>
     {{ form(form) }}
 {% endblock %}

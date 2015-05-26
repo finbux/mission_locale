@@ -2,6 +2,7 @@
 {% block title_admin %}Choisir une catégorie {% endblock %}
 {% block arianne %} {{ parent() }} {% endblock %}
 {% block content %}
+    {{ wo_render_breadcrumbs() }}
         <div id="container_btn">
             <a href="{{ path('admin_moins26') }}"><button class="btn_moins26">Les moins 26 ans</button></a>
             <button class="btn_employeur">Employeur</button>

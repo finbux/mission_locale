@@ -1,6 +1,9 @@
 {% extends "FOSUserBundle::layout_admin.html.twig" %}
 {% block title_admin %}Ajouter un sous item {% endblock %}
-{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_moins26') }}"> Choisir une catégorie</a>{% endblock %}
 {% block content %}
+    <a href="{{ path('admin_sous_item', { 'id': app.request.get('id')} ) }}">
+        <button>Page précédente</button>
+    <a>
+
     {{ form(form) }}
 {% endblock %}

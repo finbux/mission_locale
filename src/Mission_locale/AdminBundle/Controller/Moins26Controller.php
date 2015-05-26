@@ -11,6 +11,10 @@ class Moins26Controller extends Controller
 
     public function indexAction()
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addRouteItem("Choisir une catégorie", "admin_categorie");
+        $breadcrumbs->addRouteItem("Moins de 26 ans", "admin_moins26");
+        $breadcrumbs->prependRouteItem("Accueil", "admin_homepage");
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('MainBundle:Category')->findAll();

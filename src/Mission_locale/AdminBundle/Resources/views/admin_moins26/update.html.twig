@@ -1,7 +1,9 @@
 {% extends "FOSUserBundle::layout_admin.html.twig" %}
 {% block title_admin %}Gérer la catégorie : Moins de 26 ans {% endblock %}
-{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_moins26') }}"> Choisir une catégorie</a>{% endblock %}
 {% block content %}
+    <a href="{{  app.request.headers.get('referer') }}">
+        <button>Page précédente</button>
+    </a>
     {{ form(form) }}
 
 {% endblock %}

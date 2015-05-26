@@ -58,7 +58,31 @@ h1,h2,h3,h4,h5,h6{
     /*@include ombre_portée();*/
   }
 }
-
+.arianne{
+  color: white;
+  display: inline-block;
+  height: 20px;
+  font-size: 20px;
+  line-height: 20px;
+  padding:10px;
+  margin-top: 10px;
+  background: #97bf0d;
+  border-bottom: 4px solid #718e08;
+  @include border-radius(20px 20px 20px 20px);
+  p{
+    margin: 0;
+  }
+  a{
+    color: #ffffff;
+  }
+  a:hover{
+    text-decoration: underline;
+  }
+  li{
+    border: none;
+    display: inline-block;
+  }
+}
 #wrapper-admin{
   width: 1000px;
   min-height: 400px;
@@ -262,7 +286,7 @@ ul{
   background: #292A2F;
   cursor: pointer;
 }
-ul li:first-child{
+ul .item_menu:first-child{
   border-top: 1px solid white;
 }
 #informations_site{
@@ -297,7 +321,7 @@ ul li:first-child{
   @include bordure_bas(#8d8f92);
 }
 #container_btn{
-  width: 499px;
+  width: 559px;
 
   margin: 3em auto;
 }
@@ -313,6 +337,7 @@ input[type="submit"], button
   color: white;
   text-align: center;
   border: none;
+  margin: 10px;
 }
 input[type="submit"]:hover, button:hover{
   cursor: pointer;
@@ -360,3 +385,11 @@ background: $vert_clair;
   display: inline;
 }
 /********************/
+
+.flash-info, .flash-notice{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  background: #6FB6A4;
+  @include bordure_bas(#4F887A);
+}
