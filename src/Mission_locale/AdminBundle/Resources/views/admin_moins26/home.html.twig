@@ -2,6 +2,13 @@
 {% block title_admin %}Gérer la catégorie : Moins de 26 ans {% endblock %}
 
 {% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     {{ wo_render_breadcrumbs() }}
 <table>
     <tr>

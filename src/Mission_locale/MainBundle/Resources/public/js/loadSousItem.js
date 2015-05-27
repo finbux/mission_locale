@@ -19,7 +19,7 @@ $(function(){
                     $(".item_right .name_sous_item").empty();
 
                     $(".item_right").show();
-                    $(".item_right .name_sous_item").html(data.name_sous_item);
+                    $(".item_right .name_sous_item").html("<h2>"+data.name_sous_item+"</h2>");
                     $(".item_right .description").html(data.description);
                 }
             });

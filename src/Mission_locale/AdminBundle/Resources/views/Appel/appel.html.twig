@@ -2,6 +2,7 @@
 {% block title_admin %}Gérer les appels {% endblock %}
 {% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
 {% block content %}
+
     <div class="form-filtrer">
         {{ form_start(form) }}
         {{ form_errors(form) }}
@@ -27,8 +28,13 @@
             <th>Actions</th>
         </tr>
         {% for appel in appels %}
+            {% if appel.prenom is null %}
+                {% set prenom = "Non renseigné" %}
+            {% else %}
+                {% set prenom =  appel.prenom %}
+            {% endif %}
             <tr>
-                <td>{{ appel.prenom }}</td>
+                <td>{{ prenom }}</td>
                 <td>{{ appel.telephone }}</td>
                 <td>{{ appel.avancement }}</td>
                 <td>

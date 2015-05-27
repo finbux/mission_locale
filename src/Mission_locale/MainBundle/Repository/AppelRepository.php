@@ -19,4 +19,13 @@ class AppelRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('avancement',$avancement);
         return $qb->getQuery()->getResult();
     }
+
+    public function findByNumero($numero)
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->select('u')
+            ->where('u.telephone = :telephone')
+            ->setParameter('telephone',$numero);
+        return $qb->getQuery()->getResult();
+    }
 }

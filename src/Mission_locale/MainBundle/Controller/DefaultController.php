@@ -17,7 +17,7 @@ class DefaultController extends Controller
         $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
         $formBuilder
             ->add('prenom', 'text', array('required' => false, 'label' => 'Ton prénom'))
-            ->add('telephone','text',array('max_length' => 14))
+            ->add('telephone','text',array('max_length' => 10))
             //->add('utilisateurs','entity', array('class' => 'Mission_locale\UsersBundle\Entity\Users' ))
             ->add('Valider','submit',array('attr' => array('class' => 'btn-submit')));
 
@@ -26,11 +26,22 @@ class DefaultController extends Controller
         if( $form->handleRequest($request)->isValid())
         {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($appel);
-            $em->flush();
-            $this->get('session')->getFlashBag()->add('info', 'Votre demande à été prise en compte');
-            return $this->redirect($this->generateUrl('main_homepage'));
+            $numero = $form["telephone"]->getData();
+            $appel_exist = $em->getRepository('MainBundle:Appel')->findByNumero($numero);
+
+            if(!$appel_exist)
+            {
+                $em->persist($appel);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('info', 'Votre demande à été prise en compte');
+                return $this->redirect($this->generateUrl('main_homepage'));
+            }
+            else
+            {
+                $this->get('session')->getFlashBag()->add('error', 'Vous avez deja effectuez une demande');
+            }
         }
+
         return $this->render('MainBundle:Default:index.html.twig',array('form'=> $form->createView()));
     }
     public function employeurAction()

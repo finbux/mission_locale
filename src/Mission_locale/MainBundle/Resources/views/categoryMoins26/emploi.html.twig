@@ -9,7 +9,6 @@
             {% block arianne %}
                 <p>{{ parent() }} / <a href=" {{(app.request.headers.get('referer'))}}">Moins 26 ans</a> /  {{ nom_item }}</p>
             {% endblock %}
-
         </div>
         <div class="cb"></div>
         <div id="wrapper-categorie" class="background_container">
@@ -52,4 +51,11 @@
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $(".img_employeur").addClass("opacity");
+            $(".img_plus26").addClass("opacity");
+        });
+    </script>
 {% endblock %}

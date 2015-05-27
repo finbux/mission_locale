@@ -15,10 +15,10 @@ class SousItemType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomSousItem','text',array('label' => 'Nom du sous item'))
-            ->add('description','textarea',array('label' => 'Ajouter la description du sous item',
+            ->add('nomSousItem','text',array('label' => 'Nom du sous item :'))
+            ->add('description','textarea',array('label' => 'Ajouter la description du sous item :',
                 'attr' => array('class' => 'ckeditor')))
-            ->add('ajouter','submit', array('label' => 'Ajouter'))
+            ->add('ajouter','submit', array('label' => 'Ajouter','attr' => array('style' => 'float: right')))
         ;
     }
     

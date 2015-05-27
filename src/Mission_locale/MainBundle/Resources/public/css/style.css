@@ -1798,3 +1798,17 @@ footer {
     font-size: 20px;
   }
 }
+/* line 1313, ../sass/style.scss */
+.flash-info, .flash-notice, .flash-error {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  background: #6FB6A4;
+  border-bottom: 4px solid #4f887a;
+}
+
+/* line 1320, ../sass/style.scss */
+.flash-error {
+  background: #FF6649;
+  border-bottom: 4px solid #ba5a3e;
+}
