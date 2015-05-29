@@ -19,9 +19,9 @@
     </div>
 
     <ul id="menu">
-        <li class="item_menu"><img src="{{ asset('bundles/admin/images/admin_category.png') }}" alt="gerer_categorie"><a href="{{ path('admin_categorie') }}">Gérer les catégories</a></li>
-        <li class="item_menu"><img src="{{ asset('bundles/admin/images/module.png') }}" alt="gerer_module"><a href="{{ path('admin_modules') }}">Gérer des modules</a></li>
-        <li class="item_menu"><img src="{{ asset('bundles/admin/images/settings.png') }}" alt="parametre">Paramètres</li>
+        <a href="{{ path('admin_categorie') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/admin_category.png') }}" alt="gerer_categorie">Gérer les catégories</li></a>
+        <a href="{{ path('admin_modules') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/module.png') }}" alt="gerer_module">Gérer des modules</li></a>
+        <a href=""><li class="item_menu"><img src="{{ asset('bundles/admin/images/settings.png') }}" alt="parametre">Paramètres</li></a>
         <li class="item_menu"><img src="{{ asset('bundles/admin/images/cancel.png') }}" alt="se déconnecter"><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
         <a href="{{ path('main_homepage') }}">Voir le site</a>
     </ul>

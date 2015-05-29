@@ -1,0 +1,22 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les antennes {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    <table>
+        <tr>
+            <th>Nom de l'antenne</th>
+            <th>Horaire</th>
+            <th>Code postal</th>
+            <th>Actions</th>
+        </tr>
+        {% for antenne in antennes %}
+            <tr>
+                <td>{{ antenne.nom }}</td>
+                <td>{{ antenne.horaire }}</td>
+                <td>{{ antenne.cp }}</td>
+                <td> Modier - Supprimer</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+{% endblock %}

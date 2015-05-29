@@ -1,0 +1,3 @@
+admin_antenne:
+    path: /
+    defaults: { _controller: AdminBundle:Antenne:show }

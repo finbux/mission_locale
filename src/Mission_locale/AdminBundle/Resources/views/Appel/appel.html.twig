@@ -2,46 +2,47 @@
 {% block title_admin %}Gérer les appels {% endblock %}
 {% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
 {% block content %}
+    {% if appels is empty %}
+        <h2>Aucun appel enregistré</h2>
+    {% else %}
+        <div class="form-filtrer">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
 
-    <div class="form-filtrer">
-        {{ form_start(form) }}
-        {{ form_errors(form) }}
+            <div>
+                {{ form_label(form.Filtrer) }}
 
-        <div>
-            {{ form_label(form.Filtrer) }}
+                {{ form_widget(form.Filtrer) }}
 
-            {{ form_widget(form.Filtrer) }}
-
-            {{ form_label(form.ok) }}
-            {{ form_widget(form.ok) }}
+                {{ form_label(form.ok) }}
+                {{ form_widget(form.ok) }}
+            </div>
+            {{ form_end(form) }}
         </div>
 
-
-        {{ form_end(form) }}
-    </div>
-
-    <table>
-        <tr>
-            <th>Prénom</th>
-            <th>Numéro de téléphone</th>
-            <th>Avancement</th>
-            <th>Actions</th>
-        </tr>
-        {% for appel in appels %}
-            {% if appel.prenom is null %}
-                {% set prenom = "Non renseigné" %}
-            {% else %}
-                {% set prenom =  appel.prenom %}
-            {% endif %}
+        <table>
             <tr>
-                <td>{{ prenom }}</td>
-                <td>{{ appel.telephone }}</td>
-                <td>{{ appel.avancement }}</td>
-                <td>
-                    <a href="{{ path('appel_update', { 'id': appel.id}) }}">Traiter l'appel</a>
-                    <a href="{{ path('appel_delete', { 'id': appel.id}) }}" onclick="return confirm('Supprimer cet appel ?')">Supprimer</a>
-                </td>
+                <th>Prénom</th>
+                <th>Numéro de téléphone</th>
+                <th>Avancement</th>
+                <th>Actions</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for appel in appels %}
+                {% if appel.prenom is null %}
+                    {% set prenom = "Non renseigné" %}
+                {% else %}
+                    {% set prenom =  appel.prenom %}
+                {% endif %}
+                <tr>
+                    <td>{{ prenom }}</td>
+                    <td>{{ appel.telephone }}</td>
+                    <td>{{ appel.avancement }}</td>
+                    <td>
+                        <a href="{{ path('appel_update', { 'id': appel.id}) }}">Traiter l'appel</a>
+                        <a href="{{ path('appel_delete', { 'id': appel.id}) }}" onclick="return confirm('Supprimer cet appel ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 {% endblock %}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mission_locale\MainBundle\Repository;
+namespace Mission_locale\AdminBundle\Entity;
 
 /**
  * AntenneRepository

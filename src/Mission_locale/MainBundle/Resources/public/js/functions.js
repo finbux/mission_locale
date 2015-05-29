@@ -104,22 +104,6 @@ initialize = function(){
 
     zoneMl.setMap(map);
 
- var infowindow = new google.maps.InfoWindow(), marker, i;
-               for (i = 0; i < markers.length; i++) {
-                  marker = new google.maps.Marker({
-                      position: new google.maps.LatLng(markers[i][1], markers[i][2]),
-                      map: map,
-                      icon: iconBase
-                  });
-
-                  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-                      return function() {
-                          infowindow.setContent(markers[i][0]);
-                          infowindow.open(map, marker);
-
-                      }
-                  })(marker, i));
-              }
 
   var infowindow2 = new google.maps.InfoWindow(), marker_home, i;
                for (i = 0; i < markers_home.length; i++) {
@@ -137,22 +121,7 @@ initialize = function(){
                       }
                   })(marker_home, i));
               }
-  var infowindow3 = new google.maps.InfoWindow(), marker_bus, i;
-               for (i = 0; i < markers_bus.length; i++) {
-                  marker_bus = new google.maps.Marker({
-                      position: new google.maps.LatLng(markers_bus[i][1], markers_bus[i][2]),
-                      map: map,
-                      icon: iconBus
-                  });
 
-                  google.maps.event.addListener(marker_bus, 'click', (function(marker_bus, i) {
-                      return function() {
-                          infowindow.setContent(markers_bus[i][0]);
-                          infowindow.open(map, marker_bus);
-
-                      }
-                  })(marker_home, i));
-              }
   direction = new google.maps.DirectionsRenderer({
     map   : map,
     panel : panel
