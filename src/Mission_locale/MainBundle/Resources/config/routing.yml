@@ -27,3 +27,18 @@ sous_item_page:
 validation_appel_page:
     path: /appel_validation
     defaults: { _controller: MainBundle:Appel:validation}
+show:
+    path:     /show
+    defaults: { _controller: MainBundle:Offre:show }
+
+add:
+    path:     /add
+    defaults: { _controller: MainBundle:Offre:add }
+
+edit:
+    path:     /edit
+    defaults: { _controller: MainBundle:Offre:edit }
+
+delete:
+    path:     /delete
+    defaults: { _controller: MainBundle:Offre:delete }

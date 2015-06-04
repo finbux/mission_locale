@@ -13,7 +13,9 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
+        //Instanciation d'un nouvel appel
         $appel = new Appel();
+        //Création du formulaire pour les appels
         $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
         $formBuilder
             ->add('prenom', 'text', array('required' => false, 'label' => 'Ton prénom'))
@@ -41,7 +43,6 @@ class DefaultController extends Controller
                 $this->get('session')->getFlashBag()->add('error', 'Vous avez deja effectuez une demande');
             }
         }
-
         return $this->render('MainBundle:Default:index.html.twig',array('form'=> $form->createView()));
     }
     public function employeurAction()
