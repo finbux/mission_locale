@@ -1,13 +1,13 @@
 admin_appel:
-    path: /modules/appel
+    path: /
     defaults: { _controller: AdminBundle:Appel:show }
 appel_update:
-    path: /modules/appel/{id}/update
+    path: /{id}/update
     defaults: { _controller: AdminBundle:Appel:update }
     requirements:
         id: \d+
 appel_delete:
-    path: /modules/appel/{id}/delete
+    path: /{id}/delete
     defaults: { _controller: AdminBundle:Appel:delete }
     requirements:
         id: \d+

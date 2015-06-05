@@ -2,6 +2,8 @@
 {% block title_admin %}Gérer les appels {% endblock %}
 {% block arianne %} {{ parent() }} -> <a href="{{ path('admin_appel') }}">Retrourner sur les appels</a> {% endblock %}
 {% block content %}
+    {{ wo_render_breadcrumbs() }}
+    <br/>
     {{ form_start(form) }}
     <div>
         {{ form_label(form.avancement) }}

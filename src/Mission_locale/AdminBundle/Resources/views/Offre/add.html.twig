@@ -1,0 +1,11 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Ajouter une offre {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {{ wo_render_breadcrumbs() }}
+    <br/>
+    <a href="{{ path('offre_show')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    {{ form(form) }}
+{% endblock %}

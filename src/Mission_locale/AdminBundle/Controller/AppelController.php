@@ -31,6 +31,11 @@ class AppelController extends Controller
     //Action pour afficher tous les appels
     public function showAction(Request $request)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addRouteItem("Choisir un module", "admin_modules");
+        $breadcrumbs->addItem("Les appels", "offre_show");
+        $breadcrumbs->prependRouteItem("Accueil", "admin_homepage");
+
         //On creer le formulaire
         $form = $this->create_form_filter();
         $em = $this->getDoctrine()->getManager();
@@ -60,7 +65,12 @@ class AppelController extends Controller
 
     public function updateAction(Request $request, $id)
     {
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addRouteItem("Choisir un module", "admin_modules");
+        $breadcrumbs->addRouteItem("Les offres", "offre_show");
+        $breadcrumbs->addItem("Traiter l'appel");
 
+        $breadcrumbs->prependRouteItem("Accueil", "admin_homepage");
         $em = $this->getDoctrine()->getManager();
         //On récupère l'appel par l'id
         $appel = $em->getRepository('MainBundle:Appel')->findOneBy(array('id' => $id));

@@ -14,7 +14,9 @@ admin_antenne:
     resource: "@AdminBundle/Resources/config/antenne_routing.yml"
     prefix: /admin/module/antenne
 
-
+admin_offres:
+    resource: "@AdminBundle/Resources/config/offre_routing.yml"
+    prefix: /admin/module/offre
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

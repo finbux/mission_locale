@@ -24,7 +24,7 @@ framework:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
         cookie_lifetime: 0
-        gc_maxlifetime: 3600
+        gc_maxlifetime: 600
     fragments:       ~
     http_method_override: true
     translator:      { fallback: %locale% }

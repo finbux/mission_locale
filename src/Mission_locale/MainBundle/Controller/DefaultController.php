@@ -24,6 +24,7 @@ class DefaultController extends Controller
             ->add('Valider','submit',array('attr' => array('class' => 'btn-submit')));
 
         $form = $formBuilder->getForm();
+        $offres = $this->container->get('getOffres')->offre();
 
         if( $form->handleRequest($request)->isValid())
         {
@@ -43,7 +44,7 @@ class DefaultController extends Controller
                 $this->get('session')->getFlashBag()->add('error', 'Vous avez deja effectuez une demande');
             }
         }
-        return $this->render('MainBundle:Default:index.html.twig',array('form'=> $form->createView()));
+        return $this->render('MainBundle:Default:index.html.twig',array('form'=> $form->createView(), 'offres' => $offres));
     }
     public function employeurAction()
     {

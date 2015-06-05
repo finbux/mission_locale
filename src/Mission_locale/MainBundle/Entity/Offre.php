@@ -31,7 +31,7 @@ class Offre
     /**
      * @var string
      *
-     * @ORM\Column(name="description_offre", type="text")
+     * @ORM\Column(name="description_offre", type="text", nullable=true)
      */
     private $descriptionOffre;
 
@@ -42,7 +42,10 @@ class Offre
      */
     private $createdAt;
 
-
+    public function __construct()
+    {
+        $this->createdAt    = new \DateTime();
+    }
     /**
      * Get id
      *

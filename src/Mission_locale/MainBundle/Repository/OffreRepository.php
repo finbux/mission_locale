@@ -1,6 +1,6 @@
 <?php
 
-namespace Mission_locale\MainBundle\Entity;
+namespace Mission_locale\MainBundle\Repository;
 
 /**
  * OffreRepository

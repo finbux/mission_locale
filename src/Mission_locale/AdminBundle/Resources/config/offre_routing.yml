@@ -1,0 +1,16 @@
+offre_show:
+    path: /
+    defaults: { _controller: AdminBundle:Offre:show }
+offre_add:
+    path: /add
+    defaults: { _controller: AdminBundle:Offre:add }
+offre_edit:
+    path: /{id}/edit
+    defaults: { _controller: AdminBundle:Offre:edit }
+    requirements:
+            id: \d+
+offre_delete:
+    path: /{id}/delete
+    defaults: { _controller: AdminBundle:Offre:delete }
+    requirements:
+            id: \d+

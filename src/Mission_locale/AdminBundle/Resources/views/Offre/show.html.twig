@@ -1,0 +1,45 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les offres {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {% if offres is empty %}
+        <h2>Aucune offre enregistrée</h2>
+    {% else %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+        {{ wo_render_breadcrumbs() }}
+        <br/>
+        <a href="{{ path('admin_modules')}}">
+            <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+        </a>
+        <a href="{{ path('offre_add')}}">
+            <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter une offre</button>
+        </a>
+
+        <table>
+            <tr>
+                <th>Nom de l'offre</th>
+                <th>Description de l'offre</th>
+                <th>Date de l'offre</th>
+                <th>Actions</th>
+            </tr>
+            {% for offre in offres %}
+
+                <tr>
+                    <td>{{ offre.nomOffre }}</td>
+                    <td>{{ offre.descriptionOffre|raw }}</td>
+                    <td>{{ offre.createdAt|date('d-m-Y') }}</td>
+                    <td>
+                        <a href="{{ path('offre_edit', { 'id': offre.id}) }}">Modifier l'offre</a>
+                        <a href="{{ path('offre_delete', { 'id': offre.id}) }}" onclick="return confirm('Supprimer cette offre ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

@@ -1,4 +1,9 @@
 services:
+     getOffres:
+        class: Mission_locale\MainBundle\Services\getOffres
+        arguments: [@security.context, @doctrine.orm.entity_manager]
+
+
      gedmo.listener.blameable:
             class: Gedmo\Blameable\BlameableListener
             tags:
