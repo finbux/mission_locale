@@ -17,7 +17,7 @@
                 </div>
                     <div id='coin-slider'>
                         <a href="" target="_blank">
-                            <img src="{{ asset('bundles/main/img/actu1.jpg') }}">
+                            <img src="{{ asset('bundles/main/img/actu1.png') }}">
                             <span>Métier de l'animation</span>
                         </a>
                         <a href="" target="_blank">
@@ -102,7 +102,7 @@
 
                 <form action="" method="get" name="direction" id="direction">
                     <label>Point de départ :</label>
-                    <input type="text" name="origin" id="origin"><br>
+                    <input type="text" name="origin" id="origin" required="required" /><br>
                     <label>Destination :</label>
                     <select name="destination" id="destination">
                         <option value="39 avenue de la paix amiens">Amiens Nord</option>
@@ -169,7 +169,7 @@
                     {{ form_errors(form.prenom) }}
 
                     {% block form_label %}
-                        <label for="">Ton téléphone <span class="numero_label">(Ex: 0123456789)</span></label>
+                        <label for="">Ton téléphone*<span class="numero_label">(Ex: 0123456789)</span></label>
                         {{ form_widget(form.telephone) }}
                     {% endblock %}
                     {{ form_errors(form.telephone) }}
@@ -191,4 +191,15 @@
 
     <!-- FIN DU CONTAINER -->
     {% include "::footer.html.twig" %}
+        {% block javascript %}
+            <script>
+                window.onload = xmlAntenne;
+
+                function xmlAntenne()
+                {
+                    var xhr = getXhr;
+
+                }
+            </script>
+        {% endblock %}
 {% endblock %}

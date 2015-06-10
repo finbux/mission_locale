@@ -1,0 +1,97 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Ajouter une antenne{% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+<a href="{{ path('admin_antenne' ) }}">
+    <button>Page précédente</button>
+    <a>
+    <div class="update_data" onload="initialize()" )>
+        <h2>Rechercher une antenne</h2>
+        <form action="#" onsubmit="showAddress(this.address.value); return false" name="mymap">
+            <input type="text" size="60" id="adresse" name="address" value="10 rue Gresset AMIENS" />
+            <input type="submit" value="Go!" />
+            <div id="map_canvas" style="width: 600px; height: 400px">
+
+            </div>
+        </form>
+        <h2>Informations sur l'antenne</h2>
+        {{ form_start(form) }}
+            {{ form_label(form.coord) }}
+            <br/>
+            {{ form_widget(form.coord, {'id' : 'coord_gps'}) }}
+        <br/>
+            {{ form_label(form.nom) }}
+            <br/>
+            {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom) }}
+
+        <br/>
+            {{ form_label(form.horaire) }}
+            <br/>
+            {{ form_widget(form.horaire) }}
+            {{ form_errors(form.horaire) }}
+        <br/>
+        {{ form_label(form.adresse) }}
+        <br/>
+        {{ form_widget(form.adresse,{'id' : 'last_adresse'}) }}
+        {{ form_errors(form.adresse) }}
+        <br/>
+            {{ form_label(form.cp) }}
+            <br/>
+            {{ form_widget(form.cp) }}
+            {{ form_errors(form.cp) }}
+
+
+
+        {{ form_end(form) }}
+        <div id="message" style="height: 25px"></div>
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>
+        <script type="application/javascript">
+            document.body.setAttribute('onload',"initialize()");
+            //document.body.setAttribute('onunload',"GUnload()");
+            var adresse = document.getElementById("adresse").value;
+            var map = null;
+            var geocoder = null;
+            var last_adres = document.getElementById('last_adresse').value = adresse;
+
+            function initialize() {
+                if (GBrowserIsCompatible()) {
+                    map = new GMap2(document.getElementById("map_canvas"));
+                    map.setCenter(new GLatLng(49.89407,2.29575), 13);
+                    map.setUIToDefault();
+                    geocoder = new GClientGeocoder();
+                }
+
+            }
+            function showAddress(address) {
+                if (geocoder) {
+                    geocoder.getLatLng(
+                            address,
+                            function(point) {
+                                if (!point) {
+                                    alert(address + " not found");
+                                } else {
+                                    map.setCenter(point, 13);
+                                    var marker = new GMarker(point);
+                                    map.addOverlay(marker);
+                                    // marker.openInfoWindowHtml(address);
+                                    marker.openInfoWindowHtml(point.toString());
+                                    point = point.toString().replace(/[{()}]/g, '');
+                                    document.getElementById("coord_gps").value = point;
+                                }
+                            }
+                    );
+                }
+            }
+        </script>
+{% endblock %}

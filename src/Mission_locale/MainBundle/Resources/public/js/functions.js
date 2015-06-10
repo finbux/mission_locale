@@ -5,6 +5,7 @@ var calculate;
 var direction;
 
 initialize = function(){
+
   var pathImg = "http://lasson-jeremy.fr/mission_locale/web/bundles/main/img/";
   var latLng = new google.maps.LatLng(49.950005,2.312767);
   var iconBase = pathImg + "marker.png";
@@ -22,6 +23,16 @@ initialize = function(){
  });
   panel    = document.getElementById('panel');
 
+    var markers_home = [
+        ['<div id="marker"><h2>Doullens</h2><img class="img_antennes" src="'+ pathImg +'img_doullens.png"><p>AGORA <br/>2, rue des Sœurs Grises <br/>80600 DOULLENS</p></div><p><strong>Horaires d\'ouverture :</strong><br/>Du Lundi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30Le Vendredi : de 8h45 à 12h30</p>'
+            , 50.156175, 2.338603],
+        ['<div id="marker"><h2>Amiens Nord</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_nord.png"><p>ATRIUM 39, avenue de la Paix 80080 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.911662, 2.306914],
+        ['<div id="marker"><h2>Amiens Ouest</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_ouest.png"><p>30, avenue de Picardie 80000 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.914321, 2.251011],
+        ['<div id="marker"><h2>Amiens Sud et Est</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_sud_est.png"><p>Pôle de Service – Tour du Marais Rue Simone Signoret 80090 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.874921, 2.334188],
+        ['<div id="marker"><h2>Amiens Centre</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_centre.png"><p>10, rue Gresset - BP 80419 <br/>80004 AMIENS Cedex 01</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.893954, 2.294438],
+        ['<div id="marker"><h2>Poix-de-Picardie</h2><img class="img_antennes" src="'+ pathImg +'img_poix_de_picardie.png"><p>16, route d’Aumale 80290 POIX DE PICARDIE</p>' +
+        '<p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.778936, 1.977807],
+    ];
   var markers = [
 
   //['<div id="marker"><h2>Bernaville</h2></div>', 50.132574,2.163936],
@@ -50,16 +61,7 @@ initialize = function(){
   //['<div id="marker"><h2><h2>Corbie</h2></h2></div>', 49.910556,2.511894],
   ];
 
-  var markers_home = [
-  ['<div id="marker"><h2>Doullens</h2><img class="img_antennes" src="'+ pathImg +'img_doullens.png"><p>AGORA <br/>2, rue des Sœurs Grises <br/>80600 DOULLENS</p></div><p><strong>Horaires d\'ouverture :</strong><br/>Du Lundi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30Le Vendredi : de 8h45 à 12h30</p>'
-      , 50.156175, 2.338603],
-  ['<div id="marker"><h2>Amiens Nord</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_nord.png"><p>ATRIUM 39, avenue de la Paix 80080 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.911662, 2.306914],
-  ['<div id="marker"><h2>Amiens Ouest</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_ouest.png"><p>30, avenue de Picardie 80000 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.914321, 2.251011],
-  ['<div id="marker"><h2>Amiens Sud et Est</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_sud_est.png"><p>Pôle de Service – Tour du Marais Rue Simone Signoret 80090 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.874921, 2.334188],
-  ['<div id="marker"><h2>Amiens Centre</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_centre.png"><p>10, rue Gresset - BP 80419 <br/>80004 AMIENS Cedex 01</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.893954, 2.294438],
-  ['<div id="marker"><h2>Poix-de-Picardie</h2><img class="img_antennes" src="'+ pathImg +'img_poix_de_picardie.png"><p>16, route d’Aumale 80290 POIX DE PICARDIE</p>' +
-      '<p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.778936, 1.977807],
-  ];
+
 
     var zoneMlCoords = [
         new google.maps.LatLng(50.236202, 2.413862),

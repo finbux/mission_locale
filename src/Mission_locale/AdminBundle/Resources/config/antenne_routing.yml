@@ -1,3 +1,16 @@
 admin_antenne:
     path: /
     defaults: { _controller: AdminBundle:Antenne:show }
+antenne_add:
+    path: /add
+    defaults: { _controller: AdminBundle:Antenne:add }
+antenne_xml:
+    path: /xml
+    defaults: { _controller: AdminBundle:Antenne:createXml }
+antenne_edit:
+    path: /edit
+    defaults: { _controller: AdminBundle:Antenne:update }
+antenne_delete:
+    path: /delete
+    defaults: { _controller: AdminBundle:Antenne:delete }
+

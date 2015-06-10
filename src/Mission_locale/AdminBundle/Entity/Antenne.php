@@ -47,6 +47,8 @@ class Antenne
     /**
      * @var string
      * @Assert\Length(max=5,maxMessage="Le code postal doit faire au maximum {{ limit }} caractères")
+     * @Assert\Length(min=5,minMessage="Le code postal doit faire au minimum {{ limit }} caractères")
+     * @Assert\Type(type="numeric",message="le code postal doit se composer de chiffres")
      * @ORM\Column(name="cp", type="integer")
      */
 
@@ -55,30 +57,24 @@ class Antenne
     /**
      * @var string
      *
-     * @ORM\Column(name="ville", type="string")
+     * @ORM\Column(name="ville", type="string",nullable=true)
      */
     private $ville;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="path_img", type="text")
+     * @ORM\Column(name="path_img", type="text",nullable=true)
      */
     private $path_img;
 
     /**
      * @var float
      * @Assert\NotBlank(message="ce champ est obligatoire")
-     * @ORM\Column(name="lat", type="float")
+     * @ORM\Column(name="coord", type="text")
      */
-    private $lat;
+    private $coord;
 
-    /**
-     * @var float
-     * @Assert\NotBlank(message="ce champ est obligatoire")
-     * @ORM\Column(name="lng", type="float")
-     */
-    private $lng;
 
 
     /**
@@ -164,39 +160,15 @@ class Antenne
     }
 
     /**
-     * Set lat
+     * Set coord
      *
-     * @param float $lat
-     *
-     * @return Antenne
-     */
-    public function setLat($lat)
-    {
-        $this->lat = $lat;
-
-        return $this;
-    }
-
-    /**
-     * Get lat
-     *
-     * @return float
-     */
-    public function getLat()
-    {
-        return $this->lat;
-    }
-
-    /**
-     * Set lng
-     *
-     * @param float $lng
+     * @param float $coord
      *
      * @return Antenne
      */
-    public function setLng($lng)
+    public function setCoord($coord)
     {
-        $this->lng = $lng;
+        $this->coord = $coord;
 
         return $this;
     }
@@ -206,9 +178,9 @@ class Antenne
      *
      * @return float
      */
-    public function getLng()
+    public function getCoord()
     {
-        return $this->lng;
+        return $this->coord;
     }
 
     /**
