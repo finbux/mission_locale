@@ -42,3 +42,8 @@ edit:
 delete:
     path:     /delete
     defaults: { _controller: MainBundle:Offre:delete }
+antenne_xml:
+    path: /xml
+    defaults: { _controller: AdminBundle:Antenne:getAntennes }
+    options:
+            expose: true

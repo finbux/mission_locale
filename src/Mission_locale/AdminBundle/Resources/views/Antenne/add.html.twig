@@ -22,9 +22,13 @@
         </form>
         <h2>Informations sur l'antenne</h2>
         {{ form_start(form) }}
-            {{ form_label(form.coord) }}
+            {{ form_label(form.lat) }}
             <br/>
-            {{ form_widget(form.coord, {'id' : 'coord_gps'}) }}
+            {{ form_widget(form.lat, {'id' : 'lat_gps'}) }}
+        <br/>
+            {{ form_label(form.lng) }}
+            <br/>
+            {{ form_widget(form.lng, {'id' : 'lng_gps'}) }}
         <br/>
             {{ form_label(form.nom) }}
             <br/>
@@ -87,7 +91,11 @@
                                     // marker.openInfoWindowHtml(address);
                                     marker.openInfoWindowHtml(point.toString());
                                     point = point.toString().replace(/[{()}]/g, '');
-                                    document.getElementById("coord_gps").value = point;
+                                    var champs = point.split(/,/);
+                                    var lat = champs[0];
+                                    var lng = champs[1];
+                                    document.getElementById("lat_gps").value = lat;
+                                    document.getElementById("lng_gps").value = lng;
                                 }
                             }
                     );

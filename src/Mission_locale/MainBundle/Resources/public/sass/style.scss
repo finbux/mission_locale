@@ -63,6 +63,9 @@ $bleu: rgb(87,156,161);
 $font-family: "Calibri","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
 /******REGLES RESET***********/
+#slides{
+  display:none;
+}
 img{  border: none;  }
 a{  text-decoration: none;  color: $vert_clair;  }
 
@@ -190,6 +193,12 @@ body{
   @include border-radius(20px);
   @include ombre_portée();
   margin-right: 50px;
+  .slidesjs-previous{
+    margin-left: 20px;
+  }
+  a{
+    margin-right: 10px;
+  }
 }
 
 #header_actu{
@@ -433,7 +442,7 @@ body{
 }
 #marker{
   h2{  font-size: $font-family;  color: $vert_clair;  }
-  p{  font-size: 18px;  color: $background;  }
+  p{  font-size: 18px;  color: $background;}
 }
 
 #header_where:before{

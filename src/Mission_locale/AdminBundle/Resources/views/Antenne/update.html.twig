@@ -12,7 +12,15 @@
         <button>Page précédente</button>
         <a>
             <div class="update_data">
-
+                {{ form_start(form) }}
+                    {{ form_row(form.nom) }}
+                    {{ form_row(form.adresse) }}
+                    {{ form_row(form.horaire) }}
+                    {{ form_row(form.cp) }}
+                    {{ form_row(form.lat) }}
+                    {{ form_row(form.lng) }}
+                    {{ form_widget(form.add, { 'label': 'Modifier' }) }}
+                {{ form_end(form) }}
             </div>
 
 {% endblock %}

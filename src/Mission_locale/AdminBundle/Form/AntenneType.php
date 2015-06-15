@@ -19,8 +19,9 @@ class AntenneType extends AbstractType
             ->add('adresse','text', array('label' => 'L\'adresse de l\'antenne'))
             ->add('horaire','textarea',array('label' => 'Les horaires de l\'antenne','attr' => array('cols' => '90', 'rows' => '12')))
             ->add('cp','text',array('label' => 'Le code postal','attr' => array('style' => 'width: 100px;')))
-            ->add('valider','submit',array('label' => 'Ajouter', 'attr' => array('class' => 'btn_ok', 'style' => 'float:right;')))
-            ->add('coord','text',array('label' => 'Coordonnées GPS','attr' => array('readonly' => 'readonly')))
+            ->add('lat','text',array('label' => 'Latitude','attr' => array('readonly' => 'readonly')))
+            ->add('lng','text',array('label' => 'Longétude','attr' => array('readonly' => 'readonly')))
+            ->add('add','submit',array('label' => 'Ajouter'), array('attr' => array('class' => 'btn_ok')))
         ;
     }
 

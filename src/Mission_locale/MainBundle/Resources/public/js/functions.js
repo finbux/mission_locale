@@ -3,6 +3,7 @@ var panel;
 var initialize;
 var calculate;
 var direction;
+var infowindow;
 
 initialize = function(){
 
@@ -12,6 +13,7 @@ initialize = function(){
   var iconHome = pathImg + "marker_home.png";
   var iconBus =  pathImg + "marker_bus.png";
   var zoneMl;
+
 
   var map = new google.maps.Map(document.getElementById("map"),{
                   zoom : 9,
@@ -23,7 +25,41 @@ initialize = function(){
  });
   panel    = document.getElementById('panel');
 
-    var markers_home = [
+    downloadUrl(Routing.generate('antenne_xml'), function(data) {
+
+        var markers = data.documentElement.getElementsByTagName("marker");
+        for (var i = 0; i < markers.length; i++) {
+            var latlng = new google.maps.LatLng(parseFloat(markers[i].getAttribute("lat")),
+                parseFloat(markers[i].getAttribute("lng")));
+
+            var marker = createMarker(markers[i].getAttribute("nom"), latlng,markers[i].getAttribute("horaire"),markers[i].getAttribute("adresse"), markers[i].getAttribute("pathImg"));
+        }
+    });
+
+    function createMarker(nom, latlng,horaire,adresse,pathImg) {
+        var marker = new google.maps.Marker({position: latlng, map: map, icon: iconHome});
+        google.maps.event.addListener(marker, "click", function() {
+            if (infowindow) infowindow.close();
+
+            var content ='<div id="marker">' +
+                nom +
+                pathImg+
+                '<p>'+ adresse +'</p>'+
+
+
+                '<p>'+
+                '<strong>Horaire d\'ouverture :</strong> <br>'+
+                ''+ horaire +'</p>'+
+            '</div>';
+
+
+            infowindow = new google.maps.InfoWindow({content: content });
+            infowindow.open(map, marker);
+        });
+        return marker;
+    }
+
+    /*var markers_home = [
         ['<div id="marker"><h2>Doullens</h2><img class="img_antennes" src="'+ pathImg +'img_doullens.png"><p>AGORA <br/>2, rue des Sœurs Grises <br/>80600 DOULLENS</p></div><p><strong>Horaires d\'ouverture :</strong><br/>Du Lundi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30Le Vendredi : de 8h45 à 12h30</p>'
             , 50.156175, 2.338603],
         ['<div id="marker"><h2>Amiens Nord</h2><img class="img_antennes" src="'+ pathImg +'img_amiens_nord.png"><p>ATRIUM 39, avenue de la Paix 80080 AMIENS</p><p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.911662, 2.306914],
@@ -33,6 +69,7 @@ initialize = function(){
         ['<div id="marker"><h2>Poix-de-Picardie</h2><img class="img_antennes" src="'+ pathImg +'img_poix_de_picardie.png"><p>16, route d’Aumale 80290 POIX DE PICARDIE</p>' +
         '<p><strong>Horaires d\'ouverture :</strong><br/>Le Lundi : de 13h30 à 17h30 Du Mardi au Jeudi : de 8h45 à 12h30 et de 13h30 à 17h30 Le Vendredi : de 8h45 à 12h30 et de 13h30 à 16h30</p></div>', 49.778936, 1.977807],
     ];
+    */
   var markers = [
 
   //['<div id="marker"><h2>Bernaville</h2></div>', 50.132574,2.163936],
@@ -107,7 +144,7 @@ initialize = function(){
     zoneMl.setMap(map);
 
 
-  var infowindow2 = new google.maps.InfoWindow(), marker_home, i;
+  /*var infowindow = new google.maps.InfoWindow(), marker_home, i;
                for (i = 0; i < markers_home.length; i++) {
                   marker_home = new google.maps.Marker({
                       position: new google.maps.LatLng(markers_home[i][1], markers_home[i][2]),
@@ -123,7 +160,7 @@ initialize = function(){
                       }
                   })(marker_home, i));
               }
-
+*/
   direction = new google.maps.DirectionsRenderer({
     map   : map,
     panel : panel

@@ -15,9 +15,9 @@
                 <div id="header_actu">
                     <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">L'actualité de la mission locale
                 </div>
-                    <div id='coin-slider'>
+                    <div id='slides'>
                         <a href="" target="_blank">
-                            <img src="{{ asset('bundles/main/img/actu1.png') }}">
+                            <img src="{{ asset('bundles/main/img/actu1.jpg') }}">
                             <span>Métier de l'animation</span>
                         </a>
                         <a href="" target="_blank">
@@ -73,7 +73,7 @@
                 <a href="#modalbox">
                     <div id="block_appel">
                         <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                        <p>Faites-vous appelez gratuitement</p>
+                        <p>Faites-vous appeler gratuitement</p>
                         <div id="conseiller">
                             <img  src="{{ asset('bundles/main/img/conseiller.png') }}" alt=""/>
                             <img src="{{ asset('bundles/main/img/conseiller_femme.png') }}" alt=""/>
@@ -192,14 +192,9 @@
     <!-- FIN DU CONTAINER -->
     {% include "::footer.html.twig" %}
         {% block javascript %}
-            <script>
-                window.onload = xmlAntenne;
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+            <script src="{{ asset('bundles/main/js/util.js') }} "></script>
 
-                function xmlAntenne()
-                {
-                    var xhr = getXhr;
-
-                }
-            </script>
         {% endblock %}
 {% endblock %}

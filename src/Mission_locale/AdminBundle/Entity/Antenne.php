@@ -46,10 +46,11 @@ class Antenne
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="cp", type="string", length=5)
+     * @Assert\Type(type="numeric",message="le code postal doit se composer de chiffres")
      * @Assert\Length(max=5,maxMessage="Le code postal doit faire au maximum {{ limit }} caractères")
      * @Assert\Length(min=5,minMessage="Le code postal doit faire au minimum {{ limit }} caractères")
-     * @Assert\Type(type="numeric",message="le code postal doit se composer de chiffres")
-     * @ORM\Column(name="cp", type="integer")
      */
 
     private $cp;
@@ -71,9 +72,16 @@ class Antenne
     /**
      * @var float
      * @Assert\NotBlank(message="ce champ est obligatoire")
-     * @ORM\Column(name="coord", type="text")
+     * @ORM\Column(name="lat", type="text")
      */
-    private $coord;
+    private $lat;
+
+    /**
+     * @var float
+     * @Assert\NotBlank(message="ce champ est obligatoire")
+     * @ORM\Column(name="lng", type="text")
+     */
+    private $lng;
 
 
 
@@ -160,30 +168,6 @@ class Antenne
     }
 
     /**
-     * Set coord
-     *
-     * @param float $coord
-     *
-     * @return Antenne
-     */
-    public function setCoord($coord)
-    {
-        $this->coord = $coord;
-
-        return $this;
-    }
-
-    /**
-     * Get lng
-     *
-     * @return float
-     */
-    public function getCoord()
-    {
-        return $this->coord;
-    }
-
-    /**
      * Set pathImg
      *
      * @param string $pathImg
@@ -253,5 +237,53 @@ class Antenne
     public function getVille()
     {
         return $this->ville;
+    }
+
+    /**
+     * Set lat
+     *
+     * @param string $lat
+     *
+     * @return Antenne
+     */
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    /**
+     * Get lat
+     *
+     * @return string
+     */
+    public function getLat()
+    {
+        return $this->lat;
+    }
+
+    /**
+     * Set lng
+     *
+     * @param string $lng
+     *
+     * @return Antenne
+     */
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+
+        return $this;
+    }
+
+    /**
+     * Get lng
+     *
+     * @return string
+     */
+    public function getLng()
+    {
+        return $this->lng;
     }
 }
