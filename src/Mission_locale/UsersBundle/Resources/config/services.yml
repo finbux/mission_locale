@@ -1,4 +1,12 @@
 services:
-#    users.example:
-#        class: Mission_locale\UsersBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    mission_locale_users.registration.form.type:
+        class: Mission_locale\AdminBundle\Form\RegistrationFormType
+        tags:
+            - { name: form.type, alias: mission_locale_user_registration }
+        arguments: [%fos_user.model.user.class%]
+
+    mission_locale_users.profile.form.type:
+            class: Mission_locale\AdminBundle\Form\ProfileFormType
+            tags:
+                - { name: form.type, alias: mission_locale_user_profile }
+            arguments: [%fos_user.model.user.class%]

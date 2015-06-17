@@ -1161,9 +1161,14 @@ li{
   li:hover{
     cursor: pointer;
   }
-
 }
 
+#all_articles{
+  font-size: 20px;
+  text-decoration: underline;
+  float: right;
+  margin-right: 5px;
+}
 /*****************************************/
 
 
@@ -1297,12 +1302,7 @@ footer{
       }
     }
   }
-  .small-header{
-    width:  900px;
-    .bulle_moins_26{
-      margin-left: 160px;
-    }
-  }
+
   #bandeau_categorie{
     width: 105.8%;
   }
@@ -1321,9 +1321,13 @@ footer{
 }
 .flash-info, .flash-notice, .flash-error{
   color: white;
-  font-size: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 21px;
+  font-size: 26px;
   text-align: center;
   background: #6FB6A4;
+  padding: 10px;
   @include bordure_bas(#4F887A);
 }
 .flash-error {

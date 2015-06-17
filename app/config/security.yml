@@ -7,8 +7,9 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#hierarchical-roles
     role_hierarchy:
-            ROLE_ADMIN:       ROLE_USER
-            ROLE_SUPER_ADMIN: ROLE_ADMIN
+            ROLE_MODERATEUR:  [ROLE_APPEL,ROLE_OFFRE]
+            ROLE_ADMIN:       [ROLE_MODERATEUR]
+            ROLE_SUPER_ADMIN: [ROLE_ADMIN,]
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
@@ -36,4 +37,10 @@ security:
             - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/admin/, role: ROLE_ADMIN }
+            - { path: ^/admin/modules/offres, role: ROLE_OFFRE }
+            - { path: ^/admin/module/appel, role: [ROLE_APPEL,ROLE_MODERATEUR] }
+            - { path: ^/admin/module/antenne, role: [ROLE_APPEL,ROLE_MODERATEUR] }
+            - { path: ^/admin/modules, role: [ROLE_ADMIN,ROLE_MODERATEUR,ROLE_OFFRE] }
+            - { path: ^/admin/categorie, role: [ROLE_ADMIN,ROLE_MODERATEUR] }
+            - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_OFFRE,ROLE_MODERATEUR,ROLE_APPEL] }
+

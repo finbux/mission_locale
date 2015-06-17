@@ -258,7 +258,7 @@ hr {
 /* line 222, ../sass/style_admin.scss */
 #container-data {
   width: 90%;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 /* line 226, ../sass/style_admin.scss */
@@ -522,15 +522,19 @@ input[type="submit"]:hover, button:hover {
 }
 
 /* line 426, ../sass/style_admin.scss */
-.flash-info, .flash-notice, .flash-error {
+.flash-info, .flash-notice, .flash-error, .flash-success {
   color: white;
-  font-size: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 21px;
+  font-size: 26px;
   text-align: center;
   background: #6FB6A4;
+  padding: 10px;
   border-bottom: 4px solid #4f887a;
 }
 
-/* line 433, ../sass/style_admin.scss */
+/* line 438, ../sass/style_admin.scss */
 .flash-error {
   background: #FF6649;
   border-bottom: 4px solid #ba5a3e;

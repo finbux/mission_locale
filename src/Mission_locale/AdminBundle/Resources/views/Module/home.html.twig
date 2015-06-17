@@ -3,33 +3,43 @@
 {% block arianne %} {{ parent() }} {% endblock %}
 {% block content %}
     <div id="container_module">
-        <div class="block_module">
-            <a href="{{ path('admin_appel') }}">
-                <img src="{{ asset('bundles/admin/images/appel.png') }}" alt="Gérer les appels"/>
-                <h3>Gérer les appels</h3>
-            </a>
-        </div>
-        <div class="block_module">
-            <a href="{{ path('offre_show') }}">
-                <img src="{{ asset('bundles/admin/images/offres.png') }}" alt="Gérer les offres" />
-                <h3>Gérer les offres</h3>
-            </a>
-        </div>
-        <div class="block_module">
-            <img src="{{ asset('bundles/admin/images/slogan.png') }}" alt="Gérer le slogan" />
-            <h3>Modifier le slogan</h3>
-        </div>
-        <div class="block_module">
-            <a href="{{ path('admin_antenne') }}">
-                <img src="{{ asset('bundles/admin/images/antennes.png') }}" alt="Gérer les antennes" />
-                <h3>Gérer les antennes</h3>
-            </a>
-        </div>
-        <div class="block_module">
-            <img src="{{ asset('bundles/admin/images/banniere.png') }}" alt="Modifier la bannière" />
-            <h4>Modifier la bannière</h4>
-        </div>
-        <div class="cb"></div>
+        {% if is_granted('ROLE_OFFRE') %}
+            <div class="block_module">
+                <a href="{{ path('offre_show') }}">
+                    <img src="{{ asset('bundles/admin/images/offres.png') }}" alt="Gérer les offres" />
+                    <h3>Gérer les offres</h3>
+                </a>
+            </div>
+        {% endif %}
+        {% if is_granted('ROLE_MODERATEUR') %}
+            <div class="block_module">
+                <a href="">
+                    <img src="{{ asset('bundles/admin/images/actu.png') }}" alt="Gérer les actualités"/>
+                    <h3>Gérer les actualités</h3>
+                </a>
+            </div>
+            <div class="block_module">
+                <a href="{{ path('admin_appel') }}">
+                    <img src="{{ asset('bundles/admin/images/appel.png') }}" alt="Gérer les appels"/>
+                    <h3>Gérer les appels</h3>
+                </a>
+            </div>
+            <div class="block_module">
+                <img src="{{ asset('bundles/admin/images/slogan.png') }}" alt="Gérer le slogan" />
+                <h3>Modifier le slogan</h3>
+            </div>
+            <div class="block_module">
+                <a href="{{ path('admin_antenne') }}">
+                    <img src="{{ asset('bundles/admin/images/antennes.png') }}" alt="Gérer les antennes" />
+                    <h3>Gérer les antennes</h3>
+                </a>
+            </div>
+            <div class="block_module">
+                <img src="{{ asset('bundles/admin/images/banniere.png') }}" alt="Modifier la bannière" />
+                <h4>Modifier la bannière</h4>
+            </div>
+            <div class="cb"></div>
+        {% endif %}
     </div>
 
 {% endblock %}

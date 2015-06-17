@@ -35,6 +35,13 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Mission_locale\UsersBundle\Entity\Users
+    registration:
+            form:
+                type: mission_locale_user_registration
+    profile:
+            form:
+                type: mission_locale_user_profile
+
 
 # Twig Configuration
 twig:

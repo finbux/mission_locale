@@ -1,0 +1,17 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Paramètre du site {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    <a href="{{ path('admin_modules')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <div id="container_module">
+        <div class="block_module">
+            <a href="{{ path('admin_users') }}">
+                <img src="{{ asset('bundles/admin/images/users.png') }}" alt="Gérer les utilisateurs"/>
+                <h3>Gérer les utilisateurs</h3>
+            </a>
+        </div>
+        <div class="cb"></div>
+    </div>
+{% endblock %}

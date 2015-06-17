@@ -1,0 +1,11 @@
+admin_parametre:
+    path: /
+    defaults: { _controller: AdminBundle:Admin:parametre }
+admin_users:
+    path: /users
+    defaults: { _controller: AdminBundle:User:users }
+delete_user:
+    path: /{id}/user
+    defaults: { _controller: AdminBundle:User:deleteUser }
+    requirements:
+                id: \d+

@@ -13,3 +13,11 @@ admin_moins26:
 admin_moins26_update:
     path: /moins26/{id}/update
     defaults: { _controller: AdminBundle:Moins26:update }
+
+index:
+    path:     /index
+    defaults: { _controller: AdminBundle:Parametre:index }
+
+users:
+    path:     /users
+    defaults: { _controller: AdminBundle:Parametre:users }

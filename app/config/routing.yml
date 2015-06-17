@@ -1,10 +1,12 @@
 admin:
     resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /admin
-
+admin_parametre:
+    resource: "@AdminBundle/Resources/config/parametre_routing.yml"
+    prefix:   /admin/parametre
 admin_appel:
     resource: "@AdminBundle/Resources/config/appel_routing.yml"
-    prefix: /admin/appel
+    prefix: /admin/module/appel
 
 admin_sous_item:
     resource: "@AdminBundle/Resources/config/sous_item_routing.yml"

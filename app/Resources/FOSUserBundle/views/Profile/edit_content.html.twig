@@ -1,3 +1,6 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Modifier un utilisateur {% endblock %}
+{% block content %}
 {% trans_default_domain 'FOSUserBundle' %}
 
 <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
@@ -6,3 +9,4 @@
         <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
     </div>
 </form>
+{% endblock %}

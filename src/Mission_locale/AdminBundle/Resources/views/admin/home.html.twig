@@ -9,18 +9,15 @@
        <div id="mid-wrapper">
            <div id="user_infos">
                <h2>Informations sur l'utilisateur</h2>
-               {% if is_granted("ROLE_ADMIN") %}
                    <p>Login: {{ app.user.username }}</p>
-               {% endif %}
-
                <p>Mot de pase : ******</p>
-               {% if is_granted("ROLE_ADMIN") %}
+
                    <p>Adresse mail: {{ app.user.email }}</p>
-               {% endif %}
+
                <p>Adresse Ip: 127.0.0.1</p>
-               {% if is_granted("ROLE_ADMIN") %}
+
                    <p>Dernière connexion: {{ app.user.lastLogin|date('d-m-Y H:i:s') }}</p>
-               {% endif %}
+
               <a href="{{ path('fos_user_profile_edit') }}">Modifier mes informations</a>
            </div>
            <div id="systeme">

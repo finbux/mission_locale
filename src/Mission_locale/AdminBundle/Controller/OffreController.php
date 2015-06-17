@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Mission_locale\AdminBundle\Form\OffreType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
 class OffreController extends Controller
@@ -83,6 +84,10 @@ class OffreController extends Controller
 
     public function deleteAction($id)
     {
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs.');
+        }
         $em = $this->getDoctrine()->getManager();
         //On récupère l'appel par l'id
         $offre = $em->getRepository('MainBundle:Offre')->find($id);

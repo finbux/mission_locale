@@ -221,7 +221,7 @@ hr{
 */
 #container-data{
   width: 90%;
- margin: 50px auto;
+ margin: 30px auto;
 }
 table {
   width: 100%;
@@ -423,13 +423,18 @@ background: $vert_clair;
   border: 1px solid #cccccc;
   padding: 10px;
 }
-.flash-info, .flash-notice, .flash-error{
+.flash-info, .flash-notice, .flash-error, .flash-success{
   color: white;
-  font-size: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 21px;
+  font-size: 26px;
   text-align: center;
   background: #6FB6A4;
+  padding: 10px;
   @include bordure_bas(#4F887A);
 }
+
 .flash-error{
   background: #FF6649;
   @include bordure_bas(#BA5A3E);
