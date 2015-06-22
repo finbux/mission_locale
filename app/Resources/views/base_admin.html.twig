@@ -40,6 +40,11 @@
 {% endblock %}
 {% block javascript %}
     <script src=" {{ asset('bundles/admin/js/ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace('ck_textarea', {
+            "filebrowserImageUploadUrl": "http://localhost/symfony_ml/web/bundles/admin/js/ckeditor/plugins/imgupload.php"
+        });
+    </script>
 {% endblock %}
 </body>
 </html>

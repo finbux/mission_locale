@@ -1,0 +1,19 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Ajouter une actualité {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+   {# {{ wo_render_breadcrumbs() }} #}
+    <br/>
+    <a href="{{ path('actu_index')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <form action="{{ path('actu_add') }}" method="post" {{ form_enctype(form) }}>
+    {{ form_row(form.titre) }}
+        {{ form_row(form.image) }}
+
+        {{ form_row(form.contenu, {'id' : 'ck_textarea'}) }}
+        {{ form_row(form.isPublished) }}
+        {{ form_row(form.dateDebut) }}
+        {{ form_row(form.dateFin) }}
+    {{ form_end(form) }}
+{% endblock %}

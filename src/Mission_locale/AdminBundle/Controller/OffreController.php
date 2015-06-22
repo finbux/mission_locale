@@ -86,8 +86,13 @@ class OffreController extends Controller
     {
         if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
             // Sinon on déclenche une exception « Accès interdit »
-            throw new AccessDeniedException('Accès limité aux Administrateurs.');
+            throw new AccessDeniedException('Accès limité aux Administrateurs et Modérateurs.');
         }
+        elseif(!$this->get('security.context')->isGranted('ROLE_MODERATEUR')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs et Modérateurs.');
+        }
+
         $em = $this->getDoctrine()->getManager();
         //On récupère l'appel par l'id
         $offre = $em->getRepository('MainBundle:Offre')->find($id);

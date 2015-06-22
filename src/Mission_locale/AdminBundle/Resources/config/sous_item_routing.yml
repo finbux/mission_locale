@@ -1,22 +1,22 @@
 admin_sous_item:
-    path: /moins26/sous_item/{id}
+    path: /{id}
     defaults: { _controller: AdminBundle:AdminSousItem:index }
     requirements:
         id: \d+
 sous_item_new:
-    path: /moins26/sous_item/{id}/new
+    path: /{id}/new
     defaults: { _controller: AdminBundle:AdminSousItem:new }
     requirements:
         id: \d+
 
 sous_item_update:
-    path: /moins26/sous_item/{id}/update
+    path: /{id}/update
     defaults: { _controller: AdminBundle:AdminSousItem:update }
     requirements:
         id: \d+
 
 sous_item_delete:
-    path: /moins26/sous_item/{id}/delete
+    path: /{id}/delete
     defaults: { _controller: AdminBundle:AdminSousItem:delete }
     requirements:
         id: \d+

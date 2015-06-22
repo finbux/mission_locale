@@ -23,7 +23,11 @@ class ProfileFormType extends BaseType
     parent::buildForm($builder, $options);
     $builder->add('email','email',array('required' => false));
     $builder->add('roles','choice',array(
-        'choices' => array('ROLE_ADMIN' => 'Administrateur', 'ROLE_MODERATEUR' => 'Modérateur')
+        'choices' =>
+            array('ROLE_ADMIN' => 'Administrateur',
+                'ROLE_MODERATEUR' => 'Modérateur',
+                'ROLE_OFFRE' => 'Gestion des offres',
+                 'ROLE_APPEL' => 'Gestion des appel')
     ,'multiple' => true
     ));
 }

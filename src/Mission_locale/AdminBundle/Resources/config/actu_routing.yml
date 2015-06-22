@@ -1,0 +1,16 @@
+actu_index:
+    path:     /
+    defaults: { _controller: AdminBundle:Actu:index }
+actu_add:
+    path:     /add
+    defaults: { _controller: AdminBundle:Actu:add }
+actu_update:
+    path:     /{id}/edit
+    defaults: { _controller: AdminBundle:Actu:update }
+    requirements:
+                id: \d+
+actu_delete:
+    path:     /{id}/delete
+    defaults: { _controller: AdminBundle:Actu:delete }
+    requirements:
+                id: \d+

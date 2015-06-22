@@ -1,6 +1,9 @@
 admin:
     resource: "@AdminBundle/Resources/config/routing.yml"
     prefix:   /admin
+admin_actu:
+    resource: "@AdminBundle/Resources/config/actu_routing.yml"
+    prefix:   /admin/actu
 admin_parametre:
     resource: "@AdminBundle/Resources/config/parametre_routing.yml"
     prefix:   /admin/parametre

@@ -7,8 +7,6 @@ use Mission_locale\MainBundle\Entity\Appel;
 use Symfony\Component\HttpFoundation\Request;
 //use Symfony\Bundle\FrameworkBundle\Routing\Router;
 
-
-
 class DefaultController extends Controller
 {
     public function indexAction(Request $request)
@@ -25,6 +23,7 @@ class DefaultController extends Controller
 
         $form = $formBuilder->getForm();
         $offres = $this->container->get('getOffres')->offre();
+        $actus = $this->container->get('getActus')->actus();
 
         if( $form->handleRequest($request)->isValid())
         {
@@ -44,7 +43,12 @@ class DefaultController extends Controller
                 $this->get('session')->getFlashBag()->add('error', 'Vous avez deja effectuez une demande');
             }
         }
-        return $this->render('MainBundle:Default:index.html.twig',array('form'=> $form->createView(), 'offres' => $offres));
+        return $this->render('MainBundle:Default:index.html.twig',
+            array(
+                'form'=> $form->createView(),
+                'offres' => $offres,
+                'actus' => $actus
+            ));
     }
     public function employeurAction()
     {

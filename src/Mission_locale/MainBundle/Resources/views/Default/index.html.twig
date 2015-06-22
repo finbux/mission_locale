@@ -14,18 +14,16 @@
             <div id="actu">
                 <div id="header_actu">
                     <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">
-                    L'actualité
-                    <span id="all_articles">Voir tout les articles</span>
+                    Nos actualités
+                    <span id="all_articles"><img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/>Voir tous les articles</span>
                 </div>
+
                     <div id='slides'>
-                        <a href="" target="_blank">
-                            <img src="{{ asset('bundles/main/img/actu1.jpg') }}">
-                            <span>Métier de l'animation</span>
+                    {% for actu in actus %}
+                        <a href="{{ actu.slug }}">
+                            <img src="{{ asset('upload/actu/'~actu.id~'/'~actu.image) }}"/>
                         </a>
-                        <a href="" target="_blank">
-                            <img src="{{ asset('bundles/main/img/actu2.jpg') }}">
-                            <span>Offres d'emploi</span>
-                        </a>
+                    {% endfor %}
                     </div>
             </div>
             <!------------------------------->

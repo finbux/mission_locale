@@ -13,7 +13,7 @@
         {% endif %}
         {% if is_granted('ROLE_MODERATEUR') %}
             <div class="block_module">
-                <a href="">
+                <a href="{{ path('actu_index') }}">
                     <img src="{{ asset('bundles/admin/images/actu.png') }}" alt="Gérer les actualités"/>
                     <h3>Gérer les actualités</h3>
                 </a>

@@ -37,10 +37,10 @@ security:
             - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
             - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-            - { path: ^/admin/modules/offres, role: ROLE_OFFRE }
+            - { path: ^/admin/module/offres, role: ROLE_OFFRE }
             - { path: ^/admin/module/appel, role: [ROLE_APPEL,ROLE_MODERATEUR] }
             - { path: ^/admin/module/antenne, role: [ROLE_APPEL,ROLE_MODERATEUR] }
-            - { path: ^/admin/modules, role: [ROLE_ADMIN,ROLE_MODERATEUR,ROLE_OFFRE] }
+            - { path: ^/admin/module, role: [ROLE_ADMIN,ROLE_MODERATEUR,ROLE_OFFRE] }
             - { path: ^/admin/categorie, role: [ROLE_ADMIN,ROLE_MODERATEUR] }
             - { path: ^/admin/, role: [ROLE_ADMIN,ROLE_OFFRE,ROLE_MODERATEUR,ROLE_APPEL] }
 
