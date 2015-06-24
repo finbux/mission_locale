@@ -10,6 +10,9 @@
         {% endfor %}
     {% endfor %}
     {{ wo_render_breadcrumbs() }}
+    <a href="{{ path('admin_users')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
     <br/>
     <a href="{{ path('admin_parametre')}}">
         <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>

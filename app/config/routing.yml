@@ -11,6 +11,10 @@ admin_appel:
     resource: "@AdminBundle/Resources/config/appel_routing.yml"
     prefix: /admin/module/appel
 
+actu_routing:
+    resource: "@MainBundle/Resources/config/actu_routing.yml"
+    prefix: /actu
+
 admin_sous_item:
     resource: "@AdminBundle/Resources/config/sous_item_routing.yml"
     prefix: /admin/moins26/sous_item
@@ -35,4 +39,7 @@ users:
 main:
     resource: "@MainBundle/Resources/config/routing.yml"
     prefix:   /
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
 

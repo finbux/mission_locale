@@ -1,0 +1,9 @@
+#ROUTE ACTU
+view_actu:
+    path: /{slug_actu}
+    defaults: { _controller: MainBundle:Actu:show }
+    requirements:
+        slug_actu: "[a-zA-Z1-9\-_\/]+"
+all_articles:
+    path: /
+    defaults: { _controller: MainBundle:Actu:allArticles }

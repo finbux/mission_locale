@@ -1,0 +1,56 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les actualités {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+   {# {{ wo_render_breadcrumbs() }} #}
+    <br/>
+    <a href="{{ path('admin_modules')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <a href="{{ path('actu_add') }}">
+        <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter une actualité</button>
+    </a>
+    {% if actus is empty %}
+        <h2>Aucune actualité </h2>
+    {% else %}
+        <table>
+            <tr>
+                <th>Titre</th>
+                <th>Date début</th>
+                <th>Date fin</th>
+                <th>Publiée</th>
+                <th>Actions</th>
+            </tr>
+            {% for actu in actus %}
+                <tr>
+                    <td>{{ actu.titre }}</td>
+                    {% if actu.isPublished == true %}
+                        <td>Déja publié</td>
+                        <td>Déja publié</td>
+                    {% else %}
+
+                        <td>{{ actu.dateDebut|date('d-m-Y') }}</td>
+                        <td>{{ actu.dateFin|date('d-m-Y') }}</td>
+                    {% endif %}
+
+                    {% if actu.isPublished == true %}
+                        <td>Publiée</td>
+                    {% else %}
+                        <td>Non publiée</td>
+                    {% endif %}
+                    <td>
+                        <a href="{{ path('actu_update', { 'id': actu.id}) }}">Modifier</a>
+                        <a href="{{ path('actu_delete', { 'id': actu.id}) }}" onclick="return confirm('Supprimer cette actualité ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

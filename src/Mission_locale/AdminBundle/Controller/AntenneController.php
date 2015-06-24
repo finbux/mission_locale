@@ -6,7 +6,7 @@ use Mission_locale\AdminBundle\Entity\Antenne;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Mission_locale\AdminBundle\Form\AntenneType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AntenneController extends Controller
 {
@@ -91,17 +91,22 @@ class AntenneController extends Controller
 
     public function deleteAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-        $antenne = $em->getRepository('AdminBundle:Antenne')->find($id);
-        if(!$antenne)
-        {
-            throw $this->createNotFoundException("L'antenne n'existe pas");
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
         }
-        $em->remove($antenne);
-        //On save la suppression
-        $em->flush();
+        else{
+            $em = $this->getDoctrine()->getManager();
+            $antenne = $em->getRepository('AdminBundle:Antenne')->find($id);
+            if(!$antenne)
+            {
+                throw $this->createNotFoundException("L'antenne n'existe pas");
+            }
+            $em->remove($antenne);
+            //On save la suppression
+            $em->flush();
 
-        return $this->redirect($this->generateUrl('admin_antenne'));
+            return $this->redirect($this->generateUrl('admin_antenne'));
+        }
     }
-
 }

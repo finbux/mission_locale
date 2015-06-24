@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    {{ parent() }} | Les actualités
+{% endblock %}
+{% block body %}
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                <p>{{ parent() }} / Les actualités</p>
+            {% endblock %}
+        </div>
+
+        <div id="container-article">
+            <div class="last-10-articles">
+                <h2 class="sous_actus">Les 5 derniers articles</h2>
+                {% for actu in actus %}
+
+                    <div class="infos-article">
+                       {% set thumb = 'uploads/actu/'~actu.thumb.path %}
+
+                    <img src="{{ thumb|imagine_filter('actu_thumb') }}" alt="{{ actu.thumb.name }}"/>
+                        <h2 class="extrait-article-titre"><a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a></h2>
+                       <p>Publié le : {{ actu.dateDebut|date('d-m-Y') }}</p>
+                        <hr/>
+                        <p>{{ actu.description }}</p>
+                        <div class="cb"></div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="all-articles">
+                <h2 class="sous_actus">Tous les articles</h2>
+                {% for actu in actus %}
+                <div class="article-extrait">
+                    <span class="date-actu">23/06/2015</span> -
+                    <a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a> -
+                    <span style="">{{ actu.description|truncate(30) }}</span>
+                </div>
+
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+    {% include "::footer.html.twig" %}
+    <div class="cb"></div>
+
+{% endblock %}

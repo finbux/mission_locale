@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    {{ parent() }} | {{ actu.titre }}
+{% endblock %}
+{% block body %}
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                <p>{{ parent() }} / Actualité / {{ actu.titre }}</p>
+            {% endblock %}
+        </div>
+
+        <div id="article">
+            <div id="btn_articles">
+                <img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/>
+                <a href="{{ path('all_articles') }}">Voir tous les articles</a>
+            </div>
+            <h1 class="title-actu">{{ actu.titre }}</h1>
+            <div id="contenu">
+                {{ actu.contenu|raw }}
+            </div>
+
+        </div>
+
+    </div>
+    {% include "::footer.html.twig" %}
+    <div class="cb"></div>
+
+{% endblock %}

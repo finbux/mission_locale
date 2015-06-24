@@ -213,6 +213,7 @@ body{
     margin-left: 5px;
     margin-right: 5px;
   }
+
 }
 #header_actu:before{  @include pliage();  }
 
@@ -254,7 +255,112 @@ body{
     }
   }
 }
+#article{
+  position: relative;
+  width: 80%;
+  margin: 50px auto;
+  margin-bottom: 100px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  @include border-radius(0 0 10px 10px);
+  background: #f5f5f5;
+  padding-bottom: 30px;
 
+
+  h1, #contenu{
+    margin: 10px;
+  }
+  .title-actu{
+    background:#97BF0D;
+    padding: 5px;
+    @include bordure_bas();
+    @include border-radius(0 0 20px 20px);
+
+
+  }
+}
+#btn_articles{
+  a{
+    color: white;
+  }
+  position: absolute;
+  left:-1px;
+  top:-32px;
+  color: white;
+  background:#97BF0D;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px;
+  @include border-radius(10px 10px 0 0);
+  text-decoration: underline;
+  img{
+    vertical-align: top;
+  }
+}
+#container-article{
+  width: 80%;
+  min-height: 500px;
+  height: auto;
+  margin: 30px auto;
+
+  .sous_actus{
+    background: #97BF0D;
+    color: #ffffff;
+    @include border-radius(10px 10px 0 0);
+    padding-left: 10px;
+  }
+}
+.last-10-articles{
+  width: 45%;
+  height: 500px;
+
+  float: left;
+  background: #f5f5f5;
+  @include border-radius(10px);
+  
+  img{
+    float: left;
+    margin-right: 10px;
+    border-right: 1px solid white;
+  }
+  .infos-article{
+   margin: 20px;
+    background: #C1E53D;
+    border: 1px solid #dddce1;
+    padding: 10px;
+
+
+    a{
+      color: black;
+    }
+    hr{
+      border: 1px solid white;
+    }
+  }
+}
+.all-articles{
+  width: 50%;
+  height: 500px;
+  border: 1px solid $vert_clair;
+  float: right;
+  background: #ffffff;
+  @include border-radius(10px);
+}
+.article-extrait{
+  border-bottom: 1px solid #dddce1;
+  font-weight: bold;
+  display: block;
+  font-size: 18px;
+  padding: 10px;
+  a{
+    color: $vert_clair;
+    font-size: 20px;
+  }
+}
+.date-actu{
+  color: $vert_clair;
+}
+/***** FIN ACTU ********/
 #header_offre{
   position: absolute;
   width: 585px;

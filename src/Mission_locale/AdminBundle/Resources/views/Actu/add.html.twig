@@ -9,11 +9,41 @@
     </a>
     <form action="{{ path('actu_add') }}" method="post" {{ form_enctype(form) }}>
     {{ form_row(form.titre) }}
+        <hr/>
         {{ form_row(form.image) }}
-
+        {{ form_errors(form.image) }}
+        <hr/>
+        {{ form_row(form.thumb) }}
+        {{ form_errors(form.thumb) }}
+        <hr/>
+        {{ form_row(form.description) }}
+        <hr/>
         {{ form_row(form.contenu, {'id' : 'ck_textarea'}) }}
-        {{ form_row(form.isPublished) }}
-        {{ form_row(form.dateDebut) }}
-        {{ form_row(form.dateFin) }}
+        {{ form_label(form.isPublished) }}
+        <span id="info-publi">Pour une publication programmée coché "Non"</span>
+        {{ form_widget(form.isPublished) }}
+
+        <hr/>
+        <div class="dateActu">
+            {{ form_row(form.dateDebut) }}
+            {{ form_row(form.dateFin) }}
+        </div>
     {{ form_end(form) }}
+{% endblock %}
+{% block javascript %}
+       {{ parent() }}
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("input:radio[name='mission_locale_adminbundle_actu[isPublished]']").click(function() {
+                   if(($(this).val() == 0))
+                   {
+                       $(".dateActu").fadeIn();
+                   }
+                    else{
+                       $(".dateActu").hide();
+                   }
+                });
+            });
+        </script>
 {% endblock %}

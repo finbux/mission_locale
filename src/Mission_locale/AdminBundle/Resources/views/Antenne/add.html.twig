@@ -59,7 +59,7 @@
 
 {% endblock %}
 {% block javascript %}
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAjU0EJWnWPMv7oQ-jjS7dYxSPW5CJgpdgO_s4yyMovOaVh_KvvhSfpvagV18eOyDWu7VytS6Bi1CWxw"></script>
         <script type="application/javascript">
             document.body.setAttribute('onload',"initialize()");
@@ -100,18 +100,5 @@
                     );
                 }
             }
-        </script>
-        <script>
-            $(function(){
-                adresse = $("#adresse");
-                var myLength = adresse.val().length;
-                last_adress = $("#last_adresse");
-
-                    adresse.keyup(function() {
-                        console.log(myLength);
-                    });
-
-
-            })
         </script>
 {% endblock %}

@@ -5,6 +5,7 @@ namespace Mission_locale\AdminBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Mission_locale\AdminBundle\Form\MediaType;
 
 class ActuType extends AbstractType
 {
@@ -16,18 +17,19 @@ class ActuType extends AbstractType
     {
         $builder
             ->add('titre','text',array('label' => 'Titre l\'actualité : '))
-            ->add('image','file',array('label' => 'Image du slider','data_class' => null,'required' => false))
+            ->add('image', new MediaType(),array('label' => 'Image du slider ( Taille de l\'image 600*300)'))
+            ->add('thumb', new MediaType(),array('label' => 'Miniature'))
+            ->add('description','text',array('label' => 'Description de l\'article : '))
             ->add('contenu','textarea',
         array('label' => 'Contenu de l\'actualité','attr' => array('class' => 'ckeditor')))
             ->add('isPublished','choice',array(
                 'choices' => array(
                     true => 'Oui',
-                    false => 'Non'
+                    false => 'Non',
                 ),
-
                 'label' => 'Publié maintenant ?',
                 'multiple' => false,
-                'expanded' => true
+                'expanded' => true,
             ))
             ->add('dateDebut','datetime',array('label' => 'Date de publication'))
             ->add('dateFin','datetime',array('label' => 'Date de fin'))

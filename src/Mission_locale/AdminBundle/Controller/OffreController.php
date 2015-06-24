@@ -5,7 +5,6 @@ namespace Mission_locale\AdminBundle\Controller;
 use Mission_locale\MainBundle\Entity\Offre;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 use Mission_locale\AdminBundle\Form\OffreType;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
@@ -86,12 +85,9 @@ class OffreController extends Controller
     {
         if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
             // Sinon on déclenche une exception « Accès interdit »
-            throw new AccessDeniedException('Accès limité aux Administrateurs et Modérateurs.');
+            throw new AccessDeniedException('Accès limité aux Administrateurs.');
         }
-        elseif(!$this->get('security.context')->isGranted('ROLE_MODERATEUR')) {
-            // Sinon on déclenche une exception « Accès interdit »
-            throw new AccessDeniedException('Accès limité aux Administrateurs et Modérateurs.');
-        }
+
 
         $em = $this->getDoctrine()->getManager();
         //On récupère l'appel par l'id

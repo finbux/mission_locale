@@ -17,6 +17,7 @@ categorie_page:
     path: /{slug}/{slug_sous_item}-{id}
     defaults: { _controller: MainBundle:Moins26ans:categorie}
     requirements:
+            slug: "[a-zA-Z1-9\-_\/]+"
             slug_sous_item: "[a-zA-Z1-9\-_\/]+"
             id: \d+
 sous_item_page:
@@ -24,24 +25,6 @@ sous_item_page:
     defaults: { _controller: MainBundle:Moins26ans:getDescription}
     options:
         expose: true
-validation_appel_page:
-    path: /appel_validation
-    defaults: { _controller: MainBundle:Appel:validation}
-show:
-    path:     /show
-    defaults: { _controller: MainBundle:Offre:show }
-
-add:
-    path:     /add
-    defaults: { _controller: MainBundle:Offre:add }
-
-edit:
-    path:     /edit
-    defaults: { _controller: MainBundle:Offre:edit }
-
-delete:
-    path:     /delete
-    defaults: { _controller: MainBundle:Offre:delete }
 antenne_xml:
     path: /xml
     defaults: { _controller: AdminBundle:Antenne:getAntennes }

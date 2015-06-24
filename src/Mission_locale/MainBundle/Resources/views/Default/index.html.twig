@@ -15,13 +15,14 @@
                 <div id="header_actu">
                     <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">
                     Nos actualités
-                    <span id="all_articles"><img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/>Voir tous les articles</span>
+                    <span id="all_articles"><img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/><a
+                                href="{{ path('all_articles') }}">Voir tous les articles</a></span>
                 </div>
 
                     <div id='slides'>
                     {% for actu in actus %}
-                        <a href="{{ actu.slug }}">
-                            <img src="{{ asset('upload/actu/'~actu.id~'/'~actu.image) }}"/>
+                        <a href="{{ path('view_actu', { 'slug_actu': actu.slug }) }}">
+                            <img src="{{ asset('uploads/actu/'~actu.image.path) }}" alt="{{ actu.image.name }}"/>
                         </a>
                     {% endfor %}
                     </div>

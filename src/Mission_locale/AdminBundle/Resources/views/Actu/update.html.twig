@@ -1,0 +1,50 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Modifier une actualité {% endblock %}
+{% block content %}
+<a href="{{ path('actu_index')}}">
+    <button>Page précédente</button>
+    <a>
+    {{ form_start(form) }}
+
+    {{ form_row(form.titre) }}
+    <hr/>
+    <label for="">Image actuelle</label>
+    <br/>
+    <img src="{{ asset('uploads/actu/'~actu.image.path) }}" alt="{{ actu.image.name }}" style="width: 200px; height: 100px;"/>
+    {{ form_row(form.image) }}
+    <hr/>
+    {{ form_row(form.thumb) }}
+    <hr/>
+    {{ form_row(form.description) }}
+        <hr/>
+    {{ form_row(form.contenu, {'id' : 'ck_textarea'}) }}
+
+    {{ form_label(form.isPublished) }}
+    <span id="info-publi">Pour une publication programmée coché "Non"</span>
+    {{ form_widget(form.isPublished) }}
+
+    <hr/>
+    <div class="dateActu">
+            {{ form_row(form.dateDebut) }}
+            {{ form_row(form.dateFin) }}
+    </div>
+        {{ form_row(form.add,{'label' : 'Modifier'}) }}
+    {{ form_end(form) }}
+{% endblock %}
+        {% block javascript %}
+        {{ parent() }}
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("input:radio[name='mission_locale_adminbundle_actu[isPublished]']").click(function() {
+                    if(($(this).val() == 0))
+                    {
+                        $(".dateActu").fadeIn();
+                    }
+                    else{
+                        $(".dateActu").hide();
+                    }
+                });
+            });
+        </script>
+{% endblock %}

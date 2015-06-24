@@ -16,9 +16,9 @@ class AntenneType extends AbstractType
     {
         $builder
             ->add('nom','text',array('label' => 'Nom de l\'antenne : '))
-            ->add('adresse','text', array('label' => 'L\'adresse de l\'antenne'))
+            ->add('adresse','text', array('label' => 'L\'adresse complète de l\'antenne'))
             ->add('horaire','textarea',array('label' => 'Les horaires de l\'antenne','attr' => array('cols' => '90', 'rows' => '12')))
-            ->add('cp','text',array('label' => 'Le code postal','attr' => array('style' => 'width: 100px;')))
+            ->add('cp','text',array('label' => 'Le code postal','attr' => array('style' => 'width: 100px;','maxLength' => 5)))
             ->add('lat','text',array('label' => 'Latitude','attr' => array('readonly' => 'readonly')))
             ->add('lng','text',array('label' => 'Longétude','attr' => array('readonly' => 'readonly')))
             ->add('add','submit',array('label' => 'Ajouter'), array('attr' => array('class' => 'btn_ok')))

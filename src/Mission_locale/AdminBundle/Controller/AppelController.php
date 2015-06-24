@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Mission_locale\AdminBundle\Form\AppelType;
 use Mission_locale\MainBundle\Entity\AppelRepository;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AppelController extends Controller
 {
@@ -97,21 +98,28 @@ class AppelController extends Controller
     //Action pour supprimer un appel
     public function deleteAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-        //On récupère l'appel par l'id
-        $appel = $em->getRepository('MainBundle:Appel')->find($id);
-
-        //Si l'appel n'existe pas
-        if(!$appel)
-        {
-            throw $this->createNotFoundException("L'appel n'existe pas");
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
         }
+        else
+        {
+            $em = $this->getDoctrine()->getManager();
+            //On récupère l'appel par l'id
+            $appel = $em->getRepository('MainBundle:Appel')->find($id);
 
-        //On supprime l'appel
-        $em->remove($appel);
-        //On save la suppression
-        $em->flush();
+            //Si l'appel n'existe pas
+            if(!$appel)
+            {
+                throw $this->createNotFoundException("L'appel n'existe pas");
+            }
 
-        return $this->redirect($this->generateUrl('admin_appel'));
+            //On supprime l'appel
+            $em->remove($appel);
+            //On save la suppression
+            $em->flush();
+
+            return $this->redirect($this->generateUrl('admin_appel'));
+        }
     }
 }

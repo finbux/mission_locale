@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Mission_locale\MainBundle\Entity\SousItem;
 use Mission_locale\AdminBundle\Form\SousItemType;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class AdminSousItemController extends Controller
 {
@@ -106,23 +107,31 @@ class AdminSousItemController extends Controller
     //Action pour supprimer un sous item
     public function deleteAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-        //On récupère le sous item à supprimer
-        $sous_item = $em->getRepository('MainBundle:SousItem')->find($id);
-        $id = $sous_item->getCategory()->getId();
-        //Si on ne trouve pas le sous item, on lève une exception
-        if(!$sous_item)
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
+        }
+        else
         {
-            throw $this->createNotFoundException("Le sous item n'existe pas");
+            $em = $this->getDoctrine()->getManager();
+            //On récupère le sous item à supprimer
+            $sous_item = $em->getRepository('MainBundle:SousItem')->find($id);
+            $id = $sous_item->getCategory()->getId();
+            //Si on ne trouve pas le sous item, on lève une exception
+            if(!$sous_item)
+            {
+                throw $this->createNotFoundException("Le sous item n'existe pas");
+            }
+
+            //On supprime l'objet sous item
+            $em->remove($sous_item);
+            //On sauvegarde la supression
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('info', 'La suppression a bien été effectuer');
+
+            return $this->redirect($this->generateUrl('admin_sous_item', array('id' => $id)), 301);
         }
 
-        //On supprime l'objet sous item
-        $em->remove($sous_item);
-        //On sauvegarde la supression
-        $em->flush();
-
-        $this->get('session')->getFlashBag()->add('info', 'La suppression a bien été effectuer');
-
-        return $this->redirect($this->generateUrl('admin_sous_item', array('id' => $id)), 301);
     }
 }
