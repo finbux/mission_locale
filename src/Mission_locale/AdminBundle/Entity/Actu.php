@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Actu
  *
- * @ORM\Table('actu')
+ * @ORM\Table("actu")
  * @ORM\HasLifecycleCallbacks
  * @ORM\Entity(repositoryClass="Mission_locale\AdminBundle\Entity\ActuRepository")
  */

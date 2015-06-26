@@ -54,7 +54,8 @@ class Media
 
     /**
     * @Assert\Image(
-    * maxSize="4M", maxSizeMessage="L'image est trop lourde",
+    * maxSize="3M",
+    * maxSizeMessage = "L'image est trop lourde",
     * mimeTypes = {"image/jpeg", "image/png","image/jpg", "image/gif"},
     * mimeTypesMessage = "Seulement .jpeg .png .jpg and .gif sont des extensions valides",
     *)

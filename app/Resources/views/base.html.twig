@@ -6,9 +6,6 @@
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/main/css/style.css') }}"
               type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('bundles/main/css/coin-slider-styles.css') }}"
-              type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('bundles/main/css/animate.css') }}" type="text/css" media="all"/>
         <link rel="stylesheet" href="{{ asset('bundles/main/css/outdatedbrowser.css') }}"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -28,7 +25,7 @@
         <!------------------------------->
 
         <!-- LOGO FACEBOOK -->
-        <a href="https://www.facebook.com/MLIFE.GA?fref=ts">
+        <a href="https://www.facebook.com/MLIFE.GA">
             <div id="facebook">
 
                 <p> <img src="{{ asset('bundles/main/img/logo_facebook.png') }}" alt=""/>
@@ -70,6 +67,27 @@
             $("#slides").slidesjs({
                 width: 600,
                 height: 300
+            });
+            function addLoadEvent(func) {
+                var oldonload = window.onload;
+                if (typeof window.onload != 'function') {
+                    window.onload = func;
+                } else {
+                    window.onload = function() {
+                        if (oldonload) {
+                            oldonload();
+                        }
+                        func();
+                    }
+                }
+            }
+//call plugin function after DOM ready
+            addLoadEvent(function(){
+                outdatedBrowser({
+                    bgColor: '#f25648',
+                    color: '#ffffff',
+                    lowerThan: 'transform'
+                })
             });
         });
     </script>
