@@ -276,8 +276,6 @@ body{
     padding: 5px;
     @include bordure_bas();
     @include border-radius(0 0 20px 20px);
-
-
   }
 }
 #btn_articles{
@@ -332,13 +330,15 @@ body{
 
 
     a{
-      color: black;
+      color: #4E5E65;
     }
     hr{
-      border: 1px solid white;
+      border: 1px solid #4E5E65;;
     }
   }
+
 }
+
 .all-articles{
   width: 50%;
   height: 500px;
@@ -347,7 +347,12 @@ body{
   background: #ffffff;
   @include border-radius(10px);
 
-
+.description-actu{
+  color: #4E5E65;
+}
+  .article-extrait img{
+    float: right;
+  }
 
 }
 .article-extrait{
@@ -361,6 +366,7 @@ body{
     font-size: 20px;
   }
 }
+
 .date-actu{
   color: $vert_clair;
 }
@@ -516,11 +522,15 @@ body{
     display: inline;
     width: 400px;
     background: #FFF;
+    color: $vert_clair;
     list-style: none;
     padding: 10px;
     margin-right: 10px;
     border-bottom: 4px solid #718e08;
     @include border-radius(10px);
+  }
+  #qsn:hover{
+    cursor: pointer;
   }
 }
 
@@ -539,9 +549,11 @@ body{
 
 /****************************/
 .arrow_box {
+  display: none;
   position: relative;
   background: #97BF0D;
   border: 2px solid #718e08;
+  @include border-radius(20px);
   width: 500px;
   min-height: 300px;
   height: auto;
@@ -574,7 +586,21 @@ body{
   margin-left: -26px;
 }
 
-
+#close{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top:5px;
+  right:5px;
+  @include border-radius(50%);
+  background: #718E08;
+  color: white;
+  text-align: center;
+  line-height: 30px;
+}
+#close:hover{
+  cursor: pointer;
+}
 
 /***** MAP ************/
 #map{

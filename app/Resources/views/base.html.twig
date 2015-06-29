@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>{% block title %}MLIFE{% endblock %}</title>
+    <title>{% block title %}Mission Locale Insertion Formation Emploi{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('bundles/main/css/style.css') }}"
               type="text/css" media="all" />
@@ -17,7 +17,7 @@
 
         <!-- LOGO MLIFE -->
         <div id="container_logo">
-            <a href="{{ path('main_homepage') }}">
+            <a href="{{ path('main_homepage') }}" title="Mission locale Amiens accueil">
                 <span class="helper"></span>
                 <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
             </a>
@@ -25,7 +25,7 @@
         <!------------------------------->
 
         <!-- LOGO FACEBOOK -->
-        <a href="https://www.facebook.com/MLIFE.GA">
+        <a href="https://www.facebook.com/MLIFE.GA" title="MLIFE facebook">
             <div id="facebook">
 
                 <p> <img src="{{ asset('bundles/main/img/logo_facebook.png') }}" alt=""/>
@@ -36,9 +36,9 @@
 
         <!-- LES TROIS BULLES -->
         <div id="bulles">
-            <a href="{{ path('moins26_page') }}"><img class="img_moins26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/></a>
-            <a href="{{ path('employeur_page') }}"><img class="img_employeur" src="{{ asset('bundles/main/img/employeur.png') }}" alt=""></a>
-            <a href="{{ path('plus26_page') }}"><img class="img_plus26" src="{{ asset('bundles/main/img/plus26.png') }}" alt=""></a>
+            <a href="{{ path('moins26_page') }}" title="Mission locale Amiens moins de 26 ans"><img class="img_moins26" src="{{ asset('bundles/main/img/moins26.png') }}" alt=""/></a>
+            <a href="{{ path('employeur_page') }}" title="Mission locale Amiens employeur"><img class="img_employeur" src="{{ asset('bundles/main/img/employeur.png') }}" alt=""></a>
+            <a href="{{ path('plus26_page') }}" title="Mission locale Amiens plus de 26 ans"><img class="img_plus26" src="{{ asset('bundles/main/img/plus26.png') }}" alt=""></a>
             <div class="cb"></div>
         </div>
         <!-------------------------------->
@@ -52,7 +52,7 @@
 
 {% block body %}
     {% block arianne %}
-        <a href="{{ path('main_homepage') }}">Accueil</a>
+        <a href="{{ path('main_homepage') }}" title="Mission locale Amiens Accueil">Accueil</a>
     {% endblock %}
 {% endblock %}
 {% block javascripts %}
@@ -80,7 +80,18 @@
                         func();
                     }
                 }
+
+            var box_arrow = $(".arrow_box");
+                $("#qsn").click(function(){
+                   $("#container_menu").css("margin-top","30px");
+                   $(box_arrow).fadeIn();
+                });
+                $("#close").click(function(){
+                    box_arrow.hide();
+                    $("#container_menu").css("margin-top","6px");
+                });
             }
+
 //call plugin function after DOM ready
             addLoadEvent(function(){
                 outdatedBrowser({

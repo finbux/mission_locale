@@ -12,7 +12,7 @@
 
         <div id="container-article">
             <div class="last-10-articles">
-                <h2 class="sous_actus">Les 5 derniers articles</h2>
+                <h2 class="sous_actus">Les 3 derniers articles</h2>
                 {% for actu in actus %}
 
                     <div class="infos-article">
@@ -22,19 +22,23 @@
                         <h2 class="extrait-article-titre"><a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a></h2>
                        <p>Publié le : {{ actu.dateDebut|date('d-m-Y') }}</p>
                         <hr/>
-                        <p>{{ actu.description }}</p>
+                        <p class="extrait-article-description">{{ actu.description }}</p>
                         <div class="cb"></div>
                     </div>
 
                 {% endfor %}
             </div>
             <div class="all-articles">
-                <h2 class="sous_actus">Tous les articles</h2>
+                <h2 class="sous_actus">Historique des articles</h2>
                 {% for actu in actus %}
                 <div class="article-extrait">
+                    <p>
                     <span class="date-actu">23/06/2015</span> -
                     <a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a> -
-                    <span style="">{{ actu.description|truncate(30) }}</span>
+                    <span class="description-actu">{{ actu.description|truncate(30) }}</span>
+                        <img src="{{ asset('bundles/main/img/loupe.png')}}" alt="en savoir plus"/>
+                    </p>
+
                 </div>
 
                 {% endfor %}
