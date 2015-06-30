@@ -59,23 +59,16 @@ class Actu
     private $slug;
 
     /**
-     * @var \DateTime
+     * @var \Date
      *
-     * @ORM\Column(name="dateDebut", type="datetime", nullable=true)
+     * @ORM\Column(name="dateDebut", type="date", nullable=true)
      */
     private $dateDebut;
 
     /**
-     * @var \DateTime
+     * @var integer
      *
-     * @ORM\Column(name="dateFin", type="datetime", nullable=true)
-     */
-    private $dateFin;
-
-    /**
-     * @var boolean
-     *
-     * @ORM\Column(name="isPublished", type="boolean", nullable=true)
+     * @ORM\Column(name="isPublished", type="integer", nullable=true)
      */
     private $isPublished;
 
@@ -197,29 +190,7 @@ class Actu
         return $this->dateDebut;
     }
 
-    /**
-     * Set dateFin
-     *
-     * @param \DateTime $dateFin
-     *
-     * @return Actu
-     */
-    public function setDateFin($dateFin)
-    {
-        $this->dateFin = $dateFin;
 
-        return $this;
-    }
-
-    /**
-     * Get dateFin
-     *
-     * @return \DateTime
-     */
-    public function getDateFin()
-    {
-        return $this->dateFin;
-    }
 
     /**
      * Set isPublished

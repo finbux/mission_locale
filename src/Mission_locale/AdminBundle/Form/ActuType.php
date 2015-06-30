@@ -19,20 +19,21 @@ class ActuType extends AbstractType
             ->add('titre','text',array('label' => 'Titre l\'actualité : '))
             ->add('image', new MediaType(),array('label' => 'Image du slider ( Taille de l\'image 600*300)'))
             ->add('thumb', new MediaType(),array('label' => 'Miniature'))
-            ->add('description','text',array('label' => 'Description de l\'article : '))
+            ->add('description','text',array('label' => 'Description de l\'article : ', 'max_length' => '250'))
             ->add('contenu','textarea',
         array('label' => 'Contenu de l\'actualité','attr' => array('class' => 'ckeditor')))
             ->add('isPublished','choice',array(
                 'choices' => array(
-                    true => 'Oui',
-                    false => 'Non',
+                    1 => 'Oui',
+                    2 => 'Programmé',
+                    0 => 'Masqué'
+
                 ),
                 'label' => 'Publié maintenant ?',
                 'multiple' => false,
                 'expanded' => true,
             ))
             ->add('dateDebut','datetime',array('label' => 'Date de publication'))
-            ->add('dateFin','datetime',array('label' => 'Date de fin'))
             ->add('add','submit',array('label' => 'Ajouter', 'attr' => array('style' => 'float: right')));
     }
 

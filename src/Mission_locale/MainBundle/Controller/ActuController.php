@@ -18,8 +18,8 @@ class ActuController extends Controller
     public function allArticlesAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $actus =  $em->getRepository('AdminBundle:Actu')->findAll();
-
-        return  $this->render('MainBundle:Actu:home.html.twig',array('actus' => $actus));
+        $actus =  $em->getRepository('AdminBundle:Actu')->allArticles();
+        $last_actus = $em->getRepository('AdminBundle:Actu')->get3Last();
+        return  $this->render('MainBundle:Actu:home.html.twig',array('actus' => $actus,'last_actus' => $last_actus));
     }
 }

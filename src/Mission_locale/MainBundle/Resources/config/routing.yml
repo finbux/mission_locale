@@ -30,3 +30,6 @@ antenne_xml:
     defaults: { _controller: AdminBundle:Antenne:getAntennes }
     options:
             expose: true
+doc_page:
+    path: /documentation
+    defaults: { _controller: MainBundle:Doc:home}

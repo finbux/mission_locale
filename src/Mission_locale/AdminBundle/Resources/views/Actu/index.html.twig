@@ -24,26 +24,30 @@
             <tr>
                 <th>Titre</th>
                 <th>Date début</th>
-                <th>Date fin</th>
                 <th>Publiée</th>
                 <th>Actions</th>
             </tr>
             {% for actu in actus %}
                 <tr>
                     <td>{{ actu.titre }}</td>
-                    {% if actu.isPublished == true %}
-                        <td>Déja publié</td>
-                        <td>Déja publié</td>
-                    {% else %}
-
+                    {% if actu.isPublished == 1 %}
+                        <td>Oui</td>
+                    {% elseif actu.isPublished == 2 %}
                         <td>{{ actu.dateDebut|date('d-m-Y') }}</td>
-                        <td>{{ actu.dateFin|date('d-m-Y') }}</td>
+                    {% else %}
+                        <td>Masqué</td>
                     {% endif %}
 
-                    {% if actu.isPublished == true %}
-                        <td>Publiée</td>
-                    {% else %}
-                        <td>Non publiée</td>
+                    {% if actu.isPublished == 1 %}
+                        <td>Oui</td>
+                    {% elseif actu.isPublished == 2 %}
+                        {% if actu.dateDebut|date('Ymd') < "now"|date('Ymd')  %}
+                            <td>Oui</td>
+                            {% else %}
+                            <td>non</td>
+                        {% endif %}
+                        {% else %}
+                        <td>Masqué</td>
                     {% endif %}
                     <td>
                         <a href="{{ path('actu_update', { 'id': actu.id}) }}">Modifier</a>

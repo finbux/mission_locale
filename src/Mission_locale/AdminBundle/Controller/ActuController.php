@@ -33,7 +33,7 @@ class ActuController extends Controller
             if($form->handleRequest($request)->isValid())
             {
                 $em = $this->getDoctrine()->getManager();
-                $published = $form->get('isPublished')->getData();
+
                 $em->persist($actu);
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Ajout réussi');
@@ -59,6 +59,15 @@ class ActuController extends Controller
             //Si les données du formulaire sont validé, on lie les données avec l'entité sous item
             if($form->handleRequest($request)->isValid())
             {
+                if($form["isPublished"]->getData() == 1)
+                {
+
+                    $actu->setDateDebut(new \DateTime("now"));
+
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('notice', 'Modification réussi');
+                    return $this->redirect($this->generateUrl('actu_index'));
+                }
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Modification réussi');
                 return $this->redirect($this->generateUrl('actu_index'));

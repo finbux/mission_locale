@@ -22,11 +22,11 @@
     {{ form_label(form.isPublished) }}
     <span id="info-publi">Pour une publication programmée coché "Non"</span>
     {{ form_widget(form.isPublished) }}
-
+    {{ form_errors(form.isPublished) }}
     <hr/>
     <div class="dateActu">
             {{ form_row(form.dateDebut) }}
-            {{ form_row(form.dateFin) }}
+
     </div>
         {{ form_row(form.add,{'label' : 'Modifier'}) }}
     {{ form_end(form) }}
@@ -37,7 +37,7 @@
         <script type="text/javascript">
             $(function(){
                 $("input:radio[name='mission_locale_adminbundle_actu[isPublished]']").click(function() {
-                    if(($(this).val() == 0))
+                    if(($(this).val() == 2))
                     {
                         $(".dateActu").fadeIn();
                     }
