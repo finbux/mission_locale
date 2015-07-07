@@ -25,6 +25,9 @@
         {% if is_granted('ROLE_MODERATEUR') %}
             <a href="{{ path('admin_categorie') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/admin_category.png') }}" alt="gerer_categorie">Gérer les catégories</li></a>
         {% endif %}
+        {% if is_granted('ROLE_MODERATEUR') %}
+            <a href="{{ path('admin_media') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/admin_media.png') }}" alt="gerer_media">Gérer les médias</li></a>
+        {% endif %}
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('admin_parametre') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/settings.png') }}" alt="parametre">Paramètres</li></a>
         {% endif %}

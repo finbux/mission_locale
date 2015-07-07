@@ -4,6 +4,9 @@ admin_homepage:
 admin_categorie:
     path: /categorie
     defaults: { _controller: AdminBundle:Admin:categorie }
+admin_media:
+    path: /media
+    defaults: { _controller: AdminBundle:Media:home }
 admin_modules:
     path: /modules
     defaults: { _controller: AdminBundle:Admin:module }
@@ -13,4 +16,12 @@ admin_moins26:
 admin_moins26_update:
     path: /moins26/{id}/update
     defaults: { _controller: AdminBundle:Moins26:update }
-
+admin_media_delete:
+    path: /media/{image}/delete
+    defaults: { _controller: AdminBundle:Media:delete }
+admin_media_article:
+    path: /media/articles
+    defaults: { _controller: AdminBundle:Media:mediaArticle }
+admin_media_miniature:
+    path: /media/miniature
+    defaults: { _controller: AdminBundle:Media:mediaMiniature }

@@ -53,6 +53,12 @@ services:
      class: Twig_Extensions_Extension_Text
      tags:
          - { name: twig.extension }
+ mission_locale.cacheimage_listener:
+         class: Mission_Locale\AdminBundle\Listener\CacheImageListener
+         arguments: ["@liip_imagine.cache.manager"]
+         tags:
+             - { name: doctrine.event_listener, event: postUpdate }
+             - { name: doctrine.event_listener, event: preRemove }
 
 # Assetic Configuration
 assetic:

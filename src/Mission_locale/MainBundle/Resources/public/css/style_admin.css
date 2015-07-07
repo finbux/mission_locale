@@ -556,3 +556,19 @@ input[type="submit"]:hover, button:hover {
   color: #97bf0d;
   font-weight: bold;
 }
+
+/* line 454, ../sass/style_admin.scss */
+#list-media {
+  color: #97bf0d;
+  font-size: 30px;
+}
+/* line 457, ../sass/style_admin.scss */
+#list-media a {
+  color: #97bf0d;
+}
+/* line 460, ../sass/style_admin.scss */
+#list-media li {
+  width: 50%;
+  border-bottom: 1px solid #97bf0d;
+  border-right: 1px solid #97bf0d;
+}

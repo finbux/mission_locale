@@ -1,0 +1,26 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gestion des médias {% endblock %}
+{% block arianne %} {{ parent() }} {% endblock %}
+{% block content %}
+    <a href="{{ path('admin_media')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+{% if empty == 0 %}
+    <h2>Aucun médias pour le moment</h2>
+{% else %}
+    <table>
+        <tr>
+            <th>Miniature</th>
+            <th>Nom image</th>
+            <th>Actions</th>
+        </tr>
+        {% for image in images %}
+            <tr>
+                <td><img src="{{ asset('uploads/actu/content/'~image.relativePathname) }}" alt="{{ image.relativePathname }}" style="width: 180px; height: 100px;"/> </td>
+                <td>{{ image.relativePathname }}</td>
+                <td><a href="{{ path('admin_media_delete',{ 'image' : image.relativePathname }) }}">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% endblock %}

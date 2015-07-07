@@ -451,3 +451,15 @@ background: $vert_clair;
   color: $vert_clair;
   font-weight: bold;
 }
+#list-media{
+  color: $vert_clair;
+  font-size: 30px;
+  a{
+    color: $vert_clair;
+  }
+  li{
+    width: 50%;
+    border-bottom: 1px solid $vert_clair;
+    border-right: 1px solid $vert_clair;
+  }
+}

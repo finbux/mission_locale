@@ -1383,6 +1383,15 @@ li{
     text-decoration: underline;
   }
 }
+#documentation{
+  width: 80%;
+  margin: 50px auto;
+  background: #97bf0d;
+  @include bordure_bas();
+  @include border-radius(20px);
+  padding: 10px;
+
+}
 /**********************************/
 footer{
   width: 100%;

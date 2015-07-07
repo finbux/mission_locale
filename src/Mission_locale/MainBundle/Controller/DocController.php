@@ -9,6 +9,6 @@ class DocController extends Controller
 {
     public function homeAction()
     {
-        return  $this->render('MainBundle:Doc:home.html.twig');
+        return  $this->render('MainBundle:doc:home.html.twig');
     }
 }

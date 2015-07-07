@@ -1,0 +1,12 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gestion des médias {% endblock %}
+{% block arianne %} {{ parent() }} {% endblock %}
+{% block content %}
+    <ul id="list-media">
+        <li><a href="{{ path('admin_media_article') }}">Images des articles</a></li>
+        <li><a href="{{ path('admin_media_miniature') }}">Miniatures</a></li>
+    </ul>
+
+{% endblock %}
+
+

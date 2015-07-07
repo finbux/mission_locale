@@ -3,11 +3,12 @@
     {{ parent() }} | Employeur
 {% endblock %}
 {% block body %}
+{% set length_max = 25 %}
 
     <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
-                {{ parent()  }}
+                {{ parent()  }} / Employeur
             {% endblock %}
 
         </div>
@@ -19,7 +20,92 @@
                     <p>Contactez-nous </p>
                 </div>
             </div>
+
+
+        <div id="block_emploi">
+            <h1>Employeur</h1>
+            <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+            <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+
+            <div class="item_emploi">
+                <hr/>
+
+                <a href="">
+                    <p class="item">Préparer mon entretien</p>
+                </a>
+                <input type="hidden" value="7"/>
+                <hr/>
+                <a href="">
+                    <p class="item">Découvrir l&#039;entreprise</p>
+                </a>
+                <input type="hidden" value="8"/>
+                <hr/>
+
+            </div>
         </div>
+            <div id="block_emploi">
+                <h1>Employeur</h1>
+                <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+
+                <div class="item_emploi">
+                    <hr/>
+
+                    <a href="">
+                        <p class="item">Préparer mon entretien</p>
+                    </a>
+                    <input type="hidden" value="7"/>
+                    <hr/>
+                    <a href="">
+                        <p class="item">Découvrir l&#039;entreprise</p>
+                    </a>
+                    <input type="hidden" value="8"/>
+                    <hr/>
+
+                </div>
+            </div>
+            <div id="block_emploi">
+                <h1>Employeur</h1>
+                <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+
+                <div class="item_emploi">
+                    <hr/>
+
+                    <a href="">
+                        <p class="item">Préparer mon entretien</p>
+                    </a>
+                    <input type="hidden" value="7"/>
+                    <hr/>
+                    <a href="">
+                        <p class="item">Découvrir l&#039;entreprise</p>
+                    </a>
+                    <input type="hidden" value="8"/>
+                    <hr/>
+
+                </div>
+            </div>
+            <div id="block_emploi">
+                <h1>Employeur</h1>
+                <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+
+                <div class="item_emploi">
+                    <hr/>
+
+                    <a href="">
+                        <p class="item">Préparer mon entretien</p>
+                    </a>
+                    <input type="hidden" value="7"/>
+                    <hr/>
+                    <a href="">
+                        <p class="item">Découvrir l&#039;entreprise</p>
+                    </a>
+                    <input type="hidden" value="8"/>
+                    <hr/>
+
+                </div>
+            </div>
     </div>
     {% include "::footer.html.twig" %}
     <div class="cb"></div>
