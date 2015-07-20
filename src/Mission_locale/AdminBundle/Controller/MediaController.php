@@ -38,15 +38,26 @@ class MediaController extends Controller
                 $empty = 1;
             }
         }
+
         return $this->render('AdminBundle:Media:miniature.html.twig',array('empty'=> $empty,'images' => $finder));
     }
 
     public function deleteAction($image)
     {
+
         $upload_dir = 'symfony_ml/web/uploads/actu/content/';
         $path = $_SERVER['DOCUMENT_ROOT'].$upload_dir;
-        unlink($path.$image);
-        return $this->redirect($this->generateUrl('admin_media'));
+        if(file_exists($path.$image))
+        {
+            unlink($path.$image);
+            return $this->redirect($this->generateUrl('admin_media_article'));
+        }
+        else{
+            $upload_dir = 'symfony_ml/web/media/cache/actu_thumb/uploads/actu/';
+            $path = $_SERVER['DOCUMENT_ROOT'].$upload_dir;
+            unlink($path.$image);
+            return $this->redirect($this->generateUrl('admin_media_miniature'));
+        }
     }
 
 
