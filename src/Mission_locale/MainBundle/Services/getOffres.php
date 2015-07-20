@@ -11,10 +11,17 @@ class getOffres
         $this->em = $em;
     }
 
-    public function offre()
+    public function offres()
     {
 
-        $offres = $this->em->getRepository('MainBundle:Offre')->findAll();
+        $query = $this->em->createQuery(
+            'SELECT o
+            FROM MainBundle:Offre o
+            ORDER BY o.id DESC'
+        )
+            ->setMaxResults(4);
+
+        $offres = $query->getResult();
         return $offres;
     }
 }

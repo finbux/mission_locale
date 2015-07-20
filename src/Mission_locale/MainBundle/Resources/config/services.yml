@@ -6,6 +6,9 @@ services:
      getActus:
              class: Mission_locale\MainBundle\Services\getActus
              arguments: [@security.context, @doctrine.orm.entity_manager]
+     getAntennes:
+              class: Mission_locale\MainBundle\Services\getAntennes
+              arguments: [@security.context, @doctrine.orm.entity_manager]
 
 
      gedmo.listener.blameable:

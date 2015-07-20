@@ -27,19 +27,21 @@
 
         <table>
             <tr>
-                <th>Prénom</th>
+                <th>Raison Sociale / Prénom</th>
                 <th>Numéro de téléphone</th>
                 <th>Avancement</th>
                 <th>Actions</th>
             </tr>
+
             {% for appel in appels %}
-                {% if appel.prenom is null %}
-                    {% set prenom = "Non renseigné" %}
-                {% else %}
-                    {% set prenom =  appel.prenom %}
-                {% endif %}
                 <tr>
-                    <td>{{ prenom }}</td>
+                    {% if appel.prenom is null %}
+                        <td>{{ appel.raisonSociale }}</td>
+                    {% elseif appel.raisonSociale is null %}
+                        <td>{{ appel.prenom }}</td>
+                    {% else %}
+                        <td>Non renseigné</td>
+                    {% endif %}
                     <td>{{ appel.telephone }}</td>
                     <td>{{ appel.avancement }}</td>
                     <td>

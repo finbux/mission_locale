@@ -28,7 +28,14 @@ class Appel
      * @ORM\Column(name="prenom", type="string", length=45,nullable=true)
      * @Assert\Regex("/\D/",message="Le prenom n'est pas valide")
      */
-    private $prenom;
+    private $prenom = null;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="raison_sociale", type="string", length=45,nullable=true)
+     */
+    private $raison_sociale = null;
 
     /**
      * @var string
@@ -196,5 +203,29 @@ class Appel
     public function getCommentaire()
     {
         return $this->commentaire;
+    }
+
+    /**
+     * Set raisonSociale
+     *
+     * @param string $raisonSociale
+     *
+     * @return Appel
+     */
+    public function setRaisonSociale($raisonSociale)
+    {
+        $this->raison_sociale = $raisonSociale;
+
+        return $this;
+    }
+
+    /**
+     * Get raisonSociale
+     *
+     * @return string
+     */
+    public function getRaisonSociale()
+    {
+        return $this->raison_sociale;
     }
 }

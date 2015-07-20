@@ -33,7 +33,7 @@ class ActuType extends AbstractType
                 'multiple' => false,
                 'expanded' => true,
             ))
-            ->add('dateDebut','datetime',array('label' => 'Date de publication'))
+            ->add('dateDebut','date',array('label' => 'Date de publication'))
             ->add('add','submit',array('label' => 'Ajouter', 'attr' => array('style' => 'float: right')));
     }
 

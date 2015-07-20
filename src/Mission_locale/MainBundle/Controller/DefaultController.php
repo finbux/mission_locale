@@ -16,14 +16,16 @@ class DefaultController extends Controller
         //Création du formulaire pour les appels
         $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
         $formBuilder
-            ->add('prenom', 'text', array('required' => false, 'label' => 'Ton prénom'))
+            ->add('prenom', 'text', array('required' => false, 'label' => 'Votre prénom'))
+            ->add('raison_sociale','text',array('required' => false, 'label' => 'Raison sociale'))
             ->add('telephone','text',array('max_length' => 10))
             //->add('utilisateurs','entity', array('class' => 'Mission_locale\UsersBundle\Entity\Users' ))
             ->add('Valider','submit',array('attr' => array('class' => 'btn-submit')));
 
         $form = $formBuilder->getForm();
-        $offres = $this->container->get('getOffres')->offre();
+        $offres = $this->container->get('getOffres')->offres();
         $actus = $this->container->get('getActus')->actus();
+        $antennes = $this->container->get('getAntennes')->antennes();
 
         if( $form->handleRequest($request)->isValid())
         {
@@ -47,7 +49,8 @@ class DefaultController extends Controller
             array(
                 'form'=> $form->createView(),
                 'offres' => $offres,
-                'actus' => $actus
+                'actus' => $actus,
+                'antennes' => $antennes
             ));
     }
     public function employeurAction()

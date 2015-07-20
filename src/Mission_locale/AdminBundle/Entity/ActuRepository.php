@@ -25,7 +25,9 @@ class ActuRepository extends \Doctrine\ORM\EntityRepository
     }
     public function get3Last()
     {
-        $qb = $this->createQueryBuilder('u')
+
+
+        /*$qb = $this->createQueryBuilder('u')
             ->select('u')
             ->where('u.isPublished = :isPublished')
             ->orWhere('u.isPublished = :isProgrammed')
@@ -35,6 +37,7 @@ class ActuRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('isProgrammed',2)
             ->setParameter('dateDebut',date("Y-m-d"))
             ->setMaxResults(3);
-        return $qb->getQuery()->getResult();
+        */
+
     }
 }

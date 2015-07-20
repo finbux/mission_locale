@@ -19,7 +19,20 @@ class ActuController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $actus =  $em->getRepository('AdminBundle:Actu')->allArticles();
-        $last_actus = $em->getRepository('AdminBundle:Actu')->get3Last();
-        return  $this->render('MainBundle:Actu:home.html.twig',array('actus' => $actus,'last_actus' => $last_actus));
+
+        $query = $em->createQuery(
+            'SELECT a
+            FROM AdminBundle:Actu a
+            WHERE a.isPublished = 1
+            OR a.isPublished = 2
+            AND a.dateDebut <= :maVarDate
+            ORDER BY a.id DESC'
+        )
+            ->setParameter('maVarDate',date("Y-m-d"))
+            ->setMaxResults(3);
+
+        $articles = $query->getResult();
+
+        return  $this->render('MainBundle:Actu:home.html.twig',array('actus' => $actus,'last_actus' => $articles));
     }
 }

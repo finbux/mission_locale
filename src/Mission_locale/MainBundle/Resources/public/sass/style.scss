@@ -1390,7 +1390,9 @@ li{
   @include bordure_bas();
   @include border-radius(20px);
   padding: 10px;
-
+}
+#entreprise{
+  display: none;
 }
 /**********************************/
 footer{
