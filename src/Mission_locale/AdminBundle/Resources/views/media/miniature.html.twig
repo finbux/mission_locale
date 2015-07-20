@@ -17,6 +17,7 @@
         </tr>
         {% for image in images %}
             <tr>
+
                 <td><img src="{{ asset('media/cache/actu_thumb/uploads/actu/'~image.relativePathname) }}" alt="{{ image.relativePathname }}" style="width: 180px; height: 100px;"/> </td>
                 <td>{{ image.relativePathname }}</td>
                 <td><a href="{{ path('admin_media_delete',{ 'image' : image.relativePathname }) }}">Supprimer</a></td>

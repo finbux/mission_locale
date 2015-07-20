@@ -48,7 +48,7 @@
                             <td>{{ offre.id }}</td>
                             <td>{{ offre.nomOffre }}</td>
                             <td>{{ offre.createdAt|date('d-m-Y') }}</td>
-                            <td><img src="{{ asset('bundles/main/img/loupe.png') }}" alt=""></td>
+                            <td><a href="{{ path('offre_page',{ 'slug' : offre.slug}) }}"><img src="{{ asset('bundles/main/img/loupe.png') }}" alt="offre" title="voir l'offre"></a></td>
                         </tr>
                     {% endfor %}
                 </table>
@@ -106,12 +106,15 @@
                     <input type="text" name="origin" id="origin" required="required" /><br>
                     <label>Destination :</label>
                     <select name="destination" id="destination">
-                        <option value="39 avenue de la paix amiens">Amiens Nord</option>
+                        {% for antenne in antennes %}
+                            <option value="{{ antenne.lat~','~antenne.lng }}">{{ antenne.nom }}</option>
+                        {% endfor %}
+                        <!--<option value="39 avenue de la paix amiens">Amiens Nord</option>
                         <option value="120 Rue Simone Signoret, Amiens">Amiens Sud et Est</option>
                         <option value="10 Rue Gresset, Amiens">Amiens Centre</option>
                         <option value="34 Avenue de Picardie, Amiens">Amiens Ouest</option>
                         <option value="50.156175, 2.338603">Doullens</option>
-                        <!--<option value="Bernaville">Bernaville</option>
+                        <option value="Bernaville">Bernaville</option>
                         <option value="Saint-Léger-lès-Domart">Saint-Léger-lès-Domart</option>
                         <option value="Flixecourt">Flixecourt</option>
                         <option value="Vignacourt">Vignacourt</option>
@@ -126,9 +129,9 @@
                         <option value=">Airaines">Airaines</option>
                         <option value=">Oisemont">Oisemont</option>
                         <option value=">Senarpont">Senarpont</option>
-                        <option value=">Liomer">Liomer</option>-->
+                        <option value=">Liomer">Liomer</option>
                        <option value=">49.778936, 1.977807">Poix-de-Picardie</option>
-                      <!-- <option value=">Quevauvillers">Quevauvillers</option>
+                      <option value=">Quevauvillers">Quevauvillers</option>
                         <option value=">Plachy-Buyon">Plachy-Buyon</option>
                         <option value=">Conty">Conty</option>
                         <option value=">Liomer">Liomer</option>
@@ -160,17 +163,28 @@
                         </div>
                     {% endfor %}
                 {% endfor %}
-                <h3>Me faire appeler par un conseiller</h3>
+                <h3>Vous faire appeler par un conseiller</h3>
 
                 <div id="form-appel">
                     {{ form_start(form) }}
 
-                    {{ form_label(form.prenom) }}
-                    {{ form_widget(form.prenom) }}
-                    {{ form_errors(form.prenom) }}
+                    <label for="particulier_input">Vous êtes un particulier</label><input type="radio" name="type" value="particulier" id="particulier_input" checked="checked"/><br/>
+                    <label for="entreprise_input">Vous êtes une entreprise</label><input type="radio" name="type" value="entreprise" id="entreprise_input"/>
 
+                    <hr style="border-color: #c1e53d"/>
+                    <div id="particulier">
+                        {{ form_label(form.prenom) }}
+                        {{ form_widget(form.prenom) }}
+                        {{ form_errors(form.prenom) }}
+                    </div>
+                    <div id="entreprise">
+                        {{ form_label(form.raison_sociale) }}
+                        {{ form_widget(form.raison_sociale) }}
+                        {{ form_errors(form.raison_sociale) }}
+
+                    </div>
                     {% block form_label %}
-                        <label for="">Ton téléphone*<span class="numero_label">(Ex: 0123456789)</span></label>
+                        <label for="">Votre téléphone*<span class="numero_label">(Ex: 0123456789)</span></label>
                         {{ form_widget(form.telephone) }}
                     {% endblock %}
                     {{ form_errors(form.telephone) }}
@@ -191,11 +205,15 @@
         <!------------------------------------->
 
     <!-- FIN DU CONTAINER -->
-    {% include "::footer.html.twig" %}
-        {% block javascript %}
+        {% include "::footer.html.twig" %}
+
+{% endblock %}
+        {% block files_javascript %}
+            <script type="text/javascript" src="{{ asset('bundles/main/js/jquery-ui-1.8.12.custom.min.js') }}"></script>
+
             <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
             <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
             <script src="{{ asset('bundles/main/js/util.js') }} "></script>
-
+            <script type="text/javascript" src="{{ asset('bundles/main/js/functions.js') }}"></script>
+            <script src="{{ asset('bundles/main/js/employeur_appel.js') }}"></script>
         {% endblock %}
-{% endblock %}

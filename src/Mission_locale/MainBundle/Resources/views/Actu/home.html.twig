@@ -13,18 +13,20 @@
         <div id="container-article">
             <div class="last-10-articles">
                 <h2 class="sous_actus">Les 3 derniers articles</h2>
-                {% for actu in actus %}
+
+                {% for last_actu in last_actus %}
 
                     <div class="infos-article">
-                       {% set thumb = 'uploads/actu/'~actu.thumb.path %}
 
-                    <img src="{{ thumb|imagine_filter('actu_thumb') }}" alt="{{ actu.thumb.name }}"/>
-                        <h2 class="extrait-article-titre"><a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a></h2>
-                       <p>Publié le : {{ actu.dateDebut|date('d-m-Y') }}</p>
+                       {% set thumb = 'uploads/actu/'~last_actu.thumb.path %}
+
+                        <img src="{{ thumb|imagine_filter('actu_thumb') }}" alt="{{ last_actu.thumb.name }}"/>
+                        <h2 class="extrait-article-titre"><a href="{{ path('view_actu',{'slug_actu': last_actu.slug}) }}">{{ last_actu.titre }}</a></h2>
+                       <p>Publié le : {{ last_actu.dateDebut|date('d-m-Y') }}</p>
                         <hr/>
-                        <p class="extrait-article-description">{{ actu.description }}</p>
-                        <div class="cb"></div>
-                    </div>
+                        <p class="extrait-article-description">{{ last_actu.description|truncate(250) }}</p>
+
+                    </div> <div class="cb"></div>
 
                 {% endfor %}
             </div>
@@ -33,12 +35,11 @@
                 {% for actu in actus %}
                 <div class="article-extrait">
                     <p>
-                    <span class="date-actu">23/06/2015</span> -
-                    <a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre }}</a> -
-                    <span class="description-actu">{{ actu.description|truncate(30) }}</span>
-                        <img src="{{ asset('bundles/main/img/loupe.png')}}" alt="en savoir plus"/>
+                    <span class="date-actu">{{ actu.dateDebut|date('d-m-Y') }}</span> -
+                    <a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}">{{ actu.titre|truncate(20) }}</a> -
+                    <span class="description-actu">{{ actu.description|truncate(40) }}</span>
+                        <a href="{{ path('view_actu',{'slug_actu': actu.slug}) }}"><img src="{{ asset('bundles/main/img/loupe.png')}}" alt="en savoir plus"/></a>
                     </p>
-
                 </div>
 
                 {% endfor %}

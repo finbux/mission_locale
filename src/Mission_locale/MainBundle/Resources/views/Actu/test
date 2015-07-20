@@ -1,0 +1,2 @@
+Error:pathspec 'src/Mission_locale/MainBundle/Resources/views/actu/show.html.twig' did not match any file(s) known to git.
+error: pathspec 'src/Mission_locale/MainBundle/Resources/views/actu/home.html.twig' did not match any file(s) known to git.

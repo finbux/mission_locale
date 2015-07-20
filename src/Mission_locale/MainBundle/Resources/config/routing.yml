@@ -33,3 +33,11 @@ antenne_xml:
 doc_page:
     path: /documentation
     defaults: { _controller: MainBundle:Doc:home}
+offre_page:
+    path: /offre/{slug}
+    defaults: { _controller: MainBundle:Offre:getOffre}
+    requirements:
+                slug: "[a-zA-Z1-9\-_\/]+"
+offres_page:
+    path: /offres
+    defaults: { _controller: MainBundle:Offre:getAllOffre}
