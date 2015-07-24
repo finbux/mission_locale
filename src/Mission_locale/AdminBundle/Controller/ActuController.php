@@ -12,6 +12,10 @@ class ActuController extends Controller
 {
     public function indexAction()
     {
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
+        }
         $em = $this->getDoctrine()->getManager();
         $actus = $em->getRepository('AdminBundle:Actu')->findAll();
         return $this->render('AdminBundle:Actu:index.html.twig', array(
@@ -20,11 +24,19 @@ class ActuController extends Controller
 
     public function showAction()
     {
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
+        }
         return $this->render('AdminBundle:Actu:show.html.twig', array(
                 // ...
             ));    }
     public function addAction(Request $request)
     {
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
+        }
         $actu = new Actu();
         $form = $this->createForm(new ActuType(),$actu);
 
@@ -46,6 +58,10 @@ class ActuController extends Controller
 
     public function updateAction(Request $request,$id)
     {
+        if (!$this->get('security.context')->isGranted('ROLE_ADMIN')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux Administrateurs');
+        }
         $em = $this->getDoctrine()->getManager();
         $actu = $em->getRepository('AdminBundle:Actu')->find($id);
         if(!$actu)
@@ -59,6 +75,7 @@ class ActuController extends Controller
             //Si les données du formulaire sont validé, on lie les données avec l'entité sous item
             if($form->handleRequest($request)->isValid())
             {
+
                 if($form["isPublished"]->getData() == 1)
                 {
 

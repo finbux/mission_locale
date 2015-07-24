@@ -1,0 +1,16 @@
+admin_doc:
+    path: /
+    defaults: { _controller: AdminBundle:Doc:home }
+admin_doc_add:
+    path: /add
+    defaults: { _controller: AdminBundle:Doc:add }
+admin_doc_update:
+    path: /{id}/edit
+    defaults: { _controller: AdminBundle:Doc:update }
+    requirements:
+                    id: \d+
+admin_doc_delete:
+    path: /{id}/delete
+    defaults: { _controller: AdminBundle:Doc:delete }
+    requirements:
+                    id: \d+

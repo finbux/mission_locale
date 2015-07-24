@@ -41,3 +41,6 @@ offre_page:
 offres_page:
     path: /offres
     defaults: { _controller: MainBundle:Offre:getAllOffre}
+agenda_page:
+    path: /agenda
+    defaults: { _controller: MainBundle:Default:agenda}

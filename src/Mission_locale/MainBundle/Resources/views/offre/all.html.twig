@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    {{ parent() }} | Toutes les offres
+{% endblock %}
+{% block body %}
+    <div id="wrapper-item">
+        <div id="container_offre">
+            <h1>Les offres de la semaine</h1>
+            <hr class="barre_offre"/>
+            {% for offre in offres %}
+                <div id="page_offres">
+                <h2>{{ offre.nomOffre }}</h2>
+                <hr/>
+                <h3><a href="{{ path('offre_page', { 'slug' : offre.slug}) }}">Voir l'offre</a></h3>
+                <hr/>
+                <p class="appel-conseiller">Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }} </p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+    {% include "::footer.html.twig" %}
+{% endblock %}

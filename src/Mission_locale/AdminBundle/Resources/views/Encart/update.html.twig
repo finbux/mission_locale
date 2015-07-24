@@ -1,0 +1,20 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Modifier une encart {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {{ wo_render_breadcrumbs() }}
+    <br/>
+    <a href="{{ path('admin_encart')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+
+    {{ form_start(form) }}
+    {{ form_row(form.nomEncart) }}
+    {{ form_label(form.contenu) }}
+    <br/>
+    {{ form_widget(form.contenu, { 'attr': { 'rows' : '10', 'cols': '50'}}) }}
+    <br/>
+    {{ form_widget(form.Modifier, { 'label': 'Modifier' }) }}
+    {{ form_end(form) }}
+
+{% endblock %}

@@ -176,7 +176,7 @@ h1, h2, h3, h4, h5, h6 {
   float: right;
   margin: 5px;
   border: none;
-  background: #37393A;
+  background: #97bf0d;
   color: white;
   padding: 5px;
 }
@@ -571,4 +571,14 @@ input[type="submit"]:hover, button:hover {
   width: 50%;
   border-bottom: 1px solid #97bf0d;
   border-right: 1px solid #97bf0d;
+}
+
+/* line 466, ../sass/style_admin.scss */
+#update_agenda {
+  display: none;
+}
+
+/* line 469, ../sass/style_admin.scss */
+#display_agenda:hover {
+  cursor: pointer;
 }

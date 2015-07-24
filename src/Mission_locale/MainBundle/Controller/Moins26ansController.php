@@ -17,6 +17,7 @@ class Moins26ansController extends Controller
         $categorieFormer = $em->getRepository('MainBundle:Category')->find(26);
         $categorieFaire = $em->getRepository('MainBundle:Category')->find(27);
         $categorieQuotidien = $em->getRepository('MainBundle:Category')->find(28);
+        $encart = $em->getRepository('MainBundle:Encart')->find(2);
 
         //On récupère les diffrents sous items
         $repositorySousItem = $em->getRepository('MainBundle:SousItem');
@@ -47,6 +48,7 @@ class Moins26ansController extends Controller
                 'list_former_sousItem' => $former_sous_item,
                 'list_faire_sousItem' => $faire_sous_item,
                 'list_quotidien_sousItem' => $quotidien_sous_item,
+                'encart' => $encart
             )
         );
     }

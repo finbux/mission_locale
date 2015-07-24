@@ -1,0 +1,50 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer l'agenda {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <a href="{{ path('admin_modules')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <table>
+        <tr>
+            <th>Agenda Calaméo</th>
+            <th>Action</th>
+        </tr>
+            <tr>
+                <td>{{ agenda.iframe|truncate(50) }}</td>
+                <td id="display_agenda">Modifier</td>
+            </tr>
+    </table>
+    <div id="update_agenda">
+        <button id="annule_agenda">Annuler</button>
+        {{ form_start(form) }}
+            {{ form_label(form.iframe) }}
+        <br/>
+            {{ form_widget(form.iframe, { 'attr': { 'rows' : '20', 'cols': '100'}}) }}
+            {{ form_row(form.Modifier) }}
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+           $("#display_agenda").click(function(){
+              $("#update_agenda").fadeIn();
+           });
+            $("#annule_agenda").click(function(){
+               $("#update_agenda").fadeOut('fast');
+            });
+        });
+    </script>
+{% endblock %}

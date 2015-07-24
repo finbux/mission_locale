@@ -7,7 +7,15 @@
         <div id="documentation">
             <h1>Documentation</h1>
             <hr/>
-            <div><div style="margin:8px 0px 4px;"><a href="http://www.calameo.com/books/004391954e41ba9b153bb" target="_blank">Ra Mlife 11</a></div><iframe src="//v.calameo.com/?bkcode=004391954e41ba9b153bb&mode=viewer&clickto=view&clicktarget=_self" width="560" height="350" frameborder="0" scrolling="no" allowtransparency allowfullscreen style="margin:0 auto;"></iframe><div style="margin:4px 0px 8px;"><a href="http://www.calameo.com/" target="_blank">Lire plus de publications sur Calaméo</a></div></div>
+             {% for doc in docs %}
+                 <div id="doc">
+                     <h2>{{ doc.nomDoc }}</h2>
+                     {{ doc.iframe|raw }}
+
+                 </div>
+                 <div class="cb"></div>
+
+            {% endfor %}
         </div>
     </div>
 

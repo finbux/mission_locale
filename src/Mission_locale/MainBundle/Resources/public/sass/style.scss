@@ -74,7 +74,10 @@ h1{
   padding: 0;
   font-size: 44px;
   font-family: $font-family;
-  color: white;
+  color: #59636a;
+}
+h2{
+  color: #59636a;
 }
 body{
   margin: 0;
@@ -254,6 +257,40 @@ body{
       border-left: 1px solid white;
       border-right: 1px solid white;
     }
+  }
+}
+#page_offre,#page_offres{
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  background: #ffffff;
+  padding: 10px;
+  @include border-radius(20px);
+  @include bordure_bas(#59636A);
+  h1{
+    text-align: center;
+  }
+  h3{
+    color: $vert_clair;
+    text-decoration: underline;
+  }
+  hr{
+    border: 1px solid #CCCCCC;
+
+  }
+  .appel-conseiller{
+    text-decoration: underline;
+    color: $vert_clair;
+    font-weight: bold;
+    font-size: 20px;
+  }
+}
+#page_offres{
+  width: 340px;
+  float: left;
+  margin: 10px;
+  h1{
+    font-size: 25px;
   }
 }
 #article{
@@ -816,6 +853,11 @@ body{
     font-size: 15px;
     font-style: italic;
   }
+  #choix_statut label{
+    display: inline;
+    font-size: 20px;
+    float: none;
+  }
 }
 // BOUTON DE VALIDATION
 .btn-submit{
@@ -930,7 +972,7 @@ li{
   transition: all 1s;
   position: relative;
   h1{
-    font-size: 25px;
+    font-size: 23px;
   }
 
   img{
@@ -994,13 +1036,28 @@ li{
   width: 90%;
   margin: 0 auto;
 }
-#container_item{
+#container_item,#container_offre{
   width: 1100px;
-  height: 65vh;
+  min-height: 50vh;
+  height: auto;
   margin: 2em auto;
   margin-top: 20px;
   margin-bottom: 50px;
   @include border-radius(20px);
+}
+#container_offre{
+  background: #97bf0d;
+  @include bordure_bas();
+  padding: 10px;
+  .barre_offre{
+    border: 1px solid white;
+  }
+
+}
+#offre_condition{
+  color: #44555D;
+  font-weight: bold;
+  text-align: center;
 }
 .background_container{
   background-image: url('../img/background.jpg');
@@ -1356,6 +1413,16 @@ li{
     color: white;
   }
 }
+#all_offres{
+  font-size: 20px;
+  text-decoration: underline;
+  float: left;
+  margin-right: 5px;
+
+  a{
+    color: white;
+  }
+}
 /*****************************************/
 
 
@@ -1385,11 +1452,17 @@ li{
 }
 #documentation{
   width: 80%;
+  height: auto;
   margin: 50px auto;
   background: #97bf0d;
   @include bordure_bas();
   @include border-radius(20px);
   padding: 10px;
+}
+#doc{
+  width: 500px;
+  height: 300px;
+  float: left;
 }
 #entreprise{
   display: none;

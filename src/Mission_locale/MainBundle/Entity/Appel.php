@@ -70,6 +70,13 @@ class Appel
      */
     private $createdAt;
 
+    /**
+     * @var \Boolean
+     *
+     * @ORM\Column(name="entreprise",type="boolean")
+     */
+    private $entreprise;
+
     public function __construct()
     {
         $this->createdAt    = new \DateTime();
@@ -227,5 +234,29 @@ class Appel
     public function getRaisonSociale()
     {
         return $this->raison_sociale;
+    }
+
+    /**
+     * Set entreprise
+     *
+     * @param boolean $entreprise
+     *
+     * @return Appel
+     */
+    public function setEntreprise($entreprise)
+    {
+        $this->entreprise = $entreprise;
+
+        return $this;
+    }
+
+    /**
+     * Get entreprise
+     *
+     * @return boolean
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
     }
 }

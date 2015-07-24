@@ -18,13 +18,13 @@
                 <p></p>
                 <div id="block_appel">
                     <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                    <p>Contactez-nous </p>
+                    <p>{{ encart.nomEncart }} </p>
                 </div>
             </div>
 
             <div id="{{ categorie_emploi.class }}">
                 {% if categorie_emploi.nameCategory|length > length_max %}
-                    <h1>{{ categorie_emploi.nameCategory }}</h1>
+                    <h3>{{ categorie_emploi.nameCategory }}</h3>
                     <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
                 {% else %}
                     <h1>{{ categorie_emploi.nameCategory }}</h1>

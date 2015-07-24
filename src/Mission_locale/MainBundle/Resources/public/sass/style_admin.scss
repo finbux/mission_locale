@@ -158,7 +158,7 @@ h1,h2,h3,h4,h5,h6{
   float: right;
   margin: 5px;
   border: none;
-  background: #37393A;
+  background: $vert_clair;
   color: white;
   padding: 5px;
 }
@@ -462,4 +462,10 @@ background: $vert_clair;
     border-bottom: 1px solid $vert_clair;
     border-right: 1px solid $vert_clair;
   }
+}
+#update_agenda{
+  display: none;
+}
+#display_agenda:hover{
+  cursor: pointer;
 }

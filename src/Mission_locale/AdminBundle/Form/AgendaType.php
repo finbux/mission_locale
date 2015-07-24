@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class OffreType extends AbstractType
+class AgendaType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,9 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numOffre','text',array('label' => 'numéro de l\'offre','max_length' => 10))
-            ->add('nomOffre','text',array('label' => 'Intitulé de l\'offre '))
-            ->add('descriptionOffre','textarea',
-                array('label' => 'Ajouter une description pour l\'offre','attr' => array('class' => 'ckeditor')))
-            ->add('add','submit',array('label' => 'Ajouter'),array('attr' => array('class' => 'btn_ok')))
-        ;
+            ->add('iframe','textarea',
+                array('label' => 'Code Calaméo'))
+            ->add('Modifier','submit');
     }
 
     /**
@@ -29,7 +26,7 @@ class OffreType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Mission_locale\MainBundle\Entity\Offre'
+            'data_class' => 'Mission_locale\AdminBundle\Entity\Agenda'
         ));
     }
 
@@ -38,6 +35,6 @@ class OffreType extends AbstractType
      */
     public function getName()
     {
-        return 'mission_locale_mainbundle_offre';
+        return 'mission_locale_adminbundle_agenda';
     }
 }

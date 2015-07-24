@@ -9,6 +9,8 @@ class DocController extends Controller
 {
     public function homeAction()
     {
-        return  $this->render('MainBundle:doc:home.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $docs = $em->getRepository('AdminBundle:Doc')->findAll();
+        return  $this->render('MainBundle:doc:home.html.twig',array('docs' => $docs));
     }
 }

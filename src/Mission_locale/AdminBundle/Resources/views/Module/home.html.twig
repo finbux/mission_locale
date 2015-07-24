@@ -38,6 +38,24 @@
                 <img src="{{ asset('bundles/admin/images/banniere.png') }}" alt="Modifier la bannière" />
                 <h4>Modifier la bannière</h4>
             </div>
+            <div class="block_module">
+                <a href="{{ path('admin_agenda') }}">
+                    <img src="{{ asset('bundles/admin/images/agenda.png') }}" alt="Modifier l'agenda" />
+                    <h3>Modifier l'agenda</h3>
+                </a>
+            </div>
+            <div class="block_module">
+                <a href="{{ path('admin_encart') }}">
+                <img style="width:64px; height:64px;" src="{{ asset('bundles/admin/images/encart.png') }}" alt="Modifier les encarts" />
+                <h4>Modifier les encarts</h4>
+                </a>
+            </div>
+            <div class="block_module">
+                <a href="{{ path('admin_doc') }}">
+                    <img style="width:64px; height:64px;" src="{{ asset('bundles/admin/images/doc.png') }}" alt="Modifier la documentation" />
+                    <h5>Modifier la documentation</h5>
+                </a>
+            </div>
             <div class="cb"></div>
         {% endif %}
     </div>

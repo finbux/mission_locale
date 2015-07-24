@@ -16,6 +16,8 @@ admin_moins26:
 admin_moins26_update:
     path: /moins26/{id}/update
     defaults: { _controller: AdminBundle:Moins26:update }
+    requirements:
+                    id: \d+
 admin_media_delete:
     path: /media/{image}/delete
     defaults: { _controller: AdminBundle:Media:delete }
@@ -25,3 +27,16 @@ admin_media_article:
 admin_media_miniature:
     path: /media/miniature
     defaults: { _controller: AdminBundle:Media:mediaMiniature }
+admin_agenda:
+    path: /agenda
+    defaults: { _controller: AdminBundle:Agenda:index }
+admin_encart:
+    path: /encart
+    defaults: { _controller: AdminBundle:Encart:home }
+admin_encart_update:
+    path: /encart/{id}/edit
+    defaults: { _controller: AdminBundle:Encart:update }
+    requirements:
+                        id: \d+
+
+

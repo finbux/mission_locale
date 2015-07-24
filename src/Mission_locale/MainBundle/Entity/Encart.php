@@ -1,0 +1,96 @@
+<?php
+
+namespace Mission_locale\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Encart
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Entity\EncartRepository")
+ */
+class Encart
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nomEncart", type="text")
+     */
+    private $nomEncart;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="text")
+     */
+    private $contenu;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     *
+     * @return Encart
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set nomEncart
+     *
+     * @param string $nomEncart
+     *
+     * @return Encart
+     */
+    public function setNomEncart($nomEncart)
+    {
+        $this->nomEncart = $nomEncart;
+
+        return $this;
+    }
+
+    /**
+     * Get nomEncart
+     *
+     * @return string
+     */
+    public function getNomEncart()
+    {
+        return $this->nomEncart;
+    }
+}

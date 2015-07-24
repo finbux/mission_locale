@@ -4,6 +4,8 @@ namespace Mission_locale\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Offre
  *
@@ -21,6 +23,14 @@ class Offre
      */
     private $id;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="num_offre", type="string",unique=true)
+     * @Assert\Length(max=10,maxMessage="Le numéro doit faire au maximum {{ limit }} caractères")
+     */
+    private $numOffre;
+    
     /**
      * @var string
      *
@@ -157,5 +167,29 @@ class Offre
     public function getSlug()
     {
         return $this->slug;
+    }
+
+    /**
+     * Set numOffre
+     *
+     * @param string $numOffre
+     *
+     * @return Offre
+     */
+    public function setNumOffre($numOffre)
+    {
+        $this->numOffre = $numOffre;
+
+        return $this;
+    }
+
+    /**
+     * Get numOffre
+     *
+     * @return string
+     */
+    public function getNumOffre()
+    {
+        return $this->numOffre;
     }
 }

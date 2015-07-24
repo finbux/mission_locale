@@ -23,16 +23,16 @@
 
         <table>
             <tr>
+                <th>Numéro de l'offre</th>
                 <th>Nom de l'offre</th>
-                <th>Description de l'offre</th>
                 <th>Date de l'offre</th>
                 <th>Actions</th>
             </tr>
             {% for offre in offres %}
 
                 <tr>
+                    <td>{{ offre.numOffre }}</td>
                     <td>{{ offre.nomOffre }}</td>
-                    <td>{{ offre.descriptionOffre|raw }}</td>
                     <td>{{ offre.createdAt|date('d-m-Y') }}</td>
                     <td>
                         <a href="{{ path('offre_edit', { 'id': offre.id}) }}">Modifier l'offre</a>
