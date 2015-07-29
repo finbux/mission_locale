@@ -5,12 +5,12 @@ namespace Mission_locale\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Category
+ * Item
  *
  * @ORM\Table("item")
- * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\ItemRepository")
  */
-class Category
+class Item
 {
     /**
      * @var integer
@@ -49,6 +49,12 @@ class Category
      */
     private $fleche;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie",type="string",length=50)
+     */
+    private $categorie;
 
     /**
      * Get id

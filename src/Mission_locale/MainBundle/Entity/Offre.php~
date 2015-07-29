@@ -24,6 +24,13 @@ class Offre
     /**
      * @var string
      *
+     * @ORM\Column(name="num_offre", type="string", length=20,unique=true)
+     */
+    private $numOffre;
+    
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nom_offre", type="string", length=100)
      */
     private $nomOffre;
@@ -134,5 +141,28 @@ class Offre
     {
         return $this->createdAt;
     }
-}
 
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Offre
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+}

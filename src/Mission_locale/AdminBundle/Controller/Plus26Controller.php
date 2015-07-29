@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class Moins26Controller extends Controller
+class Plus26Controller extends Controller
 {
 
     public function indexAction()
@@ -14,12 +14,12 @@ class Moins26Controller extends Controller
         //Création du fil d'arianne
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addRouteItem("Choisir une catégorie", "admin_categorie");
-        $breadcrumbs->addRouteItem("Moins de 26 ans", "admin_moins26");
+        $breadcrumbs->addRouteItem("Plus de 26 ans", "admin_moins26");
         $breadcrumbs->prependRouteItem("Accueil", "admin_homepage");
         $em = $this->getDoctrine()->getManager();
         //On récupère toutes les catégories
-        $items = $em->getRepository('MainBundle:Item')->findBy(array('categorie' => 'moins26'));
-        return $this->render('AdminBundle:Categorie/Moins26:home.html.twig', array('categories' => $items));
+        $items = $em->getRepository('MainBundle:Item')->findBy(array('categorie' => 'plus26'));
+        return $this->render('AdminBundle:Categorie/Plus26:home.html.twig', array('items' => $items));
     }
 
     //Action pour modifier le titre de l'item
@@ -51,7 +51,7 @@ class Moins26Controller extends Controller
             }
         }
         //On retourne la vue avec le formulaire
-        return $this->render('AdminBundle:Categorie/moins26:update.html.twig',
+        return $this->render('AdminBundle:admin_moins26:update.html.twig',
             array('item' => $item,'form' =>  $form->createView()));
     }
 }

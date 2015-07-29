@@ -1,0 +1,39 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer la documentation {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {# {{ wo_render_breadcrumbs() }} #}
+    <br/>
+    <a href="{{ path('admin_modules')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <a href="{{ path('admin_doc_add') }}">
+        <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter un document</button>
+    </a>
+    {% if docs is empty %}
+        <h2>Aucun documents </h2>
+    {% else %}
+        <table>
+            <tr>
+                <th>Nom document</th>
+                <th>Actions</th>
+            </tr>
+            {% for doc in docs %}
+                <tr>
+                    <td>{{ doc.nomDoc }}</td>
+                    <td>
+                        <a href="{{ path('admin_doc_update', { 'id': doc.id}) }}">Modifier</a>
+                        <a href="{{ path('admin_doc_delete', { 'id': doc.id}) }}" onclick="return confirm('Supprimer cette actualité ?')">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

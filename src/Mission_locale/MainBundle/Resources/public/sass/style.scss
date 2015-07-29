@@ -960,7 +960,7 @@ li{
   margin-top: 20px;
 }
 // Les 4 blocs
-#block_emploi,#block_faire,#block_former,#block_quotidien{
+#block_emploi,#block_faire,#block_former,#block_quotidien,#block_plus26{
   width: 250px;
   height: 200px;
   @include background-image(linear-gradient(#97BF0D #97BF0D, #c1e53d));
@@ -996,10 +996,14 @@ li{
     margin:0;
   }
 }
+#block_plus26{
+  @include background-image(linear-gradient(#579CA1 #579CA1, #6bbbc6));
+  @include bordure_bas(#325A65);
+}
 
 //Animations au survol des 4 blocs
 
-#block_emploi:hover{
+#block_emploi:hover,#block_plus26:hover{
   height: auto;
   .item_emploi{
     visibility:visible;
@@ -1044,6 +1048,10 @@ li{
   margin-top: 20px;
   margin-bottom: 50px;
   @include border-radius(20px);
+
+  h1{
+    color: white;
+  }
 }
 #container_offre{
   background: #97bf0d;
@@ -1080,7 +1088,10 @@ li{
     font-size: 25px;
     color: #FFFFFF;
     margin: 0;
-    text-align: center;
+  }
+  img{
+    margin: 0 10px 0 10px;
+    vertical-align: middle;
   }
 }
 .bandeau_item{
@@ -1236,7 +1247,7 @@ li{
 .bandeau_rose:after{
   border-color: transparent #652A2A transparent transparent;//
 }
-.block_former_auto, .block_quotidien_auto, .block_faire_auto, .block_emploi_auto{
+.block_former_auto, .block_quotidien_auto, .block_faire_auto, .block_emploi_auto,{
   .item:hover:last-child{
     @include border-radius(0 0 20px 20px);
   }

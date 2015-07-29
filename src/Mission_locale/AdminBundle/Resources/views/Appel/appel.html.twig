@@ -8,7 +8,22 @@
         <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
     </a>
     {% if appels is empty %}
+        <div class="form-filtrer">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+
+            <div>
+                {{ form_label(form.Filtrer) }}
+
+                {{ form_widget(form.Filtrer) }}
+
+                {{ form_label(form.ok) }}
+                {{ form_widget(form.ok) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
         <h2>Aucun appel enregistré</h2>
+
     {% else %}
         <div class="form-filtrer">
             {{ form_start(form) }}
@@ -36,11 +51,10 @@
             {% for appel in appels %}
                 <tr>
                     {% if appel.prenom is null %}
-                        <td>{{ appel.raisonSociale }}</td>
-                    {% elseif appel.raisonSociale is null %}
-                        <td>{{ appel.prenom }}</td>
-                    {% else %}
                         <td>Non renseigné</td>
+                    {% else %}
+
+                        <td>{{ appel.prenom }}</td>
                     {% endif %}
                     <td>{{ appel.telephone }}</td>
                     <td>{{ appel.avancement }}</td>

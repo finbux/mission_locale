@@ -17,8 +17,7 @@ class DefaultController extends Controller
         //Création du formulaire pour les appels
         $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
         $formBuilder
-            ->add('prenom', 'text', array('required' => false, 'label' => 'Votre prénom'))
-            ->add('raison_sociale','text',array('required' => false, 'label' => 'Raison sociale'))
+            ->add('prenom', 'text', array('required' => false,'label' => 'Votre prénom'))
             ->add('telephone','text',array('max_length' => 10))
             ->add('entreprise','choice',array(
                 'choices' => array(

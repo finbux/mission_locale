@@ -17,6 +17,7 @@ class AppelController extends Controller
         $form = $this->createFormBuilder($data)
             ->add('Filtrer','choice',
                 array('choices' => array(
+                    'entreprise' => 'Entreprise',
                     'A contacter' => 'A contacter',
                     'Message laissé' => 'Message laissé',
                     'RDV fixé' => 'RDV fixé',
@@ -53,6 +54,10 @@ class AppelController extends Controller
             {
                 $appels = $em->getRepository('MainBundle:Appel')->findAll();
                 return $this->render('AdminBundle:Appel:appel.html.twig',array('appels' => $appels, 'form' => $form->createView()));
+            }
+            if($form['Filtrer']->getData() == 'entreprise'){
+                $appels = $em->getRepository('MainBundle:Appel')->findBy(array('entreprise' => 1));
+                return $this->render('AdminBundle:Appel:appel.html.twig',array('appels' => $appels,'form' => $form->createView()));
             }
 
             //Sinon on applique le filtre passé dans le formulaire

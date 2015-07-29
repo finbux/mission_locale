@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    {{ parent() }} | Les antennes
+{% endblock %}
+{% block body %}
+    <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                <p>{{ parent() }} / Agenda</p>
+            {% endblock %}
+
+        </div>
+        <div id="documentation">
+            <h1>Agenda</h1>
+            <hr/>
+            <div style="width: 1000px; height 700px; margin:0 auto;">
+                {{ agenda.iframe|raw }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

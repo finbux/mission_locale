@@ -13,9 +13,25 @@ admin_modules:
 admin_moins26:
     path:     /moins26
     defaults: { _controller: AdminBundle:Moins26:index }
+admin_plus26:
+    path:     /plus26
+    defaults: { _controller: AdminBundle:Plus26:index }
+admin_employeur:
+    path:     /employeur
+    defaults: { _controller: AdminBundle:Employeur:index }
 admin_moins26_update:
     path: /moins26/{id}/update
     defaults: { _controller: AdminBundle:Moins26:update }
+    requirements:
+                    id: \d+
+admin_employeur_update:
+    path: /employeur/{id}/update
+    defaults: { _controller: AdminBundle:Employeur:update }
+    requirements:
+                    id: \d+
+admin_plus26_update:
+    path: /plus26/{id}/update
+    defaults: { _controller: AdminBundle:Plus26:update }
     requirements:
                     id: \d+
 admin_media_delete:

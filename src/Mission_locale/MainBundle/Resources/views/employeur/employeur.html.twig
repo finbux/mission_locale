@@ -4,119 +4,121 @@
 {% endblock %}
 {% block body %}
 {% set length_max = 25 %}
+<div id="wrapper-item">
+    <div class="arianne">
+        {% block arianne %}
+            {{ parent()  }}
+        {% endblock %}
 
-    <div id="wrapper-item">
-        <div class="arianne">
-            {% block arianne %}
-                {{ parent()  }} / Employeur
-            {% endblock %}
+    </div>
+    <div id="container_item">
 
-        </div>
-        <div id="container_item">
-            <div id="bandeau_employeur">
-                <p></p>
-                <div id="block_appel">
-                    <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                    <p>Contactez-nous </p>
-                </div>
+        <div id="bandeau_employeur">
+            <p><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>Je suis employeur</p>
+            <div id="block_appel">
+                <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
+                <p>Contactez-nous </p>
             </div>
-
-
-        <div id="block_emploi">
-            <h1>Employeur</h1>
-            <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
-            <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+        </div>
+        <div id="{{ item.class }}">
+            {% if item.nameCategory|length > length_max %}
+                <h3>{{ item.nameCategory }}</h3>
+                <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+            {% else %}
+                <h1>{{ item.nameCategory }}</h1>
+                <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
+            {% endif %}
+            <img src="{{ asset('bundles/main/img/'~ item.fleche ) }}">
 
             <div class="item_emploi">
                 <hr/>
-
-                <a href="">
-                    <p class="item">Préparer mon entretien</p>
-                </a>
-                <input type="hidden" value="7"/>
-                <hr/>
-                <a href="">
-                    <p class="item">Découvrir l&#039;entreprise</p>
-                </a>
-                <input type="hidden" value="8"/>
-                <hr/>
+                {% for sous_item in sous_items %}
+                    <a href="{{ path('categorie_page', { 'slug': item.slug, 'slug_sous_item': sous_item.slug, 'id': item.id  }) }}">
+                        <p class="item">{{ sous_item.nomSousItem }}</p>
+                    </a>
+                    <input type="hidden" value="{{ sous_item.id }}"/>
+                    <hr/>
+                {% endfor %}
 
             </div>
         </div>
-            <div id="block_emploi">
-                <h1>Employeur</h1>
+        <div id="{{ items2.class }}">
+            {% if items2.nameCategory|length > length_max %}
+                <h3>{{ items2.nameCategory }}</h3>
+                <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+            {% else %}
+                <h1>{{ items2.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
-                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+            {% endif %}
+            <img src="{{ asset('bundles/main/img/'~ items2.fleche ) }}">
 
-                <div class="item_emploi">
-                    <hr/>
-
-                    <a href="">
-                        <p class="item">Préparer mon entretien</p>
+            <div class="item_faire">
+                <hr/>
+                {% for sous_item in sous_items2 %}
+                    <a href="{{ path('categorie_page', { 'slug': items2.slug, 'slug_sous_item': sous_item.slug, 'id': items2.id  }) }}">
+                        <p class="item">{{ sous_item.nomSousItem }}</p>
                     </a>
-                    <input type="hidden" value="7"/>
+                    <input type="hidden" value="{{ sous_item.id }}"/>
                     <hr/>
-                    <a href="">
-                        <p class="item">Découvrir l&#039;entreprise</p>
-                    </a>
-                    <input type="hidden" value="8"/>
-                    <hr/>
+                {% endfor %}
 
-                </div>
             </div>
-            <div id="block_emploi">
-                <h1>Employeur</h1>
+        </div>
+        <div id="{{ item3.class }}">
+            {% if item3.nameCategory|length > length_max %}
+                <h3>{{ item3.nameCategory }}</h3>
+                <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+            {% else %}
+                <h1>{{ item3.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
-                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+            {% endif %}
+            <img src="{{ asset('bundles/main/img/'~ item3.fleche ) }}">
 
-                <div class="item_emploi">
-                    <hr/>
-
-                    <a href="">
-                        <p class="item">Préparer mon entretien</p>
+            <div class="item_former">
+                <hr/>
+                {% for sous_item in sous_items3 %}
+                    <a href="{{ path('categorie_page', { 'slug': item3.slug, 'slug_sous_item': sous_item.slug, 'id': item3.id  }) }}">
+                        <p class="item">{{ sous_item.nomSousItem }}</p>
                     </a>
-                    <input type="hidden" value="7"/>
+                    <input type="hidden" value="{{ sous_item.id }}"/>
                     <hr/>
-                    <a href="">
-                        <p class="item">Découvrir l&#039;entreprise</p>
-                    </a>
-                    <input type="hidden" value="8"/>
-                    <hr/>
+                {% endfor %}
 
-                </div>
             </div>
-            <div id="block_emploi">
-                <h1>Employeur</h1>
+        </div>
+        <div id="{{ items4.class }}">
+            {% if items4.nameCategory|length > length_max %}
+                <h3>{{ items4.nameCategory }}</h3>
+                <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
+            {% else %}
+                <h1>{{ items4.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 74px">Je rencontre un conseiller pour :</span>
-                <img src="{{ asset('bundles/main/img/fleche_emploi.png') }}">
+            {% endif %}
+            <img src="{{ asset('bundles/main/img/'~ items4.fleche ) }}">
 
-                <div class="item_emploi">
-                    <hr/>
-
-                    <a href="">
-                        <p class="item">Préparer mon entretien</p>
+            <div class="item_quotidien">
+                <hr/>
+                {% for sous_item in sous_items4 %}
+                    <a href="{{ path('categorie_page', { 'slug': items4.slug, 'slug_sous_item': sous_item4.slug, 'id': items4.id  }) }}">
+                        <p class="item">{{ sous_item.nomSousItem }}</p>
                     </a>
-                    <input type="hidden" value="7"/>
+                    <input type="hidden" value="{{ sous_item.id }}"/>
                     <hr/>
-                    <a href="">
-                        <p class="item">Découvrir l&#039;entreprise</p>
-                    </a>
-                    <input type="hidden" value="8"/>
-                    <hr/>
+                {% endfor %}
 
-                </div>
             </div>
+        </div>
     </div>
     {% include "::footer.html.twig" %}
     <div class="cb"></div>
-{% endblock %}
-{% block javascripts %}
+    {% endblock %}
+    {% block javascripts %}
     {{ parent() }}
     <script type="text/javascript">
         $(function(){
 
             $(".img_moins26").addClass("opacity");
-            $(".img_plus26").addClass("opacity");
+            $(".img_employeur").addClass("opacity");
         });
     </script>
 {% endblock %}

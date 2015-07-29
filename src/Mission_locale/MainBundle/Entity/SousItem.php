@@ -24,7 +24,7 @@ class SousItem
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\ManyToOne(targetEntity="Item")
      * @ORM\JoinColumn(nullable=true)
      */
     private $category;

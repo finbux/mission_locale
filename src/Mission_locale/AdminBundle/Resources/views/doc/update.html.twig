@@ -1,0 +1,14 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Modifier un document {% endblock %}
+{% block content %}
+<a href="{{ path('admin_doc')}}">
+    <button>Page précédente</button>
+    </a>
+    {{ form_start(form) }}
+    {{ form_row(form.nomDoc) }}
+    {{ form_label(form.iframe) }}
+    <br/>
+    {{ form_widget(form.iframe, { 'attr': { 'rows' : '20', 'cols': '100'}}) }}
+    {{ form_row(form.ajouter, { 'label': 'Modifier'}) }}
+    {{ form_end(form) }}
+{% endblock %}

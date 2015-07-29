@@ -15,7 +15,7 @@ antennes_page:
     defaults: { _controller: MainBundle:Default:antennes}
 categorie_page:
     path: /{slug}/{slug_sous_item}-{id}
-    defaults: { _controller: MainBundle:Moins26ans:categorie}
+    defaults: { _controller: MainBundle:SousItem:index}
     requirements:
             slug: "[a-zA-Z1-9\-_\/]+"
             slug_sous_item: "[a-zA-Z1-9\-_\/]+"

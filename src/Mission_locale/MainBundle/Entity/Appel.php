@@ -33,13 +33,6 @@ class Appel
     /**
      * @var string
      *
-     * @ORM\Column(name="raison_sociale", type="string", length=45,nullable=true)
-     */
-    private $raison_sociale = null;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="telephone", type="string", length=14,)
      * @Assert\NotBlank(message="ce champ est obligatoire")
      * @Assert\Type(type="numeric",message="Le numéro doit comporter que des chiffres")
@@ -212,29 +205,6 @@ class Appel
         return $this->commentaire;
     }
 
-    /**
-     * Set raisonSociale
-     *
-     * @param string $raisonSociale
-     *
-     * @return Appel
-     */
-    public function setRaisonSociale($raisonSociale)
-    {
-        $this->raison_sociale = $raisonSociale;
-
-        return $this;
-    }
-
-    /**
-     * Get raisonSociale
-     *
-     * @return string
-     */
-    public function getRaisonSociale()
-    {
-        return $this->raison_sociale;
-    }
 
     /**
      * Set entreprise

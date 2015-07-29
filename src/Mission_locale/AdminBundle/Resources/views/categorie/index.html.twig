@@ -5,8 +5,8 @@
     {{ wo_render_breadcrumbs() }}
         <div id="container_btn">
             <a href="{{ path('admin_moins26') }}"><button class="btn_moins26">Les moins 26 ans</button></a>
-            <button class="btn_employeur">Employeur</button>
-            <button class="btn_plus26">Les plus 26 ans</button>
+            <a href="{{ path('admin_employeur') }}"><button class="btn_employeur">Employeur</button></a>
+            <a href="{{ path('admin_plus26') }}"><button class="btn_plus26">Les plus 26 ans</button></a>
         </div>
 {% endblock %}
 

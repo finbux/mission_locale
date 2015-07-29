@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class Moins26Controller extends Controller
+class EmployeurController extends Controller
 {
 
     public function indexAction()
@@ -14,12 +14,12 @@ class Moins26Controller extends Controller
         //Création du fil d'arianne
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addRouteItem("Choisir une catégorie", "admin_categorie");
-        $breadcrumbs->addRouteItem("Moins de 26 ans", "admin_moins26");
+        $breadcrumbs->addRouteItem("Employeur", "admin_employeur");
         $breadcrumbs->prependRouteItem("Accueil", "admin_homepage");
         $em = $this->getDoctrine()->getManager();
         //On récupère toutes les catégories
-        $items = $em->getRepository('MainBundle:Item')->findBy(array('categorie' => 'moins26'));
-        return $this->render('AdminBundle:Categorie/Moins26:home.html.twig', array('categories' => $items));
+        $items = $em->getRepository('MainBundle:Item')->findBy(array('categorie' => 'employeur'));
+        return $this->render('AdminBundle:Categorie/Employeur:home.html.twig', array('items' => $items));
     }
 
     //Action pour modifier le titre de l'item

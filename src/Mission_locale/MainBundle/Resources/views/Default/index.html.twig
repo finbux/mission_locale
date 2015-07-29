@@ -15,8 +15,10 @@
                 <div id="header_actu">
                     <img src="{{ asset('bundles/main/img/ampoule.png') }}" alt="">
                     Nos actualités
-                    <span id="all_articles"><img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/><a
-                                href="{{ path('all_articles') }}">Voir tous les articles</a></span>
+                    <span id="all_articles">
+                        <img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/>
+                        <a href="{{ path('all_articles') }}">Voir tous les articles</a>
+                    </span>
                 </div>
 
                     <div id='slides'>
@@ -33,8 +35,11 @@
             <div id="offre">
                 <div id="header_offre">
                     <p>Les offres de la semaine
-                        <img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>
+                        <img src="{{ asset('bundles/main/img/cv.png') }}" alt="toute l'actualité"/>
                     </p>
+                     <span id="all_offres">
+                        <a href="{{ path('offres_page') }}">Voir toutes les offres</a>
+                    </span>
                 </div>
                 <table>
                     <tr>
@@ -45,13 +50,14 @@
                     </tr>
                     {% for offre in offres %}
                         <tr>
-                            <td>{{ offre.id }}</td>
+                            <td>{{ offre.numOffre }}</td>
                             <td>{{ offre.nomOffre }}</td>
                             <td>{{ offre.createdAt|date('d-m-Y') }}</td>
                             <td><a href="{{ path('offre_page',{ 'slug' : offre.slug}) }}"><img src="{{ asset('bundles/main/img/loupe.png') }}" alt="offre" title="voir l'offre"></a></td>
                         </tr>
                     {% endfor %}
                 </table>
+                <p id="offre_condition">Certaines offres sont sous certaines conditions, <a href="">Conditions générales des offres</a></p>
             </div>
             <!------------------------------->
         </div>
@@ -74,7 +80,7 @@
                 <a href="#modalbox">
                     <div id="block_appel">
                         <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                        <p>Faites-vous appeler gratuitement</p>
+                        <p>{{ encart.contenu }}</p>
                         <div id="conseiller">
                             <img  src="{{ asset('bundles/main/img/conseiller.png') }}" alt=""/>
                             <img src="{{ asset('bundles/main/img/conseiller_femme.png') }}" alt=""/>
@@ -168,20 +174,19 @@
                 <div id="form-appel">
                     {{ form_start(form) }}
 
-                    <label for="particulier_input">Vous êtes un particulier</label><input type="radio" name="type" value="particulier" id="particulier_input" checked="checked"/><br/>
+                    <!--<label for="particulier_input">Vous êtes un particulier</label><input type="radio" name="type" value="particulier" id="particulier_input" checked="checked"/><br/>
                     <label for="entreprise_input">Vous êtes une entreprise</label><input type="radio" name="type" value="entreprise" id="entreprise_input"/>
+                    -->
+                    <div id="choix_statut">
+                        {{ form_label(form.entreprise) }}
+                        {{ form_widget(form.entreprise) }}
+                    </div>
 
                     <hr style="border-color: #c1e53d"/>
                     <div id="particulier">
                         {{ form_label(form.prenom) }}
                         {{ form_widget(form.prenom) }}
                         {{ form_errors(form.prenom) }}
-                    </div>
-                    <div id="entreprise">
-                        {{ form_label(form.raison_sociale) }}
-                        {{ form_widget(form.raison_sociale) }}
-                        {{ form_errors(form.raison_sociale) }}
-
                     </div>
                     {% block form_label %}
                         <label for="">Votre téléphone*<span class="numero_label">(Ex: 0123456789)</span></label>
