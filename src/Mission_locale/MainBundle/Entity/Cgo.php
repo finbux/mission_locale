@@ -5,12 +5,12 @@ namespace Mission_locale\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Encart
+ * Cgo
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\EncartRepository")
+ * @ORM\Entity(repositoryClass="Mission_locale\MainBundle\Repository\CgoRepository")
  */
-class Encart
+class Cgo
 {
     /**
      * @var integer
@@ -20,13 +20,6 @@ class Encart
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomEncart", type="text")
-     */
-    private $nomEncart;
 
     /**
      * @var string
@@ -51,7 +44,7 @@ class Encart
      *
      * @param string $contenu
      *
-     * @return Encart
+     * @return Cgo
      */
     public function setContenu($contenu)
     {
@@ -69,28 +62,5 @@ class Encart
     {
         return $this->contenu;
     }
-
-    /**
-     * Set nomEncart
-     *
-     * @param string $nomEncart
-     *
-     * @return Encart
-     */
-    public function setNomEncart($nomEncart)
-    {
-        $this->nomEncart = $nomEncart;
-
-        return $this;
-    }
-
-    /**
-     * Get nomEncart
-     *
-     * @return string
-     */
-    public function getNomEncart()
-    {
-        return $this->nomEncart;
-    }
 }
+

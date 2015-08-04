@@ -10,4 +10,32 @@ namespace Mission_locale\MainBundle\Repository;
  */
 class OffreRepository extends \Doctrine\ORM\EntityRepository
 {
+    private function getAllOffre()
+    {
+        $qb = $this->createQueryBuilder('u')
+            ->select('u');
+        return count($qb->getQuery()->getResult());
+    }
+
+    public function getHalfOffre()
+    {
+        $half = $this->getAllOffre() / 2;
+
+        $qb = $this->createQueryBuilder('u')
+            ->select('u')
+            ->setMaxResults($half)
+            ->orderBy('u.createdAt','DESC');
+        return $qb->getQuery()->getResult();
+    }
+
+    public function getLastOffre()
+    {
+        $half = $this->getAllOffre() / 2;
+
+        $qb = $this->createQueryBuilder('u')
+            ->select('u')
+            ->setFirstResult($half)
+            ->orderBy('u.createdAt','DESC');
+        return $qb->getQuery()->getResult();
+    }
 }

@@ -13,4 +13,6 @@ class DocController extends Controller
         $docs = $em->getRepository('AdminBundle:Doc')->findAll();
         return  $this->render('MainBundle:doc:home.html.twig',array('docs' => $docs));
     }
+
+
 }

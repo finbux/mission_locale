@@ -11,11 +11,12 @@
 
         </div>
         <div id="documentation">
-            <h1>Agenda</h1>
-            <hr/>
-            <div style="width: 1000px; height 700px; margin:0 auto;">
+        <div id="header_doc"><h1>Agenda</h1></div>
                 {{ agenda.iframe|raw }}
             </div>
+             {% include "::footer.html.twig" %}
         </div>
+
     </div>
+
 {% endblock %}

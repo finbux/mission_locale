@@ -221,7 +221,7 @@ body{
 }
 #header_actu:before{  @include pliage();  }
 
-#offre{
+#offre,#offre_left,#offre_right{
   width: 46%;
   height: 318px;
   background: white;
@@ -293,6 +293,25 @@ body{
     font-size: 25px;
   }
 }
+#offre_left,#offre_right{
+  padding: 30px 10px;
+  width: 514px;
+  min-height: 500px;
+  height: auto;
+  background: white;
+  table{
+    width: 498px;
+    margin-top: 10px;
+  }
+}
+#offre_left{
+  float: left;
+  margin-left: 50px;
+}
+#offre_right{
+  float: right;
+  margin-right: 50px;
+}
 #article{
   position: relative;
   width: 80%;
@@ -358,7 +377,6 @@ body{
   img{
     float: left;
     margin-right: 10px;
-    border-right: 1px solid white;
   }
   .infos-article{
    margin: 20px;
@@ -757,6 +775,30 @@ body{
     margin-right: 5px;
   }
 }
+#header_doc:before{
+  @include pliage();
+}
+#header_doc:after{  @include pliage_droite();  }
+
+#header_doc{
+  position: relative;
+  padding-left: 10px;
+  @include header_div(1300px);
+  @include border-radius(20px 20px 0 0);
+  @include box-shadow(0 10px 30px -2px #343434);
+  margin-top: -20px;
+  margin-left: -40px;
+  margin-bottom: 20px;
+  h1{
+    color: white;
+  }
+
+  img{
+    padding: 5px;
+    margin-left: 5px;
+    vertical-align: top;
+  }
+}
 
 /***** BOUTON D'APPEL *****/
 #block_appel{
@@ -1050,12 +1092,14 @@ li{
   @include border-radius(20px);
 
   h1{
-    color: white;
+    color: #4E5E65;
   }
 }
 #container_offre{
+  width:1200px;
   background: #97bf0d;
   @include bordure_bas();
+
   padding: 10px;
   .barre_offre{
     border: 1px solid white;
@@ -1462,19 +1506,24 @@ li{
   }
 }
 #documentation{
-  width: 80%;
+  width: 1240px;
+  min-height: 300px;
   height: auto;
   margin: 50px auto;
   background: #97bf0d;
   @include bordure_bas();
-  @include border-radius(20px);
+  @include border-radius(20px 0 20px 20px);
   padding: 10px;
+  padding-bottom: 110px;
 }
 #doc{
   width: 500px;
-  height: 300px;
+  height: 362px;
   float: left;
+  margin: 10px;
+  margin-top: 20px;
 }
+
 #entreprise{
   display: none;
 }
@@ -1501,17 +1550,18 @@ footer{
   #header{
     width: 1306px;
   }
-  .small-header{
-    width:  1306px;
-  }
 }
 @media only screen and (max-width: 1280px ){
   #header{
     width: 1246px;
   }
-  .small-header{
-    width:  1246px;
+  #documentation{
+    width: 1100px;
   }
+  #header_doc{
+    width: 1130px;
+  }
+
 }
 @media only screen and (max-width: 1024px ) {
   #header {
@@ -1599,6 +1649,12 @@ footer{
     .conseiller{
       font-size: 20px;
     }
+  }
+  #documentation{
+    width: 900px;
+  }
+  #header_doc{
+    width: 930px;
   }
 }
 .flash-info, .flash-notice, .flash-error{

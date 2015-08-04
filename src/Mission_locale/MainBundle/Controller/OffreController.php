@@ -17,7 +17,9 @@ class OffreController extends Controller
     public function getAllOffreAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $offres = $em->getRepository('MainBundle:Offre')->findAll();
-        return  $this->render('MainBundle:Offre:all.html.twig',array('offres' => $offres));
+        $offres = $em->getRepository('MainBundle:Offre')->getHalfOffre();
+        $lastOffres = $em->getRepository('MainBundle:Offre')->getLastOffre();
+
+        return  $this->render('MainBundle:Offre:all.html.twig',array('offres' => $offres,'last_offre' => $lastOffres));
     }
 }

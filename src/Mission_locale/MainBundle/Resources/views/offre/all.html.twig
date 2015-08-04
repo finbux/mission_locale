@@ -4,20 +4,53 @@
 {% endblock %}
 {% block body %}
     <div id="wrapper-item">
+        <div class="arianne">
+            {% block arianne %}
+                <p>{{ parent() }} / les offres</p>
+            {% endblock %}
+        </div>
+
         <div id="container_offre">
-            <h1>Les offres de la semaine</h1>
-            <hr class="barre_offre"/>
-            {% for offre in offres %}
-                <div id="page_offres">
-                <h2>{{ offre.nomOffre }}</h2>
-                <hr/>
-                <h3><a href="{{ path('offre_page', { 'slug' : offre.slug}) }}">Voir l'offre</a></h3>
-                <hr/>
-                <p class="appel-conseiller">Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }} </p>
-                </div>
-            {% endfor %}
+            <div id="header_doc" style="width: 1260px;"> <h1><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>Les offres de la semaine</h1></div>
+            <div id="offre_left"><h2>Les dernières offres en cours</h2>
+                <table>
+                    <tr>
+                        <th>Numéro d'offre</th>
+                        <th>Nom de l'offre</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                    {% for offre in offres %}
+                        <tr>
+                            <td>{{ offre.numOffre }}</td>
+                            <td>{{ offre.nomOffre }}</td>
+                            <td>{{ offre.createdAt|date('d-m-Y') }}</td>
+                            <td><a href="{{ path('offre_page',{ 'slug' : offre.slug}) }}"><img src="{{ asset('bundles/main/img/loupe.png') }}" alt="offre" title="voir l'offre"></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div id="offre_right"><h2>les Offres en cours suite</h2>
+                <table>
+                    <tr>
+                        <th>Numéro d'offre</th>
+                        <th>Nom de l'offre</th>
+                        <th>Date</th>
+                        <th></th>
+                    </tr>
+                    {% for offre in last_offre %}
+                        <tr>
+                            <td>{{ offre.numOffre }}</td>
+                            <td>{{ offre.nomOffre }}</td>
+                            <td>{{ offre.createdAt|date('d-m-Y') }}</td>
+                            <td><a href="{{ path('offre_page',{ 'slug' : offre.slug}) }}"><img src="{{ asset('bundles/main/img/loupe.png') }}" alt="offre" title="voir l'offre"></a></td>
+                        </tr>
+                    {% endfor %}
+                </table></div>
+            <div class="cb"></div>
 
         </div>
+        {% include "::footer.html.twig" %}
     </div>
-    {% include "::footer.html.twig" %}
+
 {% endblock %}

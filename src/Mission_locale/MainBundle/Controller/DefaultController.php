@@ -67,6 +67,11 @@ class DefaultController extends Controller
         return $this->render('MainBundle:employeur:employeur.html.twig');
     }
 
+    public function quiSommesNousAction()
+    {
+        return $this->render('MainBundle:quisommesnous:quisommesnous.html.twig');
+    }
+
     public function agendaAction()
     {
         $em = $this->getDoctrine()->getManager();
