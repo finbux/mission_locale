@@ -15,10 +15,10 @@ class OffreType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numOffre','text',array('label' => 'numéro de l\'offre','max_length' => 10))
-            ->add('nomOffre','text',array('label' => 'Intitulé de l\'offre '))
+            ->add('numOffre','text',array('label' => 'numéro de l\'offre : ','max_length' => 10))
+            ->add('nomOffre','text',array('label' => 'Intitulé de l\'offre : '))
             ->add('descriptionOffre','textarea',
-                array('label' => 'Ajouter une description pour l\'offre','attr' => array('class' => 'ckeditor')))
+                array('label' => 'Ajouter une description pour l\'offre : ','attr' => array('class' => 'ckeditor')))
             ->add('add','submit',array('label' => 'Ajouter'),array('attr' => array('class' => 'btn_ok')))
         ;
     }

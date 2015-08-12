@@ -6,9 +6,9 @@
 <div id="wrapper-item">
     <div id="container_item">
         <div id="page_offre">
-            <h1>{{ offre.nomOffre }}</h1> <p>Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }}</p>
+            <h1 class="titre_offre">{{ offre.nomOffre }}</h1> <p>Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }}</p>
             <hr/>
-            <h2>Informations supplémentaire</h2>
+            <h2>Description</h2>
             {{ offre.descriptionOffre|raw }}
             <hr/>
             <p class="appel-conseiller">Si cette offre vous intéresse, rapprochez-vous de votre conseiller </p>

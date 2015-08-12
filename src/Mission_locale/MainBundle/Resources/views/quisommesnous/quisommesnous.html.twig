@@ -6,8 +6,9 @@
     <div id="wrapper-item">
         <div id="documentation">
             <div id="header_doc"> <h1>Qui sommes nous ?</h1></div>
-
-            <hr/>
+                <div class="contenu_doc">
+                    {{ qsn.contenu|raw }}
+                </div>
         </div>
         {% include "::footer.html.twig" %}
     </div>

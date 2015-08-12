@@ -1,0 +1,33 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Gérer les sous items {% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    <a href="{{path('admin_employeur') }}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+    <a href="{{ path('sous_item_new',{ id: app.request.get('id')}) }}">
+        <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter un sous item</button>
+    </a>
+
+
+    <table>
+        <tr>
+            <th>Sous item</th>
+            <th>Actions</th>
+        </tr>
+    {% for sous_item in sous_items %}
+            <tr>
+                <td class="data-item">{{ sous_item.nomSousItem }}</td>
+                <td><a href="{{ path('sous_item_update',{ id: sous_item.id}) }}">Modifier</a>
+                    - <a href="{{ path('sous_item_delete',{ id: sous_item.id}) }}" onclick="return confirm('Supprimer le sous item ?')">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

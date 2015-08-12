@@ -14,6 +14,7 @@
 <body>
 <div id="handler-left">
     <div id="container_logo">
+        <a href="{{ path('admin_homepage') }}"></a>
         <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
         <h1>Administration</h1>
     </div>
@@ -33,12 +34,12 @@
         {% endif %}
 
         <a href="{{ path('fos_user_security_logout') }}"><li class="item_menu"><img src="{{ asset('bundles/admin/images/cancel.png') }}" alt="se déconnecter">Se déconnecter</li></a>
-        <a href="{{ path('main_homepage') }}"><li class="item_menu">Voir le site</li></a>
+        <!--<a href="{{ path('main_homepage') }}" target="_blank"><li class="item_menu">Voir le site</li></a>-->
+        <a href="{{ path('main_homepage') }}" target="_blank"><li class="item_menu">Voir le site</li></a>
+
     </ul>
 </div>
 {% block body %}
-
-
 
 {% endblock %}
 {% block javascript %}

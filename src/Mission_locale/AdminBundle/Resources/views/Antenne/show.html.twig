@@ -2,6 +2,12 @@
 {% block title_admin %}Gérer les antennes {% endblock %}
 {% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
 {% block content %}
+    {% if antennes is empty %}
+        <h2>Aucune antennes enregistrée</h2>
+        <a href="{{ path('antenne_add') }}">
+            <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter une antenne</button>
+        </a>
+    {% else %}
     {% for type, messages in app.session.flashbag.all() %}
         {% for message in messages %}
             <div class="flash-{{ type }}">
@@ -32,6 +38,6 @@
                     <a href="{{ path('antenne_delete', { 'id' : antenne.id}) }}" onclick="return confirm('Supprimer cette antenne ?')">Supprimer</a></td>
             </tr>
         {% endfor %}
-
     </table>
+{% endif %}
 {% endblock %}

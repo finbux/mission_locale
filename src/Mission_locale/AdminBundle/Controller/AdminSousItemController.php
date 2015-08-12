@@ -18,12 +18,7 @@ class AdminSousItemController extends Controller
         //On récupère le sous item par son id
         $sous_item = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => $id));
 
-        //Si on ne trouve pas le sous item, on lève une exception
-        if(!$sous_item)
-        {
-            throw $this->createNotFoundException("Le sous item n'existe pas");
-        }
-        return $this->render('AdminBundle:admin_sous_item:sous_item.html.twig',array('sous_items' => $sous_item));
+        return $this->render('AdminBundle:Admin_sous_item:sous_item.html.twig',array('sous_items' => $sous_item));
     }
 
     //Action pour ajouter un sous item
@@ -43,7 +38,7 @@ class AdminSousItemController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         //On récupère l'item associé au sous item
-        $item_assoc = $em->getRepository('MainBundle:Category')->find($id);
+        $item_assoc = $em->getRepository('MainBundle:Item')->find($id);
 
         //Si la methode POST est capturée
         if($request->isMethod('POST')){
@@ -61,7 +56,7 @@ class AdminSousItemController extends Controller
             }
         }
         //On affiche la vue avec le formulaire passé en paramètre
-        return $this->render('AdminBundle:admin_sous_item:new.html.twig',array('form' => $form->createView()));
+        return $this->render('AdminBundle:Admin_sous_item:new.html.twig',array('form' => $form->createView()));
     }
 
     //Action pour mettre à jour un sous itel
@@ -101,7 +96,7 @@ class AdminSousItemController extends Controller
                 return $this->redirect($this->generateUrl('admin_sous_item', array('id' => $id)), 301);
             }
         }
-        return $this->render('AdminBundle:admin_sous_item:update.html.twig',array('form' => $form->createView()));
+        return $this->render('AdminBundle:Admin_sous_item:update.html.twig',array('form' => $form->createView()));
     }
 
     //Action pour supprimer un sous item

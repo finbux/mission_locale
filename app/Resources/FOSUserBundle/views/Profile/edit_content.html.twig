@@ -2,11 +2,15 @@
 {% block title_admin %}Modifier un utilisateur {% endblock %}
 {% block content %}
 {% trans_default_domain 'FOSUserBundle' %}
-
+    <a href="{{ path('fos_user_change_password') }}">
+        <button class="add_element">Modifier le mot de passe</button>
+    </a>
 <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
     {{ form_widget(form) }}
     <div>
+
         <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
     </div>
+
 </form>
 {% endblock %}

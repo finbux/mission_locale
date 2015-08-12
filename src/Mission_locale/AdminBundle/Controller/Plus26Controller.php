@@ -46,12 +46,12 @@ class Plus26Controller extends Controller
             if($form->isValid())
             {
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuer');
-                return $this->redirect($this->generateUrl('admin_moins26'));
+                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuée');
+                return $this->redirect($this->generateUrl('admin_plus26'));
             }
         }
         //On retourne la vue avec le formulaire
-        return $this->render('AdminBundle:admin_moins26:update.html.twig',
+        return $this->render('AdminBundle:Categorie/Plus26:update.html.twig',
             array('item' => $item,'form' =>  $form->createView()));
     }
 }

@@ -6,7 +6,7 @@
     <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
-                <p>{{ parent() }} / <a href=" {{(app.request.headers.get('referer'))}}">Moins 26 ans</a> /  {{ nom_item }}</p>
+                <p>{{ parent() }} / <a href=" {{(app.request.headers.get('referer'))}}">{{ arianne }}</a> /  {{ nom_item }}</p>
             {% endblock %}
         </div>
         <div id="wrapper-categorie" class="background_container">
@@ -40,19 +40,41 @@
                 <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
             </div>
         </div>
+        {% include "::footer.html.twig" %}
     </div>
-    {% include "::footer.html.twig" %}
+
 {% endblock %}
-{% block javascripts %}
-{{ parent() }}
+{% block files_javascript %}
+    {{ parent() }}
     <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
     <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     <script src="{{ asset('bundles/main/js/loadSousItem.js') }}"></script>
+
+    {% if  arianne == 'Moins de 26 ans' %}
+        <script type="text/javascript">
+            $(function(){
+
+                $(".img_employeur").addClass("opacity");
+                $(".img_plus26").addClass("opacity");
+            });
+        </script>
+    {% endif %}
+    {% if  arianne == 'Employeur' %}
+        <script type="text/javascript">
+            $(function(){
+
+                $(".img_moins26").addClass("opacity");
+                $(".img_plus26").addClass("opacity");
+            });
+        </script>
+    {% endif
+    {% if  arianne == 'Plus de 26 ans' %}
     <script type="text/javascript">
         $(function(){
 
+            $(".img_moins26").addClass("opacity");
             $(".img_employeur").addClass("opacity");
-            $(".img_plus26").addClass("opacity");
         });
     </script>
+    {% endif %}
 {% endblock %}

@@ -7,17 +7,17 @@
     <div id="wrapper-item">
         <div class="arianne">
             {% block arianne %}
-                {{ parent()  }}
+                {{ parent()  }} / Plus de 26 ans
             {% endblock %}
 
         </div>
         <div id="container_item">
 
             <div id="bandeau_plus26">
-                <p><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>J'ai plus de 26 ansr</p>
+                <p><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>J'ai plus de 26 ans</p>
                 <div id="block_appel">
                     <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                    <p>Contactez-nous </p>
+                   <p>{{ encart.contenu }}</p>
                 </div>
             </div>
             <div id="{{ item.class }}">
@@ -66,7 +66,7 @@
             </div>
             <div id="{{ item3.class }}">
                 {% if item3.nameCategory|length > length_max %}
-                    <h3>{{ item3.nameCategory }}</h3>
+                    <h1>{{ item3.nameCategory }}</h1>
                     <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
                 {% else %}
                     <h1>{{ item3.nameCategory }}</h1>
@@ -88,7 +88,7 @@
             </div>
             <div id="{{ items4.class }}">
                 {% if items4.nameCategory|length > length_max %}
-                    <h3>{{ items4.nameCategory }}</h3>
+                    <h1>{{ items4.nameCategory }}</h1>
                     <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
                 {% else %}
                     <h1>{{ items4.nameCategory }}</h1>
@@ -112,7 +112,7 @@
     {% include "::footer.html.twig" %}
     <div class="cb"></div>
 {% endblock %}
-{% block javascripts %}
+{% block files_javascript %}
     {{ parent() }}
     <script type="text/javascript">
         $(function(){

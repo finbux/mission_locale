@@ -1,14 +1,21 @@
 {% extends "::base.html.twig" %}
 {% block title %}
-    {{ parent() }} | Conditions générles des offres
+    Les Conditions générales des offres | {{ parent() }}
 {% endblock %}
 {% block body %}
-    <div id="wrapper-item">
-        <div id="documentation">
-            <h1>Conditions générles des offres</h1>
-            <hr/>
-        </div>
+<div id="wrapper-item">
+    <div class="arianne">
+        {% block arianne %}
+            <p>{{ parent() }} / Condtions générales des offres</p>
+        {% endblock %}
 
-        {% include "::footer.html.twig" %}
     </div>
+    <div id="documentation">
+        <div id="header_doc"><h1>Les conditions générales des offres</h1></div>
+        <div class="contenu_doc">
+            {{ cgo.contenu|raw }}
+        </div>
+    </div>
+    {% include "::footer.html.twig" %}
+</div>
 {% endblock %}

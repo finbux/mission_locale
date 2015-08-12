@@ -8,26 +8,29 @@
             </div>
         {% endfor %}
     {% endfor %}
-    <a href="{{ path('admin_moins26')}}">
+    <a href="{{path('admin_categorie') }}">
         <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
     </a>
     <a href="{{ path('sous_item_new',{ id: app.request.get('id')}) }}">
         <button class="add_element"><img src="{{ asset('bundles/admin/images/add.png') }}" alt=""/>Ajouter un sous item</button>
     </a>
 
-
-    <table>
-        <tr>
-            <th>Sous item</th>
-            <th>Actions</th>
-        </tr>
-    {% for sous_item in sous_items %}
+    {% if sous_items is empty %}
+        <h3>Cet item ne contient aucun sous items</h3>
+    {% else %}
+        <table>
             <tr>
-                <td class="data-item">{{ sous_item.nomSousItem }}</td>
-                <td><a href="{{ path('sous_item_update',{ id: sous_item.id}) }}">Modifier</a>
-                    - <a href="{{ path('sous_item_delete',{ id: sous_item.id}) }}" onclick="return confirm('Supprimer le sous item ?')">Supprimer</a></td>
+                <th>Sous item</th>
+                <th>Actions</th>
             </tr>
-        {% endfor %}
-    </table>
 
+            {% for sous_item in sous_items %}
+                <tr>
+                    <td class="data-item">{{ sous_item.nomSousItem }}</td>
+                    <td><a href="{{ path('sous_item_update',{ id: sous_item.id}) }}">Modifier</a>
+                        - <a href="{{ path('sous_item_delete',{ id: sous_item.id}) }}" onclick="return confirm('Supprimer le sous item ?')">Supprimer</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
 {% endblock %}

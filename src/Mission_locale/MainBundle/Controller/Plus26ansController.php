@@ -20,7 +20,8 @@ class Plus26ansController extends Controller
         $sous_items3 = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => 32));
         $items4 = $em->getRepository('MainBundle:Item')->find(33);
         $sous_items4 = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => 33));
-        return $this->render('MainBundle:plus26:plus26.html.twig',
+        $encart = $em->getRepository('MainBundle:Encart')->find(4);
+        return $this->render('MainBundle:Plus26:plus26.html.twig',
             array(
                     'item' => $items1,
                     'sous_items' => $sous_items1,
@@ -30,6 +31,7 @@ class Plus26ansController extends Controller
                     'sous_items3' => $sous_items3,
                     'items4' => $items4,
                     'sous_items4' => $sous_items4,
+                    'encart' => $encart
                 ));
     }
     public function categorieAction($slug26,$slug_sous_item26,$id26)

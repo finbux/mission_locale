@@ -45,8 +45,11 @@ agenda_page:
     path: /agenda
     defaults: { _controller: MainBundle:Default:agenda}
 quisommesnous_page:
-    path: /QuiSommesNous
+    path: /qui-sommes-nous
     defaults: { _controller: MainBundle:Default:quisommesnous}
 cgo_page:
     path: /cgo
-    defaults: { _controller: MainBundle:Defaults:cgo}
+    defaults: { _controller: MainBundle:Default:cgo }
+mention_legal:
+    path: /mentions_legales
+    defaults: { _controller: MainBundle:Default:mention_legal}

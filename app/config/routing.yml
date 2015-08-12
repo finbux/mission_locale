@@ -17,7 +17,7 @@ actu_routing:
 
 admin_sous_item:
     resource: "@AdminBundle/Resources/config/sous_item_routing.yml"
-    prefix: /admin/moins26/sous_item
+    prefix: /admin/sous_item
 
 admin_antenne:
     resource: "@AdminBundle/Resources/config/antenne_routing.yml"

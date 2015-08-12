@@ -37,7 +37,7 @@ class Moins26ansController extends Controller
         );
 
         //On retorune la vue avec toutes les données récupéré
-        return $this->render('MainBundle:moins26:moins26.html.twig',
+        return $this->render('MainBundle:Moins26:moins26.html.twig',
             array(
                 'categorie_emploi' => $categorieEmploi,
                 'categorie_former' => $categorieFormer,
@@ -50,6 +50,27 @@ class Moins26ansController extends Controller
                 'encart' => $encart
             )
         );
+    }
+    public function getDescriptionAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $sous_item  = $em->getRepository('MainBundle:SousItem');
+
+        $sous_item_description = $sous_item->findOneBy(array('id'=>$id));
+        if(!$sous_item_description)
+        {
+            $description = null;
+        }
+        else
+        {
+            $name_sous_item = $sous_item_description->getNomSousItem();
+            $description = $sous_item_description->getDescription();
+
+        }
+
+        $reponse = new JsonResponse();
+        return $reponse->setData(array('description' => $description, 'name_sous_item' => $name_sous_item));
     }
 
 }

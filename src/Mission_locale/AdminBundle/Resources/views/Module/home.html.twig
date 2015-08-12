@@ -35,8 +35,10 @@
                 </a>
             </div>
             <div class="block_module">
-                <img src="{{ asset('bundles/admin/images/quisommesnous.png') }}" alt="Modifier la rubrique Qui sommes nous" />
-                <h3>Qui sommes nous ?</h3>
+                <a href="{{ path('admin_qsn') }}">
+                    <img src="{{ asset('bundles/admin/images/quisommesnous.png') }}" alt="Modifier la rubrique Qui sommes nous" />
+                    <h3>Qui sommes nous ?</h3>
+                </a>
             </div>
             <div class="block_module">
                 <a href="{{ path('admin_agenda') }}">

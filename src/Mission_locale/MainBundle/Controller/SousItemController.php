@@ -28,52 +28,52 @@ class SousItemController extends Controller
         switch($slug)
         {
             case "emploi":
-                return $this->render('MainBundle:categoryMoins26:emploi.html.twig',
-                    array('sous_items' => $sous_items, 'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:emploi.html.twig',
+                    array('sous_items' => $sous_items, 'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Moins de 26 ans"));
                 break;
             case "etre-former":
-                return $this->render('MainBundle:categoryMoins26:etre_former.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:etre_former.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Moins de 26 ans"));
                 break;
             case "quoi-faire":
-                return $this->render('MainBundle:categoryMoins26:quoi_faire.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quoi_faire.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Moins de 26 ans"));
                 break;
             case "quotidien":
-                return $this->render('MainBundle:categoryMoins26:quotidien.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quotidien.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Moins de 26 ans"));
                 break;
             case "plus261":
-                return $this->render('MainBundle:categoryMoins26:emploi.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:emploi.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Plus de 26 ans"));
                 break;
             case "plus262":
-                return $this->render('MainBundle:categoryMoins26:quoi_faire.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quoi_faire.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Plus de 26 ans"));
                 break;
             case "plus263":
-                return $this->render('MainBundle:categoryMoins26:etre_former.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:etre_former.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Plus de 26 ans"));
                 break;
             case "plus264":
-                return $this->render('MainBundle:categoryMoins26:quotidien.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quotidien.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Plus de 26 ans"));
                 break;
             case "employeur1":
-                return $this->render('MainBundle:categoryMoins26:emploi.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:emploi.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Employeur"));
                 break;
             case "employeur2":
-                return $this->render('MainBundle:categoryMoins26:quoi_faire.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quoi_faire.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Employeur"));
                 break;
             case "employeur3":
-                return $this->render('MainBundle:categoryMoins26:etre_former.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:etre_former.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Employeur"));
                 break;
             case "employeur4":
-                return $this->render('MainBundle:categoryMoins26:quotidien.html.twig',
-                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis));
+                return $this->render('MainBundle:category:quotidien.html.twig',
+                    array('sous_items' => $sous_items,'nom_item' => $nom_item,'sous_item_choisis' => $sous_item_choisis,'arianne' => "Employeur"));
                 break;
 
             default: throw $this->createNotFoundException("Cette page n'éxiste pas ");

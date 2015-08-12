@@ -18,13 +18,13 @@
                 <p><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>J'ai moins de 26 ans</p>
                 <div id="block_appel">
                     <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                    <p>{{ encart.contenu }} </p>
+                    <p>{{ encart.contenu }}</p>
                 </div>
             </div>
 
             <div id="{{ categorie_emploi.class }}">
                 {% if categorie_emploi.nameCategory|length > length_max %}
-                    <h3>{{ categorie_emploi.nameCategory }}</h3>
+                    <h1>{{ categorie_emploi.nameCategory }}</h1>
                     <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
                 {% else %}
                     <h1>{{ categorie_emploi.nameCategory }}</h1>
@@ -109,12 +109,13 @@
                 </div>
             </div>
         </div>
+        {% include "::footer.html.twig" %}
     </div>
-    {% include "::footer.html.twig" %}
+
     <div class="cb"></div>
 
 {% endblock %}
-{% block javascripts %}
+{% block files_javascript %}
     {{ parent() }}
     <script type="text/javascript">
         $(function(){

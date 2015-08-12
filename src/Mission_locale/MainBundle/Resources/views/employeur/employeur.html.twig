@@ -7,7 +7,7 @@
 <div id="wrapper-item">
     <div class="arianne">
         {% block arianne %}
-            {{ parent()  }}
+            {{ parent()  }} / Employeur
         {% endblock %}
 
     </div>
@@ -17,12 +17,12 @@
             <p><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>Je suis employeur</p>
             <div id="block_appel">
                 <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                <p>Contactez-nous </p>
+                <p>{{ encart.contenu }}</p>
             </div>
         </div>
         <div id="{{ item.class }}">
             {% if item.nameCategory|length > length_max %}
-                <h3>{{ item.nameCategory }}</h3>
+                <h1>{{ item.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
             {% else %}
                 <h1>{{ item.nameCategory }}</h1>
@@ -42,9 +42,10 @@
 
             </div>
         </div>
+
         <div id="{{ items2.class }}">
             {% if items2.nameCategory|length > length_max %}
-                <h3>{{ items2.nameCategory }}</h3>
+                <h1>{{ items2.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
             {% else %}
                 <h1>{{ items2.nameCategory }}</h1>
@@ -66,7 +67,7 @@
         </div>
         <div id="{{ item3.class }}">
             {% if item3.nameCategory|length > length_max %}
-                <h3>{{ item3.nameCategory }}</h3>
+                <h1>{{ item3.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
             {% else %}
                 <h1>{{ item3.nameCategory }}</h1>
@@ -88,7 +89,7 @@
         </div>
         <div id="{{ items4.class }}">
             {% if items4.nameCategory|length > length_max %}
-                <h3>{{ items4.nameCategory }}</h3>
+                <h1>{{ items4.nameCategory }}</h1>
                 <span class="conseiller" style="margin-top: 43px;">Je rencontre un conseiller pour :</span>
             {% else %}
                 <h1>{{ items4.nameCategory }}</h1>
@@ -112,13 +113,12 @@
     {% include "::footer.html.twig" %}
     <div class="cb"></div>
     {% endblock %}
-    {% block javascripts %}
+    {% block files_javascript %}
     {{ parent() }}
     <script type="text/javascript">
         $(function(){
-
             $(".img_moins26").addClass("opacity");
-            $(".img_employeur").addClass("opacity");
+            $(".img_plus26").addClass("opacity");
         });
     </script>
 {% endblock %}

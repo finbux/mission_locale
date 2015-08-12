@@ -1,0 +1,21 @@
+{% extends "::base.html.twig" %}
+{% block title %}
+    Les mentions légales | {{ parent() }}
+{% endblock %}
+{% block body %}
+<div id="wrapper-item">
+    <div class="arianne">
+        {% block arianne %}
+            <p>{{ parent() }} / Mentions légales</p>
+        {% endblock %}
+
+    </div>
+    <div id="documentation">
+        <div id="header_doc"><h1>Les mentions légales du site</h1></div>
+        <div class="contenu_doc">
+            {{ mention_legal.contenu|raw }}
+        </div>
+    </div>
+    {% include "::footer.html.twig" %}
+</div>
+{% endblock %}

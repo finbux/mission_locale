@@ -4,6 +4,7 @@ namespace Mission_locale\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -48,6 +49,7 @@ class SousItem
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Assert\NotBlank(message="ce champ est obligatoire")
      */
     private $description;
 
@@ -113,11 +115,11 @@ class SousItem
     /**
      * Set category
      *
-     * @param \Mission_locale\MainBundle\Entity\Category $category
+     * @param \Mission_locale\MainBundle\Entity\SousItem $category
      *
-     * @return Sous_item
+     * @return Sousitem
      */
-    public function setCategory(\Mission_locale\MainBundle\Entity\Category $category = null)
+    public function setCategory(\Mission_locale\MainBundle\Entity\Item $category = null)
     {
         $this->category = $category;
 

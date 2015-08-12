@@ -47,11 +47,12 @@ class EmployeurController extends Controller
             {
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuer');
-                return $this->redirect($this->generateUrl('admin_moins26'));
+                return $this->redirect($this->generateUrl('admin_employeur'));
             }
         }
+
         //On retourne la vue avec le formulaire
-        return $this->render('AdminBundle:Categorie/moins26:update.html.twig',
+        return $this->render('AdminBundle:Categorie/Employeur:update.html.twig',
             array('item' => $item,'form' =>  $form->createView()));
     }
 }

@@ -1,28 +1,30 @@
-{% extends "FOSUserBundle::layout_admin.html.twig" %}
-{% block title_admin %}Gérer la catégorie : Moins de 26 ans {% endblock %}
+{% extends "::base_admin.html.twig" %}
+{% block body %}
+    <div id="wrapper-admin">
+    <div class="header" style="background: rgb(238,127,0)" >Gérer la catégorie :  moins de 26 ans</div>
 
-{% block content %}
-    {% for type, messages in app.session.flashbag.all() %}
-        {% for message in messages %}
-            <div class="flash-{{ type }}">
-                {{ message }}
-            </div>
+    <div id="container-data">
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-    {{ wo_render_breadcrumbs() }}
-<table>
-    <tr>
-        <th>Items</th>
-        <th>Action</th>
-        <th></th>
-    </tr>
-    {% for categorie in categories %}
-        <tr>
-            <td class="data-item">{{ categorie.nameCategory }}</td>
-            <td><a href="{{ path('admin_moins26_update', { 'id': categorie.id}) }}">Modifier</a></td>
-            <td><a href="{{ path('admin_sous_item', { 'id': categorie.id}) }}">Gérer les sous items</a></td>
-        </tr>
-    {% endfor %}
-</table>
-
+        {{ wo_render_breadcrumbs() }}
+                <table>
+                    <tr>
+                        <th >Items</th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                    {% for categorie in categories %}
+                        <tr>
+                            <td class="data-item">{{ categorie.nameCategory }}</td>
+                            <td><a href="{{ path('admin_moins26_update', { 'id': categorie.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('admin_sous_item', { 'id': categorie.id}) }}">Gérer les sous items</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+    </div>
 {% endblock %}

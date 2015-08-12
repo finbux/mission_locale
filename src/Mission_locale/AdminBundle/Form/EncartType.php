@@ -16,7 +16,7 @@ class EncartType extends AbstractType
     {
         $builder
             ->add('nomEncart','text',array('label' => 'Nom encart : '))
-            ->add('contenu','textarea',array('label' => 'Contenu'))
+            ->add('contenu','textarea',array('label' => 'Contenu','attr' => array('class' => 'ckeditor')))
             ->add('Modifier','submit');
     }
 

@@ -53,7 +53,7 @@ services:
      class: Twig_Extensions_Extension_Text
      tags:
          - { name: twig.extension }
- mission_locale.cacheimage_listener:
+ mission_locale.cacheimagelistener:
          class: Mission_Locale\AdminBundle\Listener\CacheImageListener
          arguments: ["@liip_imagine.cache.manager"]
          tags:

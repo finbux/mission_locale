@@ -54,5 +54,8 @@ admin_encart_update:
     defaults: { _controller: AdminBundle:Encart:update }
     requirements:
                         id: \d+
+admin_qsn:
+    path: /qsn
+    defaults: { _controller: AdminBundle:QuiSommesNous:index}
 
 

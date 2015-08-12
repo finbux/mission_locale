@@ -9,3 +9,9 @@ delete_user:
     defaults: { _controller: AdminBundle:User:deleteUser }
     requirements:
                 id: \d+
+admin_mention_legal:
+    path: /mention_legal
+    defaults: { _controller: AdminBundle:Parametre:mention_legal}
+admin_cgo:
+    path: /cgo
+    defaults: { _controller: AdminBundle:Parametre:cgo}

@@ -1,0 +1,18 @@
+{% extends "FOSUserBundle::layout_admin.html.twig" %}
+{% block title_admin %}Modifier Qui Sommes nous ? {% endblock %}
+{% block arianne %} {{ parent() }} -> <a href="{{ path('admin_modules') }}">choisir un module</a> {% endblock %}
+{% block content %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class="flash-{{ type }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {{ wo_render_breadcrumbs() }}
+    <a href="{{ path('admin_modules')}}">
+        <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
+    </a>
+
+    {{ form(form) }}
+{% endblock %}

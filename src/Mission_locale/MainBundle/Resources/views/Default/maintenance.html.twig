@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Mission Locale Insertion Formation Emploi{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/style.css') }}"
+              type="text/css" media="all" />
+        <link rel="stylesheet" href="{{ asset('bundles/main/css/outdatedbrowser.css') }}"/>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+<div id="container_logo" style="margin-top: -87px; margin-left: 10px;">
+    <img src="{{ asset('bundles/main/img/logo.png') }}" alt=""/>
+</div>
+
+
+<div id="maintenance" style="width: 600px; height: auto; padding: 10px; text-align: center; margin: 100px auto; ">
+
+    <h1><img src="{{ asset('bundles/main/img/warning.png') }}" alt=""/> SITE EN COURS DE CONSTRUCTION</h1>
+    <img src="{{ asset('bundles/main/img/travaux.png') }}" alt=""/>
+</div>
+
+</body>
+</html>

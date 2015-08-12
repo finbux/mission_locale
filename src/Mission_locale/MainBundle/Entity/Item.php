@@ -71,7 +71,7 @@ class Item
      *
      * @param string $nameCategory
      *
-     * @return Category
+     * @return Item
      */
     public function setNameCategory($nameCategory)
     {
@@ -95,7 +95,7 @@ class Item
      *
      * @param string $slug
      *
-     * @return Category
+     * @return Item
      */
     public function setSlug($slug)
     {
@@ -119,7 +119,7 @@ class Item
      *
      * @param string $class
      *
-     * @return Category
+     * @return Item
      */
     public function setClass($class)
     {
@@ -143,7 +143,7 @@ class Item
      *
      * @param string $fleche
      *
-     * @return Category
+     * @return Item
      */
     public function setFleche($fleche)
     {

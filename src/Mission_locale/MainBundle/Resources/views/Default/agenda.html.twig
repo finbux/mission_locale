@@ -8,15 +8,11 @@
             {% block arianne %}
                 <p>{{ parent() }} / Agenda</p>
             {% endblock %}
-
         </div>
         <div id="documentation">
-        <div id="header_doc"><h1>Agenda</h1></div>
+            <div id="header_doc"><h1>Agenda</h1></div>
                 {{ agenda.iframe|raw }}
-            </div>
-             {% include "::footer.html.twig" %}
         </div>
-
+             {% include "::footer.html.twig" %}
     </div>
-
 {% endblock %}

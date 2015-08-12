@@ -19,6 +19,8 @@ class EmployeurController extends Controller
         $sous_items3 = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => 36));
         $items4 = $em->getRepository('MainBundle:Item')->find(37);
         $sous_items4 = $em->getRepository('MainBundle:SousItem')->findBy(array('category' => 37));
+        $encart = $em->getRepository('MainBundle:Encart')->find(3);
+
         return $this->render('MainBundle:Employeur:employeur.html.twig',
             array(
                 'item' => $items1,
@@ -29,6 +31,7 @@ class EmployeurController extends Controller
                 'sous_items3' => $sous_items3,
                 'items4' => $items4,
                 'sous_items4' => $sous_items4,
+                'encart' => $encart,
             ));
 
     }
