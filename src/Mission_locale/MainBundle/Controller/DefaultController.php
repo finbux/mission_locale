@@ -11,7 +11,8 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-        //Instanciation d'un nouvel appel
+
+            //Instanciation d'un nouvel appel
             $appel = new Appel();
             $em = $this->getDoctrine()->getManager();
             //Création du formulaire pour les appels
@@ -61,13 +62,8 @@ class DefaultController extends Controller
                     'antennes' => $antennes,
                     'encart' => $encart
                 ));
+        }
 
-    }
-
-    public function maintenanceAction()
-    {
-        return $this->render('MainBundle:Default:maintenance.html.twig');
-    }
     public function employeurAction()
     {
         return $this->render('MainBundle:employeur:employeur.html.twig');
@@ -104,6 +100,8 @@ class DefaultController extends Controller
 
     public function antennesAction()
     {
-        return $this->render('MainBundle:Default:antennes.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $antennes = $em->getRepository('AdminBundle:Antenne')->findAll();
+        return $this->render('MainBundle:Default:antennes.html.twig',array('antennes' => $antennes));
     }
 }

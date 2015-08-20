@@ -18,13 +18,14 @@ class AppelController extends Controller
             ->add('Filtrer','choice',
                 array('choices' => array(
                     'entreprise' => 'Entreprise',
+                    'particulier' => 'Particulier',
                     'A contacter' => 'A contacter',
                     'Message laissé' => 'Message laissé',
                     'RDV fixé' => 'RDV fixé',
                     'Renseigné' => 'Renseigné',
                     'tout' => 'Tout'
                 ),
-                    'preferred_choices' => array('tout')))
+                    'preferred_choices' => array('tout','entreprise','particulier')))
             ->add('ok','submit',array('attr' => array('class' => 'btn_ok')))
             ->setAction($this->generateUrl('admin_appel'))
             ->getForm();
@@ -57,6 +58,10 @@ class AppelController extends Controller
             }
             if($form['Filtrer']->getData() == 'entreprise'){
                 $appels = $em->getRepository('MainBundle:Appel')->findBy(array('entreprise' => 1));
+                return $this->render('AdminBundle:Appel:appel.html.twig',array('appels' => $appels,'form' => $form->createView()));
+            }
+            if($form['Filtrer']->getData() == 'particulier'){
+                $appels = $em->getRepository('MainBundle:Appel')->findBy(array('entreprise' => 0));
                 return $this->render('AdminBundle:Appel:appel.html.twig',array('appels' => $appels,'form' => $form->createView()));
             }
 

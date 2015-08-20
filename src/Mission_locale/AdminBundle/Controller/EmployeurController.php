@@ -46,7 +46,7 @@ class EmployeurController extends Controller
             if($form->isValid())
             {
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuer');
+                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuée');
                 return $this->redirect($this->generateUrl('admin_employeur'));
             }
         }

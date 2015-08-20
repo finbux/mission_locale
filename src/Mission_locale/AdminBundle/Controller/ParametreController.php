@@ -43,7 +43,7 @@ class ParametreController extends Controller
                 $em->persist($mentionLegal);
 
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Modification réussi');
+                $this->get('session')->getFlashBag()->add('notice', 'Modification réussie');
                 return $this->redirect($this->generateUrl('admin_parametre'));
             }
         }

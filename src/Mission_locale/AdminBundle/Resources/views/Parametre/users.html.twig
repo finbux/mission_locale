@@ -30,8 +30,12 @@
                 <td>{{ user.email  }}</td>
                 <td>{{ user.roles|join('/') }}</td>
                 <td>
+                    {% if user.username == app.user.username %}
                     <a href="{{ path('fos_user_profile_edit',{id: user.id}) }}">Modifier</a>
                     <a href="{{ path('delete_user',{ id: user.id }) }}" onclick="return confirm('Supprimer cet utilisateur ?')">Supprimer</a>
+                    {% else %}
+                        <a href="{{ path('delete_user',{ id: user.id }) }}" onclick="return confirm('Supprimer cet utilisateur ?')">Supprimer</a>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

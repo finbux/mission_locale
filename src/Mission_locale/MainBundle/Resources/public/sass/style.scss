@@ -6,6 +6,8 @@
 *{  box-sizing: border-box;  }
 p{  margin:0;  padding: 0;  }
 h1,h2,h3,h4,h5,h6{ margin: 0; padding: 0;}
+
+/* Fonction pour creer les effets de pliage */
 @mixin pliage()
 {
   content: "";
@@ -30,6 +32,7 @@ h1,h2,h3,h4,h5,h6{ margin: 0; padding: 0;}
   border-width: 26px 31px 0 0;
   border-color: #8BA807 transparent transparent transparent;
 }
+/*Fonction pour creer un header dans une div*/
 @mixin header_div($width)
 {
   position:absolute;
@@ -43,15 +46,17 @@ h1,h2,h3,h4,h5,h6{ margin: 0; padding: 0;}
   line-height: 40px;
   z-index: 20;
 }
-
+/*Fonction pour creer l'ombre portée*/
 @mixin ombre_portée()
 {
   @include box-shadow(5px 5px 20px 0px #4f5d64);
 }
+/*Fonction pour creer l'effet de bordure sombre en bas d'une div*/
 @mixin bordure_bas($color:#718e08)
 {
   border-bottom: 4px solid $color;
 }
+/*Variable des différentes couleurs*/
 $background: #4f5d64;
 $color_pliage : #8BA807;
 $color_header: #97bf0d;
@@ -62,7 +67,7 @@ $orange: rgb(238,127,0);
 $bleu: rgb(87,156,161);
 $font-family: "Calibri","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-/******REGLES RESET***********/
+/******REGLES DE RESET***********/
 #slides{
   display:none;
 }
@@ -87,6 +92,7 @@ body{
   background-color: #C1E53D;
 }
 /*********************************/
+/**Bandeau temporaire */
 #temp{
   width: 100%;
   height: 50px;
@@ -100,6 +106,7 @@ body{
 #temp img{
   vertical-align: middle;
 }
+/*************************/
 /*
 *****CONTAINER PRINCIPAL********
 */
@@ -162,16 +169,6 @@ body{
   }
 }
 
-//Header des pages n+1
-.small-header{
-  width: 1500px;
-  height: 230px;
-  margin: 0 auto;
-  position: relative;
-  margin-bottom: 40px;
-  background: url('../img/background.jpg');
-  border-radius: 0 0 20px 20px;
-}
 /********************************/
 
 /****** FACEBOOK ***************/
@@ -216,6 +213,17 @@ body{
     color: $vert_clair
   }
 }
+#actu_mobile,#offre_mobile{
+  display: none;
+  width: 100%;
+  background: black;
+  height: 200px;
+  margin-bottom: 10px;
+}
+#actu_mobile{
+  background: red;
+}
+
 
 #header_actu{
   @include header_div(620px);
@@ -232,6 +240,133 @@ body{
 
 }
 #header_actu:before{  @include pliage();  }
+#article{
+  position: relative;
+  width: 80%;
+  margin: 50px auto;
+  margin-bottom: 100px;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  @include border-radius(0 0 10px 10px);
+  background: #f5f5f5;
+  padding-bottom: 30px;
+
+
+  h1, #contenu{
+    margin: 10px;
+  }
+  .title-actu{
+    background:#97BF0D;
+    padding: 5px;
+    @include bordure_bas();
+    @include border-radius(0 0 20px 20px);
+  }
+}
+#btn_articles{
+  a{
+    color: white;
+  }
+  position: absolute;
+  left:-1px;
+  top:-32px;
+  color: white;
+  background:#97BF0D;
+  height: 40px;
+  font-size: 18px;
+  padding: 5px;
+  @include border-radius(10px 10px 0 0);
+  text-decoration: underline;
+  img{
+    vertical-align: top;
+  }
+}
+#container-article{
+  width: 80%;
+  min-height: 500px;
+  height: auto;
+  margin: 30px auto;
+
+  .sous_actus{
+    background: #97BF0D;
+    color: #ffffff;
+    @include border-radius(10px 10px 0 0);
+    padding-left: 10px;
+  }
+}
+.last-10-articles{
+  width: 45%;
+  min-height: 500px;
+  height: auto;
+  float: left;
+
+  background: #f5f5f5;
+  @include border-radius(10px);
+
+  img{
+    float: left;
+    margin-right: 10px;
+  }
+  .infos-article{
+    margin: 20px;
+    background: #C1E53D;
+    border: 1px solid #dddce1;
+    padding: 10px;
+    min-height: 120px;
+    height: auto;
+    overflow: hidden;
+    a{
+      color: #4E5E65;
+    }
+    hr{
+      border: 1px solid #4E5E65;;
+    }
+    p{
+      color: #4E5E65;
+    }
+  }
+  .extrait-article-description{
+    text-align: justify;
+  }
+
+}
+
+.all-articles{
+  width: 50%;
+  height: 500px;
+  border: 1px solid $vert_clair;
+  float: right;
+  background: #ffffff;
+  @include border-radius(10px);
+
+  .description-actu{
+    color: #4E5E65;
+  }
+  .article-extrait img{
+    float: right;
+    margin-right: 10px;
+  }
+
+}
+
+.article-extrait{
+  border-bottom: 1px solid #dddce1;
+  font-weight: bold;
+  display: block;
+  font-size: 16px;
+  padding: 1px 1px 1px 5px;
+  a{
+    color: $vert_clair;
+    font-size: 20px;
+  }
+}
+
+.date-actu{
+  color: $vert_clair;
+}
+/***** FIN ACTU ********/
+
+
+/***********LES OFFRES**********************/
 
 #offre,#offre_left,#offre_right{
   width: 46%;
@@ -325,130 +460,7 @@ body{
   float: right;
   margin-right: 50px;
 }
-#article{
-  position: relative;
-  width: 80%;
-  margin: 50px auto;
-  margin-bottom: 100px;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-  @include border-radius(0 0 10px 10px);
-  background: #f5f5f5;
-  padding-bottom: 30px;
 
-
-  h1, #contenu{
-    margin: 10px;
-  }
-  .title-actu{
-    background:#97BF0D;
-    padding: 5px;
-    @include bordure_bas();
-    @include border-radius(0 0 20px 20px);
-  }
-}
-#btn_articles{
-  a{
-    color: white;
-  }
-  position: absolute;
-  left:-1px;
-  top:-32px;
-  color: white;
-  background:#97BF0D;
-  height: 40px;
-  font-size: 18px;
-  padding: 5px;
-  @include border-radius(10px 10px 0 0);
-  text-decoration: underline;
-  img{
-    vertical-align: top;
-  }
-}
-#container-article{
-  width: 80%;
-  min-height: 500px;
-  height: auto;
-  margin: 30px auto;
-
-  .sous_actus{
-    background: #97BF0D;
-    color: #ffffff;
-    @include border-radius(10px 10px 0 0);
-    padding-left: 10px;
-  }
-}
-.last-10-articles{
-  width: 45%;
-  min-height: 500px;
-  height: auto;
-  float: left;
-
-  background: #f5f5f5;
-  @include border-radius(10px);
-  
-  img{
-    float: left;
-    margin-right: 10px;
-  }
-  .infos-article{
-   margin: 20px;
-    background: #C1E53D;
-    border: 1px solid #dddce1;
-    padding: 10px;
-    min-height: 120px;
-    height: auto;
-    overflow: hidden;
-    a{
-      color: #4E5E65;
-    }
-    hr{
-      border: 1px solid #4E5E65;;
-    }
-    p{
-      color: #4E5E65;
-    }
-  }
-  .extrait-article-description{
-   text-align: justify;
-  }
-
-}
-
-.all-articles{
-  width: 50%;
-  height: 500px;
-  border: 1px solid $vert_clair;
-  float: right;
-  background: #ffffff;
-  @include border-radius(10px);
-
-.description-actu{
-  color: #4E5E65;
-}
-  .article-extrait img{
-    float: right;
-    margin-right: 10px;
-  }
-
-}
-
-.article-extrait{
-  border-bottom: 1px solid #dddce1;
-  font-weight: bold;
-  display: block;
-  font-size: 16px;
-  padding: 1px 1px 1px 5px;
-  a{
-    color: $vert_clair;
-    font-size: 20px;
-  }
-}
-
-.date-actu{
-  color: $vert_clair;
-}
-/***** FIN ACTU ********/
 #header_offre{
   position: absolute;
   width: 585px;
@@ -525,58 +537,24 @@ body{
 }
 .img_antennes{  float:right;  }
 
-#container_antennes{
-  width: 1200px;
-  background: #4F5D64;
-  margin: 20px auto;
-  height: auto;
-  padding-bottom: 20px;
-  @include border-radius(20px 20px 0 0);
-  hr{
-    //margin-top: 40px;
-    border: 1px solid $vert_clair;
-  }
-
-  //Position de chaque antennes
-  #ant_left,#ant_right{
-    width: 550px;
-    height: 220px;
-    background: $vert_clair;
-    margin-top: 60px;
-    color: white;
-    float: left;
-    @include border-radius(0 20px 20px 0);
-    position: relative;
-  }
-  #ant_right{
-    float: right;
-    @include border-radius(20px 0 0 20px);
-  }
-  h2{
-    text-align: center;
-    font-family:  "segoe print",Calibri,Arial,Sans-Serif;
-    color: $vert_clair;
-    font-size: 30px;
-  }
-}
-
 //DIV CONTENANT LES INFOS DES ANTENNES
 .contenu_antennes{
-  margin-left: 20px;
+  position: relative;
+  background: white;
+  padding: 10px;
+  width: 60%;
+  height: 200px;
+  margin: 20px auto;
+  @include border-radius(10px);
   img{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    @include border-radius(20px);
+    float: right;
+    @include border-radius(10px);
   }
   hr {  border:1px solid $vert_clair;  }
 
-  h3{  font-size: 30px;  margin:0;  }
-  h4{
-    color: #4F5D64;
-    font-size: 20px;
-    margin:0;
-  }
+}
+#container_antennes .contenu_antennes:nth-child(1){
+  margin-top: 30px;
 }
 
 /*****************************/
@@ -587,7 +565,7 @@ body{
   vertical-align: middle;
 }
 
-/**MENU DU BAS*************/
+/********MENU DU FOOTER*************/
 #menu{
   width: 85%;
   margin: 0 auto;
@@ -606,9 +584,6 @@ body{
     margin-right: 10px;
     border-bottom: 4px solid #718e08;
     @include border-radius(10px);
-  }
-  #qsn:hover{
-    cursor: pointer;
   }
 }
 
@@ -776,7 +751,7 @@ body{
 }
 #header_where{
   position: relative;
-  @include header_div(1260px);
+  @include header_div(1263px);
   @include border-radius(20px 20px 0 0 );
   @include box-shadow(0 10px 30px -2px #343434);
   margin-top: -20px;
@@ -794,14 +769,16 @@ body{
 #header_doc:after{  @include pliage_droite();  }
 
 #header_doc{
+  width: 1061px;
   position: relative;
   padding-left: 10px;
-  @include header_div(1300px);
+  @include header_div(1060px);
   @include border-radius(20px 20px 0 0);
   @include box-shadow(0 10px 30px -2px #343434);
   margin-top: -20px;
   margin-left: -40px;
   margin-bottom: 20px;
+
   h1{
     color: white;
   }
@@ -950,6 +927,7 @@ body{
 
 }
 
+/*Message en cas de succés *********/
 .success{
   color: white;
   font-size: 20px;
@@ -1101,30 +1079,43 @@ body{
   width: 90%;
   margin: 0 auto;
 }
-#container_item,#container_offre{
+#container_item,#container_offre,#container_antennes{
   width: 1100px;
   min-height: 50vh;
   height: auto;
   margin: 2em auto;
   margin-top: 20px;
   margin-bottom: 50px;
-  @include border-radius(20px);
+
+
+
 
   h1,h3{
     color: white;
   }
 }
+
 #container_offre{
   width:1200px;
-  background: #97bf0d;
-  @include bordure_bas();
-
   padding: 10px;
+  background: #97bf0d;
+  @include border-radius(20px);
+  @include bordure_bas();
   .barre_offre{
     border: 1px solid white;
   }
-
 }
+#container_antennes{
+  width:900px;
+  padding: 10px;
+  background: #97bf0d;
+  @include border-radius(20px);
+  @include bordure_bas();
+  .barre_offre{
+    border: 1px solid white;
+  }
+}
+
 #offre_condition{
   color: #44555D;
   font-weight: bold;
@@ -1398,8 +1389,10 @@ body{
   ul{
     margin: 0;
     padding: 0;
+    list-style: none;
   }
   li{
+
     font-size: 25px;
   }
   li:before{
@@ -1528,7 +1521,7 @@ body{
   }
 }
 #documentation{
-  width: 1240px;
+  width: 1000px;
   min-height: 300px;
   height: auto;
   margin: 50px auto;
@@ -1544,6 +1537,19 @@ body{
   float: left;
   margin: 10px;
   margin-top: 20px;
+}
+#container_doc{
+  width: 500px;
+  margin: 15px auto;
+  height: auto;
+
+  hr{
+    border: 1px solid white;
+    margin: 10px;
+  }
+  h2{
+    margin: -11px;
+  }
 }
 .contenu_doc{
   margin: 30px 20px;
@@ -1566,7 +1572,7 @@ body{
     margin-top: 20px;
   }
   p a{
-    color: black;
+    color: #4f5d64;
   }
   p a:hover{
     text-decoration: underline;
@@ -1595,10 +1601,13 @@ body{
     width: 1246px;
   }
   #documentation{
-    width: 1100px;
+    width: 960px;
   }
   #header_doc{
-    width: 1130px;
+    width: 1021px;
+  }
+  #block_appel{
+    right: 34px;
   }
 
 }
@@ -1613,6 +1622,9 @@ body{
         width: 220px;
       }
     }
+  }
+  #block_appel{
+    right: -82px;
   }
   #container{
     width: 986px;
@@ -1641,8 +1653,11 @@ body{
     margin-left: -400px;
   }
   #slogan{
-    width: 95%;
-    margin: 0 auto;
+    width: 50%;
+    float: left;
+    margin-left: 112px;
+    height: 83px;
+    line-height: 21px;
     margin-top: 360px;
   }
   #where{
@@ -1666,19 +1681,29 @@ body{
   #container_menu{
     width: 93%;
     #menu{
-      width: 100%;
+      width: 95%;
+      padding: 0;
       li{
         width: 300px;
         padding: 5px;
       }
     }
+    .item_menu{
+      width: 269px;
+      height: 50px;
+      line-height: 34px;
+      font-size: 22px;
+    }
   }
 
   #bandeau_categorie{
-    width: 105.8%;
+    width: 928px;
   }
   #wrapper-item{
     width: 900px;
+  }
+  #container_item{
+    width: 896px;
   }
   #block_emploi,#block_former,#block_faire,#block_quotidien{
     width: 204px;
@@ -1688,12 +1713,24 @@ body{
     .conseiller{
       font-size: 20px;
     }
+    img{
+      width: 204px;
+      height: 94px;
+    }
   }
   #documentation{
     width: 900px;
   }
   #header_doc{
-    width: 930px;
+    width: 961px;
+  }
+  #block_appel{
+    right: -47px;
+    wid
+
+    p{
+      font-size: 18px;
+    }
   }
 }
 .flash-info, .flash-notice, .flash-error{
@@ -1714,5 +1751,86 @@ body{
 }
 
 
+/*@media screen and (max-width: 768px){
+  body{
+    zoom: 1.5;
+  }
+  #wrapper-top{
+    width: 100%;
+    margin: 0;
+  }
+  #container{
+    width: 100%;
+  }
+  #header{
+    width: 100%;
+    height: 370px;
+    background: none;
+    background-color: #4E5E65;
+    border-radius: 0;
+  }
+  #silhouette{
+    width: 565px;
+  }
+  #temp{
+    height: 80px;
+    p{
+      font-size: 15px;
+    }
+  }
+  #bulles{
+    display:none
+    }
+  #container_logo img{
+    width: 200px;
+    float: left;
+    margin-left: 10px;
+  }
+  #facebook{
+    left: 27px;
+    top: 115px;
+  }
+  #actu ,#offre, #where,#temp{
+    display: none;
+  }
 
+  #actu_mobile,#offre_mobile,#antenne_mobile{
+    display: block;
+  }
+
+  #antenne_mobile{
+    width: 100%;
+    height: 200px;
+    background: blue;
+    margin-top: 10px;
+  }
+  #slogan{
+    margin-top: 70px;
+    width: 100%;
+    height: 105px;
+    line-height: 25px;
+    border-radius: 0;
+    font-size: 15px;
+  }
+  #menu{
+    width: 320px !important;
+    display: block;
+    padding: 0;
+
+  }
+  #container_menu{
+    width: 100%;
+    border-radius: 0;
+    height: auto;
+
+    .item_menu{
+      display: block;
+      width: 340px;
+      margin: 10px;
+      padding: 10px;
+      font-size: 20px;
+    }
+  }
+}
+*/
 

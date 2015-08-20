@@ -123,7 +123,7 @@ class AdminSousItemController extends Controller
             //On sauvegarde la supression
             $em->flush();
 
-            $this->get('session')->getFlashBag()->add('info', 'La suppression a bien été effectuer');
+            $this->get('session')->getFlashBag()->add('info', 'La suppression a bien été effectuée');
 
             return $this->redirect($this->generateUrl('admin_sous_item', array('id' => $id)), 301);
         }

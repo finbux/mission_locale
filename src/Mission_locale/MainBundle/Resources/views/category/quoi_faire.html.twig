@@ -33,9 +33,12 @@
 
         <div class="item_right border-faire">
 
-            <p class="description">
-
-            </p>
+            <div class="name_sous_item">
+                <h2>{{ sous_item_choisis.nomSousItem }}</h2>
+            </div>
+            <div class="description">
+                {{ sous_item_choisis.description|raw }}
+            </div>
 
             <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
         </div>
@@ -51,29 +54,24 @@
 
     {% if  arianne == 'Moins de 26 ans' %}
         <script type="text/javascript">
-            $(function(){
 
-                $(".img_employeur").addClass("opacity");
-                $(".img_plus26").addClass("opacity");
-            });
+            $(".img_employeur").addClass("opacity");
+            $(".img_plus26").addClass("opacity");
+
         </script>
     {% endif %}
     {% if  arianne == 'Employeur' %}
         <script type="text/javascript">
-            $(function(){
-
-                $(".img_moins26").addClass("opacity");
-                $(".img_plus26").addClass("opacity");
-            });
-        </script>
-    {% endif
-    {% if  arianne == 'Plus de 26 ans' %}
-    <script type="text/javascript">
-        $(function(){
 
             $(".img_moins26").addClass("opacity");
+            $(".img_plus26").addClass("opacity");
+
+        </script>
+    {% endif %}
+    {% if  arianne == 'Plus de 26 ans' %}
+        <script type="text/javascript">
+            $(".img_moins26").addClass("opacity");
             $(".img_employeur").addClass("opacity");
-        });
-    </script>
+        </script>
     {% endif %}
 {% endblock %}

@@ -17,10 +17,10 @@ class SousItemController extends Controller
         $Item = $em->getRepository('MainBundle:Item')->find($id);
         $sous_item_choisis = $em->getRepository('MainBundle:SousItem')->findOneBy(array('slug' => $slug_sous_item));
         //Si on ne trouve pas les sous items on lève une execption
-        /*if(!$sous_items || !$Item || !$sous_item_choisis)
+        if(!$sous_items || !$Item || !$sous_item_choisis)
         {
             throw $this->createNotFoundException("Cette page n'éxiste pas ");
-        }*/
+        }
         //On récupère juste le nom de l'item
         $nom_item = $Item->getNameCategory();
 

@@ -26,7 +26,7 @@ class AgendaController extends Controller
                 $em->persist($agenda);
 
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Modification réussi réussi');
+                $this->get('session')->getFlashBag()->add('notice', 'Modification réussi');
                 return $this->redirect($this->generateUrl('admin_agenda'));
             }
         }

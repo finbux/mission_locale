@@ -1,5 +1,5 @@
 admin_sous_item:
-    path: /moins-26/{id}
+    path: /{id}
     defaults: { _controller: AdminBundle:AdminSousItem:index }
     requirements:
         id: \d+

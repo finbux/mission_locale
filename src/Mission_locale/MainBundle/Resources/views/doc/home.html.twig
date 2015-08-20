@@ -5,17 +5,19 @@
 {% block body %}
     <div id="wrapper-item">
         <div id="documentation">
-            <div id="header_doc">
+            <div id="header_doc" >
                 <h1>Documentation</h1>
             </div>
-             {% for doc in docs %}
-                 <div id="doc">
-                     <h2>{{ doc.nomDoc }}</h2>
-                     {{ doc.iframe|raw }}
+            <div id="container_doc">
+                {% for doc in docs %}
+                    <div id="doc">
+                        <h2>{{ doc.nomDoc }}</h2>
+                        {{ doc.iframe|raw }}
+                        <hr/>
+                    </div>
 
-                 </div>
-
-            {% endfor %}
+                {% endfor %}
+            </div>
             <div class="cb"></div>
         </div>
         {% include "::footer.html.twig" %}

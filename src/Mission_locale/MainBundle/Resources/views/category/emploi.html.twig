@@ -29,18 +29,17 @@
                     <hr/>
                     <input type="hidden" class="id_sous_item" value="{{ sous_item.id }}"/>
                     <p class="item">{{ sous_item.nomSousItem }}</p>
-
                 {% endfor  %}
             </div>
             <div class="item_right border-emploi">
-                    <div class="name_sous_item">
-                        <h2>{{ sous_item_choisis.nomSousItem }}</h2>
-                    </div>
-                    <div class="description">
-                        {{ sous_item_choisis.description|raw }}
-                    </div>
+                <div class="name_sous_item">
+                    <h2>{{ sous_item_choisis.nomSousItem }}</h2>
+                </div>
+                <div class="description">
+                    {{ sous_item_choisis.description|raw }}
+                </div>
 
-                    <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
+                <img class="bandeau_sous_item" src="{{ asset('bundles/main/img/silhouette.png') }}" alt=""/>
             </div>
             <div class="cb"></div>
         </div>
@@ -56,18 +55,18 @@
 
     {% if  arianne == 'Moins de 26 ans' %}
         <script type="text/javascript">
-        $(function(){
-            $(".img_employeur").addClass("opacity");
-            $(".img_plus26").addClass("opacity");
-        });
+
+                $(".img_employeur").addClass("opacity");
+                $(".img_plus26").addClass("opacity");
+
     </script>
     {% endif %}
     {% if  arianne == 'Employeur' %}
         <script type="text/javascript">
-            $(function(){
+
                 $(".img_moins26").addClass("opacity");
                 $(".img_plus26").addClass("opacity");
-            });
+
         </script>
     {% endif %}
     {% if  arianne == 'Plus de 26 ans' %}
