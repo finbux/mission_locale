@@ -9,13 +9,22 @@
                 <p>{{ parent() }} / Actualité / {{ actu.titre }}</p>
             {% endblock %}
         </div>
-
-        <div id="article">
-            <div id="btn_articles">
+        <div id="btn_articles">
+            <p>
                 <img src="{{ asset('bundles/main/img/small_actu.png') }}" alt=""/>
                 <a href="{{ path('all_articles') }}">Voir tous les articles</a>
+            </p>
+
+        </div>
+        <div id="documentation" style="background: white;">
+
+            <div id="header_doc" style="width: 1062px; margin-top: -39px;">
+                <h1>
+                    <img src="{{ asset('bundles/main/img/cv.png') }}" alt="">
+                    {{ actu.titre }}
+                </h1>
             </div>
-            <h1 class="title-actu">{{ actu.titre }}</h1>
+
             <div id="contenu">
                 {{ actu.contenu|raw }}
                 <div class="cb"></div>

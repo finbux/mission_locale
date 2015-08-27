@@ -14,5 +14,7 @@
         <button><img src="{{ asset('bundles/admin/images/arrow_back.png') }}" alt=""/>Page précédente</button>
     </a>
 
-    {{ form(form) }}
+    {{ form_start(form) }}
+        {{ form_row(form.Contenu, {'id' : 'ck_textarea'}) }}
+    {{ form_end(form) }}
 {% endblock %}

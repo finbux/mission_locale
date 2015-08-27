@@ -13,22 +13,20 @@
 <body>
 <!-- LE HEADER -->
 {% block header %}
-    <div id="temp">
-        <p><img src="{{ asset('bundles/main/img/warning.png') }}" alt="attention"/>Attention ce site est en cours de la réalisation , les données actuellement présentes sur le site sont insérées à titre d'essai.</p>
-    </div>
+
     <div id="header">
 
         <!-- LOGO MLIFE -->
         <div id="container_logo">
             <a href="{{ path('main_homepage') }}" title="Mission locale Amiens accueil">
                 <span class="helper"></span>
-                <img src="{{ asset('bundles/main/img/logo.png') }}" alt="">
+                <img src="{{ asset('bundles/main/img/logo.jpg') }}" alt="">
             </a>
         </div>
         <!------------------------------->
 
         <!-- LOGO FACEBOOK -->
-        <a href="https://www.facebook.com/MLIFE.GA" title="MLIFE facebook">
+        <a href="https://www.facebook.com/MLIFE.GA" title="MLIFE facebook" target="_blank">
             <div id="facebook">
 
                 <p> <img src="{{ asset('bundles/main/img/logo_facebook.png') }}" alt=""/>

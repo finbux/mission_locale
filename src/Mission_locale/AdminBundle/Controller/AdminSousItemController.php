@@ -91,7 +91,7 @@ class AdminSousItemController extends Controller
                 $em->flush();
                 //On récupère l'url de la page précédente
 
-                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuer');
+                $this->get('session')->getFlashBag()->add('info', 'La modification a été effectuée');
                 //On fait une redirection
                 return $this->redirect($this->generateUrl('admin_sous_item', array('id' => $id)), 301);
             }

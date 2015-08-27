@@ -18,8 +18,8 @@ class DefaultController extends Controller
             //Création du formulaire pour les appels
             $formBuilder = $this->get('form.factory')->createBuilder('form',$appel);
             $formBuilder
-                ->add('prenom', 'text', array('required' => false,'label' => 'Votre prénom', 'attr' => array('readonly' => 'readonly')))
-                ->add('telephone','text',array('max_length' => 10,'attr' => array('readonly' => 'readonly')))
+                ->add('prenom', 'text', array('required' => false,'label' => 'Votre prénom'))
+                ->add('telephone','text',array('max_length' => 10,))
                 ->add('entreprise','choice',array(
                     'choices' => array(
                         1 => 'particulier',

@@ -37,7 +37,7 @@ class EncartController extends Controller
             if($form->handleRequest($request)->isValid())
             {
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Modification réussi');
+                $this->get('session')->getFlashBag()->add('notice', 'Modification réussie');
                 return $this->redirect($this->generateUrl('admin_encart'));
             }
         }

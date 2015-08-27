@@ -5,8 +5,14 @@
 {% block body %}
 <div id="wrapper-item">
     <div id="container_item">
-        <div id="page_offre">
-            <h1 class="titre_offre">{{ offre.nomOffre }}</h1> <p>Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }}</p>
+        <div id="documentation" style="background: white;">
+            <div id="header_doc" style="width: 1060px; margin-top: -39px;">
+                <h1>
+                    <img src="{{ asset('bundles/main/img/cv.png') }}" alt="">
+                    {{ offre.nomOffre }}
+                </h1>
+            </div>
+            <p>Offre affichée depuis le {{ offre.createdAt|date('d-m-Y') }}</p>
             <hr/>
             <h2>Description</h2>
             {{ offre.descriptionOffre|raw }}

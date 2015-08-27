@@ -90,7 +90,7 @@
                 <a href="#modalbox">
                     <div id="block_appel">
                         <img class="punaise" src="{{ asset('bundles/main/img/punaise.png') }}" alt="" style="float: left;"/>
-                        <p>{{ encart.contenu }}</p>
+                        <p>{{ encart.contenu|raw }}</p>
                         <div id="conseiller">
                             <img  src="{{ asset('bundles/main/img/conseiller.png') }}" alt=""/>
                             <img src="{{ asset('bundles/main/img/conseiller_femme.png') }}" alt=""/>
@@ -183,7 +183,6 @@
 
                 <div id="form-appel">
                     {{ form_start(form) }}
-                    <p style="color:orange; font-size: 20px;">Module bientot disponible</p>
                     <!--<label for="particulier_input">Vous êtes un particulier</label><input type="radio" name="type" value="particulier" id="particulier_input" checked="checked"/><br/>
                     <label for="entreprise_input">Vous êtes une entreprise</label><input type="radio" name="type" value="entreprise" id="entreprise_input"/>
                     -->
@@ -201,7 +200,7 @@
                         {{ form_widget(form.telephone) }}
                         {{ form_errors(form.telephone) }}
                     {% endblock %}
-                    <!--{{ form_widget(form.Valider) }}-->
+                    {{ form_widget(form.Valider) }}
 
                     {{ form_end(form) }}
                     <p class="champs-requis" style="color: red">* Champ obligatoires</p>

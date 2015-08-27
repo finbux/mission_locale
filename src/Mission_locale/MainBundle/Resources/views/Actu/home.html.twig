@@ -12,7 +12,7 @@
 
         <div id="container-article">
             <div class="last-10-articles">
-                <h2 class="sous_actus">Les 3 derniers articles</h2>
+                <div id="header_doc" style="width: 600px; margin-top: -39px; margin-left: -31px;"> <h1><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>Les 3 derniers articles</h1></div>
 
                 {% for last_actu in last_actus %}
 
@@ -31,7 +31,7 @@
                 {% endfor %}
             </div>
             <div class="all-articles">
-                <h2 class="sous_actus">Historique des articles</h2>
+                <div id="header_doc" style="width: 660px; margin-top: -39px;  margin-left: -31px;"> <h1><img src="{{ asset('bundles/main/img/cv.png') }}" alt=""/>Historique des articles</h1></div>
                 {% for actu in actus %}
                 <div class="article-extrait">
                     <p>

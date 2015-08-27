@@ -43,7 +43,6 @@ initialize = function(){
 
             var content ='<div id="marker">' +
                 nom +
-                pathImg+
                 '<p>'+ adresse +'</p>'+
 
 
